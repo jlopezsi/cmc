@@ -1,10 +1,14 @@
 #reading files
 songsl<-read.table("songs-lis.txt", header=TRUE)
 des<-read.table(file.choose(), header=T)
+head(des)
 mot<-read.table(file.choose(), header=T)
+head(mot)
 beh<-read.table(file.choose(),header=T)
+head(beh)
 
 # MASS
+library(MASS)
 des.corresp<-corresp(des, nf=2)
 plot(des.corresp)
 des.corresp
@@ -62,6 +66,7 @@ plot(songsl2.ca)
 plot(songsl2.ca, map="symbiplot", mass=TRUE, contrib="absolute")
 
 # ADE4
+library(ade4)
 des.coa<-dudi.coa(des, nf=2)
 des.coa
 score(des.coa)

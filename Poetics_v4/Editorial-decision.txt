@@ -27,15 +27,19 @@ Comments:
  p.3: add years to references
 *****Done.
  p.9: why the reference to Munk (2003)? That seems a rather unknown source (research report?); wouldn't e.g. Bennett et al. (2009) be more appropriate here?
-we have added the url to access the file.
+
+We have added the url to access the file.
  p.10 (and maybe elsewhere): besides Nieckarz it would maybe be useful to refer to Patrik Wikström, The Music Industry (2009), who mapped the various ways in which Internet is used to distribute music. Another additional reference might be Verboord (Eur Soc Rev 2010) who linked social background, omnivorism, and the use of Internet for finding information on culture.
+
 *****Done.
  p.26: typo Tampunolon
 *****Done.
  p.37: typo Vermun,t
 *****Done.
  In appendix, please explain clusters of Table A1 in note under the table.
+*****Done.
  What does "000 units" mean in Table A4, A5, A6?
+per thousand units. We have change it.
 
 3. Please change the format of your reference list into the format of Poetics (e.g. years of publication without brackets, no italics for journals/books, no comma after journal name, but comma after volume(issue)). Make sure you add the city of publisher when appropriate.
 
