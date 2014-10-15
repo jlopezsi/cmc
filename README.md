@@ -3,6 +3,11 @@
 
 The aim of this paper is to use Social Network Analysis (SNA) techniques of music concsumers.
 
+## Info
+
+Project code name
+  :pp2
+
 ## Variables measuring access to music
 
 ### Recorded music
