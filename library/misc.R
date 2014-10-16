@@ -15,10 +15,10 @@ fun.install.require <- function(libs){
 }
 
 ## Write to csv file
-fun.write.csv <- function(mdf,fil){
+fun.write.csv <- function(mdf,fil,flg.row.names=T){
   fun.print("Function initiated : [ fun.write.csv ]")
   pth.csv.fil <- sprintf("../%s/%s",prj.saved.directory, fil)
-  write.csv(mdf, file=pth.csv.fil)
+  write.csv(mdf, file=pth.csv.fil,row.names=flg.row.names)
   fun.print(sprintf("CSV saved : [ %s ]",pth.csv.fil))
   fun.print("Function returned : [ fun.write.csv ]")
 }
