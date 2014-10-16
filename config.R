@@ -1,7 +1,8 @@
 prj.name <- "pp2"
-prj.saved.directory <- c("saved")
+prj.import.state <- "done"
+prj.saved.directory <- c("data")
 prj.data.directory <- c("data")
-prj.csv.process.directory <- c("csv.process")
+prj.csv.process.directory <- c("data")
 prj.graph.directory <- c("graph")
 prj.graphic.directory <- c("graphic")
 prj.library.directory <- c("library")
