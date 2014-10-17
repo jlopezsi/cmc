@@ -8,16 +8,20 @@ if(prj.import.state == "done"){
   fun.install.require(c("foreign"))
 
   fun.verbose("Opening the spss file")
-  df.imported <- read.spss(sprintf("../%s/Data/music13feb2012.sav", prj.archive.directory), to.data.frame=T)
+  df.music <- read.spss(sprintf("../%s/Data/music13feb2012.sav", prj.archive.directory), to.data.frame=T)
 
-  n.df.imported <- nrow(df.imported)
-  fun.verbose(sprintf("%s rows imported", n.df.imported))
+  n.df.music <- nrow(df.music)
+  fun.verbose(sprintf("%s rows imported", n.df.music))
 
-  vct.names <- names(df.imported)
+  ## Trims colnames
+  vct.names <- names(df.music)
   vct.names <- tolower(vct.names)
   vct.names <- gsub("_", ".", vct.names)
-  names(df.imported) <- vct.names
+  vct.names <- gsub("c3.1n.", "", vct.names)
+  names(df.music) <- vct.names
   fun.verbose("Colume names transformed to lowercase and dot seperated")
 
-  fun.write.csv(df.imported, "music.imported.csv")
+  ## Saves the rdata file
+  save(df.music, file=pth.music.rdata)
+  fun.print(sprintf("Rdata saved : [ %s ]", pth.music.rdata))
 }

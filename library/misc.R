@@ -17,7 +17,7 @@ fun.install.require <- function(libs){
 ## Write to csv file
 fun.write.csv <- function(mdf,fil,flg.row.names=T){
   fun.print("Function initiated : [ fun.write.csv ]")
-  pth.csv.fil <- sprintf("../%s/%s",prj.saved.directory, fil)
+  pth.csv.fil <- sprintf("../%s/%s",prj.data.directory, fil)
   write.csv(mdf, file=pth.csv.fil,row.names=flg.row.names)
   fun.print(sprintf("CSV saved : [ %s ]",pth.csv.fil))
   fun.print("Function returned : [ fun.write.csv ]")
@@ -111,4 +111,50 @@ fun.panel.cor <- function(x, y, digits=2, prefix="", cex.cor)
   txt <- paste(prefix, txt, sep="")
   if(missing(cex.cor)) cex <- 0.8/strwidth(txt)
   text(0.5, 0.5, txt, cex = cex * abs(r))
+}
+
+fun.circlize <- function(mat, aname, bname, output){
+  png(filename = output, height=600, width=600)
+  rownames(mat) <- paste0(aname, rownames(mat), sep=" ")
+  colnames(mat) <- paste0(bname, colnames(mat), sep=" ")
+  par(mar = c(1, 1, 1, 1))
+  chordDiagram(mat, directional = TRUE, transparency = 0.5)
+  dev.off()
+}
+
+fun.multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
+  require(grid)
+
+  # Make a list from the ... arguments and plotlist
+  plots <- c(list(...), plotlist)
+
+  numPlots = length(plots)
+  print(numPlots)
+
+  # If layout is NULL, then use 'cols' to determine layout
+  if (is.null(layout)) {
+    # Make the panel
+    # ncol: Number of columns of plots
+    # nrow: Number of rows needed, calculated from # of cols
+    layout <- matrix(seq(1, cols * ceiling(numPlots/cols)),
+                    ncol = cols, nrow = ceiling(numPlots/cols))
+  }
+
+ if (numPlots==1) {
+    print(plots[[1]])
+
+  } else {
+    # Set up the page
+    grid.newpage()
+    pushViewport(viewport(layout = grid.layout(nrow(layout), ncol(layout))))
+
+    # Make each plot, in the correct location
+    for (i in 1:numPlots) {
+      # Get the i,j matrix positions of the regions that contain this subplot
+      matchidx <- as.data.frame(which(layout == i, arr.ind = TRUE))
+
+      print(plots[[i]], vp = viewport(layout.pos.row = matchidx$row,
+                                      layout.pos.col = matchidx$col))
+    }
+  }
 }
