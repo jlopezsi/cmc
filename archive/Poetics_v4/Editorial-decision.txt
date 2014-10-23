@@ -1,58 +1,0 @@
-Your Submission
-6 messages
-
-Poetics <poeticseditors@gmail.com> To: jordi.lopez@uab.es, jordi.lopez@cerhum.es
-Ms. Ref. No.: POETICS­D­11­00048R2 Title: Music Access Patterns: A Social Interpretation Poetics
-Jordi López­Sintas <jordi.lopez@cerhum.es>
-Tue, Jul 1, 2014 at 4:24 PM
-   
-Dear Dr. Jordi López­ Sintas,
- We are writing to report on reviews of your manuscript entitled "Music Access Patterns: A Social Interpretation".
-
-Thank your for the careful way in which you addressed both the original reviews and the editorial decision letter. It was a pleasure reading how you responded thoughtfully in your letter and, more importantly, in the paper itself.
-
-Thus, in our opinion, there are only a couple of relatively small issues to be dealt with before we can accept your paper. We ask you to carefully look at these final issues listed below. In sum, we are offering a decision of "Conditional Acceptance."
-
-Comments:
- 1. Our main point is the interpretation of the figures. We ask you to give the variables/categories labels which are easier to interpret. We suggest to add letter combinations which are abbreviations for the variable. For instance: E1, E2, E3 could become Edu1, Edu2, etc.
-
-*****Done.
- FMcnY could become FMconv, FMchY could become FMmoney, etc.
-
-*****Done.
-
-2. Small issues
- General: If you use numbers (e.g. "2 principles" p.8), please use words ("two principles")
-*****Done.
- p.3: add years to references
-*****Done.
- p.9: why the reference to Munk (2003)? That seems a rather unknown source (research report?); wouldn't e.g. Bennett et al. (2009) be more appropriate here?
-
-We have added the url to access the file.
- p.10 (and maybe elsewhere): besides Nieckarz it would maybe be useful to refer to Patrik Wikström, The Music Industry (2009), who mapped the various ways in which Internet is used to distribute music. Another additional reference might be Verboord (Eur Soc Rev 2010) who linked social background, omnivorism, and the use of Internet for finding information on culture.
-
-*****Done.
- p.26: typo Tampunolon
-*****Done.
- p.37: typo Vermun,t
-*****Done.
- In appendix, please explain clusters of Table A1 in note under the table.
-*****Done.
- What does "000 units" mean in Table A4, A5, A6?
-per thousand units. We have change it.
-
-3. Please change the format of your reference list into the format of Poetics (e.g. years of publication without brackets, no italics for journals/books, no comma after journal name, but comma after volume(issue)). Make sure you add the city of publisher when appropriate.
-
-*****Done.
- Please check the official guidelines for Poetics for all details.
-
-We look forward to hearing whether or not you plan to re­submit the last and final version of your paper (given the "conditional acceptance" status, we obviously hope that you do). If so, please provide an estimate of your delivery time. We know that this estimated date may change, but such an estimate is nevertheless useful for us in terms of planning future journal issues.
-
-To submit your revision, please do the following: 1. Go to: http://ees.elsevier.com/poetics/ 2. Enter your login details 3. Click [Author Login]
-This takes you to the Author Main Menu.
-4. Click [Submissions Needing Revision]
-
-NOTE: Upon submitting your revised manuscript, please upload the source files for your article. For additional details regarding acceptable file formats, please refer to the Guide for Authors at: http://www.elsevier.com/journals/poetics/0304­422X/guide­for­ authors
-We look forward to receiving your revised manuscript.
-We thank you for submitting your manuscript to Poetics and hope that you will send us more of your work in the future. Yours sincerely / With kind regards,
-Timothy J. Dowd & Marc Verboord Editors Poetics
