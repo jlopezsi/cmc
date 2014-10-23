@@ -1,4 +1,4 @@
-prj.name <- "pp2"
+prj.name <- "gnr"
 prj.import.state <- "done"
 prj.data.directory <- c("data")
 prj.graph.directory <- c("graph")

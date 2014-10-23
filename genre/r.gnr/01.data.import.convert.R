@@ -1,4 +1,4 @@
-source("../library/head.R")
+source("../library.gnr/head.R")
 
 if(prj.import.state == "done"){
   fun.verbose("Data has already imported. Exiting.")

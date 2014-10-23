@@ -1,0 +1,110 @@
+---
+title: "Data Exploration"
+output:
+  pdf_document:
+    highlight: tango
+    fig_width: 7
+    fig_height: 6
+    fig_caption: true
+    toc: true
+    toc_depth: 4
+    number_sections: true
+---
+```{r include=FALSE}
+# rmarkdown::render("02.data.exploration.Rmd")
+source("../library.gnr/head.R")
+
+fun.install.require(c("circlize","ggplot2","xtable","stats"))
+
+load(pth.music.rdata)
+
+# fun.install.require("Hmisc")
+# latex(describe(df.music))
+arr.categorical         <- c("Interests", "Geners")
+arr.interests           <- c("interest.clasicm","interest.concertam"
+                             ,"interest.listenm","interest.music")
+arr.geners.child        <- c("gbuy.child","gdowrec.child", "glisten.child")
+# arr.geners.solo         <- c("gbuy.solo", "gdowrec.solo","glisten.solo")
+# arr.geners.ballad       <- c("gbuy.ballad","gdowrec.ballad", "glisten.ballad")
+# arr.geners.flamenco     <- c("gbuy.flamenco", "gdownrec.flamenco","glisten.flamenco")
+# arr.geners.newflamenco  <- c("gbuy.newflamenco","gdowrec.newflamenco", "glisten.newflamenco")
+# arr.geners.osfolklore   <- c("gbuy.osfolklore", "gdowrec.osfolklore","glisten.osfolklore")
+# arr.geners.sporock      <- c("gbuy.spoprock","gdowrec.spoprock", "glisten.spoprock")
+# arr.geners.lpoproc      <- c("gbuy.lpoprock", "gdowrec.lpoprock","glisten.lpoprock")
+# arr.geners.fpoprock     <- c("gbuy.fpoprock","gdowrec.fpoprock", "glisten.fpoprock")
+# arr.geners.blues        <- c("gbuy.blues", "gdowrec.blues","glisten.blues")
+# arr.geners.jazz         <- c("gbuy.jazz","gdowrec.jazz", "glisten.jazz")
+# arr.geners.wmusic       <- c("gbuy.wmusic", "gdowrec.wmusic","glisten.wmusic")
+# arr.geners.reggare      <- c("gbuy.reggae","gdowrec.reggae", "glisten.reggae")
+# arr.geners.rap          <- c("gbuy.rap", "gdowrec.rap","glisten.rap")
+# arr.geners.electr       <- c("gbuy.electr","gdowrec.electr", "glisten.electr")
+# arr.geners.hardrock     <- c("gbuy.hardrock", "gdowrec.hardrock","glisten.hardrock")
+# arr.geners.house        <- c("gbuy.house","gdowrec.house", "glisten.house")
+# arr.geners.classic      <- c("gbuy.classic", "gdowrec.classic","glisten.classic")
+# arr.geners.liric        <- c("gbuy.liric","gdowrec.liric", "glisten.liric")
+# arr.geners.opera        <- c("gbuy.opera", "gdowrec.opera","glisten.opera")
+# arr.geners.zar          <- c("gbuy.zar","gdowrec.zar", "glisten.zar")
+# arr.geners.other        <- c("gbuy.other", "gdowrec.other","glisten.other")
+# arr.geners              <- c("glisten.solo", "glisten.flamenco" , "glisten.spoprock"
+#                             , "glisten.jazz", "glisten.rap", "glisten.opera")
+
+arr.groupby <- c("gender","age5", "occupaton5", "educ3")
+  attach(df.music)
+```
+
+\newpage
+
+# Interests
+
+## Descriptives
+
+```{r, results='asis', echo=F, fig.width=9, fig.height=5.5}
+for(arr in arr.categorical){
+  arr.title <- arr
+  arr <- get(paste0("arr.", tolower(arr)))
+  cat(sprintf("\n\n## %s \n\n", arr.title))
+
+  cat("\n\n### Descriptives\n\n")
+
+  for(cl in arr){
+    cat(sprintf("\n\n### %s \n\n", cl))
+
+    print(xtable(t(table(df.music$interest.music))), type="latex", comment=F)
+
+    cat("\n\n")
+
+
+
+
+            for(gb in arr.groupby){
+              gg <- ggplot(df.music, aes_string(x=sprintf("%s",cl))) +
+              geom_freqpoly(aes_string(group = sprintf("%s",gb), colour = sprintf("%s",gb))) +
+              ggtitle(sprintf("Frequency Polygraph of %s\nGrouped by %s", cl, gb))
+
+              print(gg)
+              cat(" \n\n ")
+            }
+
+            #  print(ggplot(df.music, aes(x = cl, color = occupaton5)) + geom_density())
+            #  print(ggplot(df.music, aes(x = cl, color = age5)) + geom_density())
+            #  print(ggplot(df.music, aes(x = cl, color = educ3)) + geom_density())
+  }
+
+  cat("\n\n### Contingencies\n\n")
+
+  for(cmb in combn(arr,2, simplify=F)){
+      cat(sprintf("\n\n### %s vs %s\n\n", cmb[1], cmb[2]))
+
+      print(mosaicplot( as.formula(paste("~", cmb[1], "+", cmb[2])), data=df.music,
+                       color=2:20))
+
+      mat=table(get(cmb[1]), get(cmb[2]))
+      rownames(mat) <- paste(cmb[1], rownames(mat),sep="\n")
+      colnames(mat) <- paste(cmb[2], colnames(mat),sep="\n")
+      print(chordDiagram(mat, directional = TRUE, transparency = 0.5))
+  }
+
+}
+```
+
+

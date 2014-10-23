@@ -6,7 +6,7 @@ The aim of this paper is to use Social Network Analysis (SNA) techniques of musi
 ## Info
 
 Project code name
-  :pp2
+  ~ gnr
 
 ## Variables measuring access to music
 
@@ -14,17 +14,17 @@ Project code name
 
   * During last 3 months: number of CD purchased, and downloaded (factor with 3 levels). I transformed the original variables (numeric) into this factors with 3 levels. May be we would need to analyze the original variables)
 
-    ```
+```
 [46] "C9P6CD_buy3"
 [47] "C9P6CD_down3"
 ```
 
   * During last 3 months: number of songs purchased, and downloaded (factor with 3 levels) I transformed the original variables (numeric) into this factors with 3 levels. May be we would need to analyze the original variables)
 
-    ```
+```
 [48]"C9P6song_buy3"
 [49] "C9P6song_downl3"
-    ```
+```
 
 ### Live music
 
