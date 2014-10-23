@@ -1,14 +1,16 @@
 prj.name <- "gnr"
 prj.import.state <- "done"
-prj.data.directory <- c("data")
-prj.graph.directory <- c("graph")
-prj.graphic.directory <- c("graphic")
-prj.library.directory <- c("library")
-prj.archive.directory <- c("archive")
-prj.r.directory <- c("r")
+prj.data.directory <- paste0("data",".",prj.name)
+prj.graph.directory <- paste0("graph",".",prj.name)
+prj.graphic.directory <- paste0("graphic",".",prj.name)
+prj.library.directory <- paste0("library",".",prj.name)
+prj.archive.directory <- paste0("archive",".",prj.name)
+prj.r.directory <- paste0("r",".",prj.name)
 
 pth.music.rdata <- sprintf("../%s/music.Rdata", prj.data.directory)
 
 skip.session.debug <- F
 session.verbose.level <- 3
 session.debug.level <- 3
+
+session.beep <- T

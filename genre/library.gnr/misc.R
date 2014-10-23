@@ -158,3 +158,10 @@ fun.multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
     }
   }
 }
+
+fun.beep <- function(sound){
+  if(session.beep){
+    beep(sound)
+  }
+}
+
