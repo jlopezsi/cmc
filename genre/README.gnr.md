@@ -8,11 +8,30 @@ The aim of this paper is to use Social Network Analysis (SNA) techniques of musi
 Project code name
   ~ gnr
 
+## Conventions
+
+  * Files and directories at the root folder have the .prjid extension (e.g.
+    `library.gnr.R` where `library.R` is the original name and `gnr` is the is
+    project id. 
+  * There is a `config.R` soft link pointing to the main config file.
+
+### Prefixes
+
+  * `prj.`: project config variables
+  * `session.`: session config variables
+  * `arr.`: arrays
+  * `str.`: strings
+  * `fil.`: files or file addresses
+  * `dir.`: directory addresses
+  * `df.`: data frames
+
 ## Variables measuring access to music
 
 ### Recorded music
 
-  * During last 3 months: number of CD purchased, and downloaded (factor with 3 levels). I transformed the original variables (numeric) into this factors with 3 levels. May be we would need to analyze the original variables)
+  * During last 3 months: number of CD purchased, and downloaded (factor with 3
+    levels). I transformed the original variables (numeric) into this factors
+    with 3 levels. May be we would need to analyze the original variables)
 
 ```
 [46] "C9P6CD_buy3"

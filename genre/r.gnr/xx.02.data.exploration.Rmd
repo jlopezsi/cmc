@@ -1,0 +1,125 @@
+---
+title: "Data Exploration"
+output:
+  pdf_document:
+    highlight: tango
+    fig_width: 7
+    fig_height: 6
+    fig_caption: true
+    toc: true
+    toc_depth: 4
+    number_sections: true
+---
+```{r include=FALSE}
+# rmarkdown::render("02.data.exploration.Rmd",output_dir="../report.gnr"); fun.beep(8)
+source("../library.gnr/head.R")
+
+fun.install.require(c("beepr", "circlize","ggplot2","xtable","stats"))
+
+load(pth.music.rdata)
+
+arr.groupby <- c("gender","age5", "occupaton5", "educ3")
+
+arr.categorical         <- c("Interests", "Genres", "Genres.Child" , "Genres.Solo"
+                             , "Genres.Ballad", "Genres.Flamenco", "Genres.NewFlamenco"
+                             , "Genres.OsFolklore", "Genres.SPopRock", "Genres.LPopRock"
+                             , "Genres.FPopRock", "Genres.Blues", "Genres.Jazz", "Genres.WMusic"
+                             , "Genres.Reggae", "Genres.Rap", "Genres.Electr", "Genres.HardRock"
+                             , "Genres.House", "Genres.Classic", "Genres.Liric", "Genres.Opera"
+                             , "Genres.Zar", "Genres.Other")
+
+arr.interests           <- c("interest.clasicm","interest.concertam"
+                             ,"interest.listenm","interest.music")
+
+arr.genres              <- c("glisten.solo", "glisten.flamenco" , "glisten.spoprock"
+                            , "glisten.jazz", "glisten.rap", "glisten.opera")
+
+arr.genres.child        <- c("gbuy.child","gdowrec.child", "glisten.child")
+arr.genres.solo         <- c("gbuy.solo", "gdowrec.solo","glisten.solo")
+arr.genres.ballad       <- c("gbuy.ballad","gdowrec.ballad", "glisten.ballad")
+arr.genres.flamenco     <- c("gbuy.flamenco", "gdownrec.flamenco","glisten.flamenco")
+arr.genres.newflamenco  <- c("gbuy.newflamenco","gdowrec.newflamenco", "glisten.newflamenco")
+arr.genres.osfolklore   <- c("gbuy.osfolklore", "gdowrec.osfolklore","glisten.osfolklore")
+arr.genres.spoprock     <- c("gbuy.spoprock","gdowrec.spoprock", "glisten.spoprock")
+arr.genres.lpoprock     <- c("gbuy.lpoprock", "gdowrec.lpoprock","glisten.lpoprock")
+arr.genres.fpoprock     <- c("gbuy.fpoprock","gdowrec.fpoprock", "glisten.fpoprock")
+arr.genres.blues        <- c("gbuy.blues", "gdowrec.blues","glisten.blues")
+arr.genres.jazz         <- c("gbuy.jazz","gdowrec.jazz", "glisten.jazz")
+arr.genres.wmusic       <- c("gbuy.wmusic", "gdowrec.wmusic","glisten.wmusic")
+arr.genres.reggae       <- c("gbuy.reggae","gdowrec.reggae", "glisten.reggae")
+arr.genres.rap          <- c("gbuy.rap", "gdowrec.rap","glisten.rap")
+arr.genres.electr       <- c("gbuy.electr","gdowrec.electr", "glisten.electr")
+arr.genres.hardrock     <- c("gbuy.hardrock", "gdowrec.hardrock","glisten.hardrock")
+arr.genres.house        <- c("gbuy.house","gdowrec.house", "glisten.house")
+arr.genres.classic      <- c("gbuy.classic", "gdowrec.classic","glisten.classic")
+arr.genres.liric        <- c("gbuy.liric","gdowrec.liric", "glisten.liric")
+arr.genres.opera        <- c("gbuy.opera", "gdowrec.opera","glisten.opera")
+arr.genres.zar          <- c("gbuy.zar","gdowrec.zar", "glisten.zar")
+arr.genres.other        <- c("gbuy.other", "gdowrec.other","glisten.other")
+
+attach(df.music)
+```
+
+\newpage
+
+# Interests
+
+## Descriptives
+
+```{r, results='asis', echo=F, fig.width=9, fig.height=5.5}
+for(arr in arr.categorical){
+  arr.title <- arr
+  arr <- get(paste0("arr.", tolower(arr)))
+  cat(sprintf("\n\n## %s \n\n", arr.title))
+
+  cat("\n\n### Descriptives\n\n")
+
+  for(cl in arr){
+    cat(sprintf("\n\n### %s \n\n", cl))
+
+    print(xtable(t(table(df.music$interest.music))), type="latex", comment=F)
+
+    cat("\n\n")
+
+
+
+
+            for(gb in arr.groupby){
+              gg <- ggplot(df.music, aes_string(x=sprintf("%s",cl))) +
+              geom_freqpoly(aes_string(group = sprintf("%s",gb), colour = sprintf("%s",gb))) +
+              ggtitle(sprintf("Frequency Polygraph of %s\nGrouped by %s", cl, gb))
+
+              print(gg)
+              cat("\n\n \\pagebreak \n\n ")
+            }
+
+            #  print(ggplot(df.music, aes(x = cl, color = occupaton5)) + geom_density())
+            #  print(ggplot(df.music, aes(x = cl, color = age5)) + geom_density())
+            #  print(ggplot(df.music, aes(x = cl, color = educ3)) + geom_density())
+  }
+
+  cat("\n\n### Contingencies\n\n")
+
+  for(cmb in combn(arr,2, simplify=F)){
+      cat(sprintf("\n\n### %s vs %s\n\n", cmb[1], cmb[2]))
+
+      print(mosaicplot( as.formula(paste("~", cmb[1], "+", cmb[2])), data=df.music,
+                       color=2:20))
+
+      mat=table(get(cmb[1]), get(cmb[2]))
+      rownames(mat) <- paste(cmb[1], rownames(mat),sep="\n")
+      colnames(mat) <- paste(cmb[2], colnames(mat),sep="\n")
+      print(chordDiagram(mat, directional = TRUE, transparency = 0.5))
+  }
+
+  # Beep after each array
+  fun.beep(1)
+
+}
+
+# Beep at the begining of rendering the pdf
+fun.beep(2)
+
+```
+
+
