@@ -12,7 +12,9 @@ output:
 ---
 ```{r include=FALSE}
 # rmarkdown::render("02.data.exploration.Rmd",output_dir="../report.gnr"); fun.beep(8)
-source("../library.gnr/head.R")
+
+source("../config.R")
+source(prj.head)
 
 fun.install.require(c("beepr", "circlize","ggplot2","xtable","stats"))
 
