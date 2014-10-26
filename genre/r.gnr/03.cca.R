@@ -24,10 +24,14 @@ rmarkdown::render(
                   , output_file= "../report.gnr/03.cca.pdf"
                   ); fun.beep(8) # Mario winning sound
 
-#library(RCA)
-#RCA(cca.example)
-#RCA.cca.example.output <- RCA(cca.example)
-#summary(RCA.cca.example.output)
-#table(RCA.cca.example.output$member)
+
+load("../data.gnr/cca.output.Rdata")
+
+fun.install.require(c("RCA"))
+
+rca.output <- RCA(df.genre)
+summary(rca.output)
+table(rca.output)
+
 #RCA.cca.example.output$merge
 
