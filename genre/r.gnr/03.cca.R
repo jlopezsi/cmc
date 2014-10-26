@@ -14,8 +14,11 @@ df.genre <- sapply(df.genre, as.numeric)
 df.cca <- df.genre
 cca.output <- cca(df.cca)
 summary(cca.output)
-cca.example.output
+
+
+
 plot(cca.output)
+
 library(RCA)
 RCA(cca.example)
 RCA.cca.example.output <- RCA(cca.example)
