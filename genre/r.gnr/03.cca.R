@@ -1,3 +1,5 @@
+# Note: Running the cca analyisis takes about an hour on the cmc server.
+# DO NOT RUN with `prj.cca.state != done` on your pc.
 
 source("../config.R")
 source(prj.head)
