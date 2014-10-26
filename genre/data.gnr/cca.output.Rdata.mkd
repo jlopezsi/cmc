@@ -1,0 +1,2 @@
+  * `cca.output` object.
+  * Resulted of running `r.gnr/03.cca.R` on `cmc` server (25/10/2014).

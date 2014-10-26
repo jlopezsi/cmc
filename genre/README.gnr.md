@@ -39,6 +39,18 @@ Project code name
   * `dir.`: directory addresses
   * `df.`: data frames
 
+## Reports
+
+### CCA analysis
+
+@abaghan (25/10/2014): 
+
+  * `cca.R` added to the `library.gnr`.  
+  * `cca` analysis on my notebook took an hour and my pc started to make
+    strange noises. Added alarm notes to the `r.gnr/03.cca.R`.
+  * Cloned to the `cmc` server. Generated `data.gnr/cca.output.Rdata`.
+  * Plotting the results.
+
 ## Variables measuring access to music
 
 ### Recorded music
