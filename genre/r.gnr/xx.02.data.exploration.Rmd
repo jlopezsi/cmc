@@ -11,7 +11,6 @@ output:
     number_sections: true
 ---
 ```{r include=FALSE}
-# rmarkdown::render("02.data.exploration.Rmd",output_dir="../report.gnr"); fun.beep(8)
 
 source("../config.R")
 source(prj.head)

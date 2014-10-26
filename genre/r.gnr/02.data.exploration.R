@@ -5,10 +5,7 @@ source("../config.R")
 
 rmarkdown::render(
                   "xx.02.data.exploration.Rmd"
-                  , output_file=paste0(prj.report.directory
-                                       ,"/"
-                                       , "02.data.exploration.pdf"
-                                       )
+                  , output_file= "../report.gnr/02.data.exploration.pdf"
                   ); fun.beep(8) # Mario winning sound
 
 
