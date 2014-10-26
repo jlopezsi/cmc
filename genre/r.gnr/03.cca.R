@@ -22,3 +22,4 @@ RCA.cca.example.output <- RCA(cca.example)
 summary(RCA.cca.example.output)
 table(RCA.cca.example.output$member)
 RCA.cca.example.output$merge
+
