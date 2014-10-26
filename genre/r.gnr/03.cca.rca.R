@@ -4,7 +4,7 @@
 source("../config.R")
 source(prj.head)
 
-fun.install.require(c("corclass"))
+fun.install.require(c("corclass","RCA"))
 
 if(prj.cca.state != "done"){
    load(pth.music.rdata)
@@ -15,23 +15,19 @@ if(prj.cca.state != "done"){
    df.genre <- sapply(df.genre, as.numeric)
 
    cca.output <- cca(df.genre)
+   rca.output <- RCA(df.genre)
 
    save(cca.output, file="../data.gnr/cca.output.Rdata")
+   save(rca.output, file="../data.gnr/rca.output.Rdata")
 }
 
 rmarkdown::render(
-                  "xx.03.cca.Rmd"
-                  , output_file= "../report.gnr/03.cca.pdf"
+                  "xx.03.cca.rca.Rmd"
+                  , output_file= "../report.gnr/03.cca.rca.pdf"
                   ); fun.beep(8) # Mario winning sound
 
 
-load("../data.gnr/cca.output.Rdata")
 
-fun.install.require(c("RCA"))
 
-rca.output <- RCA(df.genre)
-summary(rca.output)
-table(rca.output)
 
-#RCA.cca.example.output$merge
 

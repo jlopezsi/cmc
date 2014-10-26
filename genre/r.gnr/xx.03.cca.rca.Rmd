@@ -1,5 +1,5 @@
 ---
-title: "Correlational Class Analysis "
+title: "CCA and RCA Analysis "
 output:
   pdf_document:
     highlight: tango
@@ -15,35 +15,56 @@ output:
 source("../config.R")
 source(prj.head)
 
-fun.install.require(c("beepr", "ggplot2", "xtable", "corclass"))
+fun.install.require(c("rmarkdown", "beepr", "ggplot2", "xtable", "corclass", "RCA"))
 
 load("../data.gnr/cca.output.Rdata")
+load("../data.gnr/rca.output.Rdata")
 ```
-# Summary
+# CCA
+
+## Summary
 
 ```{r, results='asis', echo=F, fig.width=9, fig.height=5.5}
+print.cca(cca.output)
+
 print(xtable(summary(cca.output)), type="latex", comment=F)
 ```
+
 \pagebreak
 
-# Modules
+## Modules
 
 ```{r, results='asis', echo=F, fig.width=9, fig.height=5.5}
 cat("\n\n \\pagebreak \n\n ")
 
 for(cnt.i in 1:length(cca.output$modules)){
-  cat(sprintf("\n\n## Module %s \n\n", cnt.i))
+  cat(sprintf("\n\n### Module %s \n\n", cnt.i))
 
-  cat(sprintf("\n\n### Module %s -  Kamada Kawai Layout \n\n", cnt.i))
+  cat(sprintf("\n\n#### Module %s -  Corelation Matix \n\n", cnt.i))
+
+  print(round(cca.output$modules[[cnt.i]]$cormat, 2))
+
+  cat(sprintf("\n\n#### Module %s -  Kamada Kawai Layout \n\n", cnt.i))
 
   plot(cca.output, cnt.i)
 
   cat("\n\n \\pagebreak \n\n ")
 
-  cat(sprintf("\n\n### Module %s -  Fruchtername Reingold Layout \n\n", cnt.i))
+  cat(sprintf("\n\n#### Module %s -  Fruchtername Reingold Layout \n\n", cnt.i))
 
   plot(cca.output, cnt.i, LAYOUT = layout.fruchterman.reingold)
 
   cat("\n\n \\pagebreak \n\n ")
 }
 ```
+
+# RCA
+
+## Summary
+
+```{r, results='asis', echo=F, fig.width=9, fig.height=5.5}
+print(xtable(summary(rca.output)), type="latex", comment=F)
+```
+
+\pagebreak
+
