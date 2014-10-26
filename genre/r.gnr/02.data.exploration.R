@@ -10,3 +10,5 @@ rmarkdown::render(
                                        , "02.data.exploration.pdf"
                                        )
                   ); fun.beep(8) # Mario winning sound
+
+
