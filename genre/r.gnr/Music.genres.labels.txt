@@ -1,15 +1,16 @@
 
 
 Old label		New label		Description
+
 glisten_chid		Children		listens to children's’ songs
 glisten_solo		Songwriter		Songwriter
 glisten_ballad		Ballands		Melodic songs
 glisten_flamenco	Flamenco		Flamenco
 glisten_newflamenco	NewFlamenco		New flamenco
-glisten_OSfolklore	Folk.other		Other spanish folk music
+glisten_OSfolklore	Folk			Other Spanish folk music
 glisten_Fpoprock	PopRock	 		Foreign PopRock
-glisten_Spoprock	Spanish.Pop.Rock	Spanish proprock
-glisten_Lpoprock	Latino.Pop.Rock		Latino poprock
+glisten_Spoprock	PopRockS		Spanish proprock
+glisten_Lpoprock	PopRockL		Latino poprock
 glisten_blues		Blues			Blues
 glisten_jazz		Jazz			Jazz
 glisten_wmusic		World			World Music
