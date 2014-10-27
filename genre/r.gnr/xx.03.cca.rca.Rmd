@@ -17,8 +17,14 @@ source(prj.head)
 
 fun.install.require(c("rmarkdown", "beepr", "ggplot2", "xtable", "corclass", "RCA"))
 
-load("../data.gnr/cca.output.Rdata")
+if(cca.batch=="cca.filtered"){
+  load("../data.gnr/cca.output.filtered.Rdata")
+  cca.output  <- cca.output.filtered
+}else{
+  load("../data.gnr/cca.output.Rdata")
+}
 ```
+
 # CCA
 
 ## Summary
@@ -36,52 +42,57 @@ print(xtable(summary(cca.output)), type="latex", comment=F)
 ```{r, results='asis', echo=F, fig.width=9, fig.height=5.5}
 cat("\n\n \\pagebreak \n\n ")
 
+par(mfrow=c(2,3))
+
+lst.layout <- list()
+
 for(cnt.i in 1:length(cca.output$modules)){
+  lst.layout[[i]]  <- list()
+
   cat(sprintf("\n\n### Module %s \n\n", cnt.i))
 
   cat(sprintf("\n\n#### Module %s - Kamada Kawai Layout - Color - Drop Neg Ties
               for Layout\n\n", cnt.i))
 
-  plot(cca.output, cnt.i, bw=F, drop.neg.ties.for.layout=T, vertex.size=2,
-       vertex.label.dist=1)
-
+  for(cnt.j in 1:6){
+    lst.layout[[c(cnt.i, cnt.j)]] <- plot(cca.output, cnt.i, bw=F, drop.neg.ties.for.layout=T, vertex.size=2,
+                                          vertex.label.dist=1)
+    print(lst.layout[[c(cnt.i, cnt.j)]])
+  }
   cat("\n\n \\pagebreak \n\n ")
 
   cat(sprintf("\n\n#### Module %s - Kamada Kawai Layout - Color \n\n", cnt.i))
 
-  plot(cca.output, cnt.i, bw=F, drop.neg.ties.for.layout=F, vertex.size=2,
-       vertex.label.dist=1)
-
-  cat("\n\n \\pagebreak \n\n ")
-
-  cat(sprintf("\n\n#### Module %s - Kamada Kawai Layout - Black and White\n\n", cnt.i))
-
-  plot(cca.output, cnt.i, bw=T, drop.neg.ties.for.layout=F, vertex.size=2,
-       vertex.label.dist=1)
+  for(cnt.j in 7:12){
+    lst.layout[[c(cnt.i, cnt.j)]] <- plot(cca.output, cnt.i, bw=F, drop.neg.ties.for.layout=F, vertex.size=2,
+                                          vertex.label.dist=1)
+    print(lst.layout[[c(cnt.i, cnt.j)]])
+  }
 
   cat("\n\n \\pagebreak \n\n ")
 
   cat(sprintf("\n\n#### Module %s - Fruchtername Reingold Layout - Color - Drop Neg Ties for Layout \n\n", cnt.i))
 
-  plot(cca.output, cnt.i, LAYOUT = layout.fruchterman.reingold, bw=F,
-      drop.neg.ties.for.layout=T, vertex.size=2, vertex.label.dist=1)
+  for(cnt.j in 13:18){
+    lst.layout[[c(cnt.i, cnt.j)]] <- plot(cca.output, cnt.i, LAYOUT = layout.fruchterman.reingold, bw=F,
+                                          drop.neg.ties.for.layout=T, vertex.size=2, vertex.label.dist=1)
+  }
 
   cat("\n\n \\pagebreak \n\n ")
 
   cat(sprintf("\n\n#### Module %s - Fruchtername Reingold Layout - Color \n\n", cnt.i))
 
-  plot(cca.output, cnt.i, LAYOUT = layout.fruchterman.reingold, bw=F,
-      drop.neg.ties.for.layout=F, vertex.size=2, vertex.label.dist=1)
+  for(cnt.j in 19:24){
+    lst.layout[[c(cnt.i, cnt.j)]] <- plot(cca.output, cnt.i, LAYOUT = layout.fruchterman.reingold, bw=F,
+                                          drop.neg.ties.for.layout=F, vertex.size=2, vertex.label.dist=1)
+  }
 
   cat("\n\n \\pagebreak \n\n ")
-
-  cat(sprintf("\n\n#### Module %s - Fruchtername Reingold Layout - Black and
-              White\n\n", cnt.i))
-
-  plot(cca.output, cnt.i, LAYOUT = layout.fruchterman.reingold, bw=T,
-       drop.neg.ties.for.layout=F, vertex.size=2, vertex.label.dist=1)
-
-  cat("\n\n \\pagebreak \n\n ")
+}
+if(cca.batch=="cca.filtered"){
+  save(lst.layout, file="../data.gnr/cca.filtered.layout.Rdata")
+}else{
+  save(lst.layout, file="../data.gnr/cca.layout.Rdata")
 }
 ```
 
