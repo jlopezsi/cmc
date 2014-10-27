@@ -41,13 +41,14 @@ for(cnt.i in 1:length(cca.output$modules)){
 
   cat(sprintf("\n\n#### Module %s -  Kamada Kawai Layout \n\n", cnt.i))
 
-  plot(cca.output, cnt.i)
+  plot(cca.output, cnt.i, bw=T, drop.neg.ties.for.layout=F)
 
   cat("\n\n \\pagebreak \n\n ")
 
   cat(sprintf("\n\n#### Module %s -  Fruchtername Reingold Layout \n\n", cnt.i))
 
-  plot(cca.output, cnt.i, LAYOUT = layout.fruchterman.reingold)
+  plot(cca.output, cnt.i, LAYOUT = layout.fruchterman.reingold, bw=T,
+       drop.neg.ties.for.layout=F)
 
   cat("\n\n \\pagebreak \n\n ")
 }
