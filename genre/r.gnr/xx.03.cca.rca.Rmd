@@ -18,8 +18,10 @@ source(prj.head)
 fun.install.require(c("rmarkdown", "beepr", "ggplot2", "xtable", "corclass", "RCA"))
 
 if(cca.batch=="cca.filtered"){
+  rm(cca.output)
   load("../data.gnr/cca.output.filtered.Rdata")
   cca.output  <- cca.output.filtered
+  rm(cca.output.filtered)
 }else{
   load("../data.gnr/cca.output.Rdata")
 }
@@ -47,7 +49,7 @@ par(mfrow=c(2,3))
 lst.layout <- list()
 
 for(cnt.i in 1:length(cca.output$modules)){
-  lst.layout[[i]]  <- list()
+  lst.layout[[cnt.i]]  <- list()
 
   cat(sprintf("\n\n### Module %s \n\n", cnt.i))
 
