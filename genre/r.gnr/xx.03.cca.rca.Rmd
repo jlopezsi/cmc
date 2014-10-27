@@ -40,10 +40,6 @@ cat("\n\n \\pagebreak \n\n ")
 for(cnt.i in 1:length(cca.output$modules)){
   cat(sprintf("\n\n### Module %s \n\n", cnt.i))
 
-  cat(sprintf("\n\n#### Module %s -  Corelation Matix \n\n", cnt.i))
-
-  print(round(cca.output$modules[[cnt.i]]$cormat, 2))
-
   cat(sprintf("\n\n#### Module %s -  Kamada Kawai Layout \n\n", cnt.i))
 
   plot(cca.output, cnt.i)
