@@ -15,7 +15,7 @@ output:
 source("../config.R")
 source(prj.head)
 
-fun.install.require(c("rmarkdown", "beepr", "xtable", "corclass", "RCA"))
+fun.install.require(c("rmarkdown", "beepr", "ggplot2", "xtable", "corclass", "RCA"))
 
 load("../data.gnr/cca.output.Rdata")
 ```
@@ -35,12 +35,6 @@ print(xtable(summary(cca.output)), type="latex", comment=F)
 
 ```{r, results='asis', echo=F, fig.width=9, fig.height=5.5}
 cat("\n\n \\pagebreak \n\n ")
-n <- 15
-radian.rescale <- function(x, start=0, direction=1) {
-  c.rotate <- function(x) (x + start) %% (2 * pi) * direction
-  c.rotate(ggplot2::rescale(x, c(0, 2 * pi), range(x)))
-}
-lab.locs <- radian.rescale(x=1:n, direction=-1, start=0)
 
 for(cnt.i in 1:length(cca.output$modules)){
   cat(sprintf("\n\n### Module %s \n\n", cnt.i))
@@ -49,40 +43,35 @@ for(cnt.i in 1:length(cca.output$modules)){
               for Layout\n\n", cnt.i))
 
   plot(cca.output, cnt.i, bw=F, drop.neg.ties.for.layout=T, vertex.size=2,
-       vertex.label.dist=1,
-            vertex.label.degree=lab.loc)
+       vertex.label.dist=1)
 
   cat("\n\n \\pagebreak \n\n ")
 
   cat(sprintf("\n\n#### Module %s - Kamada Kawai Layout - Color \n\n", cnt.i))
 
   plot(cca.output, cnt.i, bw=F, drop.neg.ties.for.layout=F, vertex.size=2,
-       vertex.label.dist=1,
-            vertex.label.degree=lab.loc)
+       vertex.label.dist=1)
 
   cat("\n\n \\pagebreak \n\n ")
 
   cat(sprintf("\n\n#### Module %s - Kamada Kawai Layout - Black and White\n\n", cnt.i))
 
   plot(cca.output, cnt.i, bw=T, drop.neg.ties.for.layout=F, vertex.size=2,
-       vertex.label.dist=1,
-            vertex.label.degree=lab.loc)
+       vertex.label.dist=1)
 
   cat("\n\n \\pagebreak \n\n ")
 
   cat(sprintf("\n\n#### Module %s - Fruchtername Reingold Layout - Color - Drop Neg Ties for Layout \n\n", cnt.i))
 
   plot(cca.output, cnt.i, LAYOUT = layout.fruchterman.reingold, bw=F,
-      drop.neg.ties.for.layout=T, vertex.size=2, vertex.label.dist=1,
-           vertex.label.degree=lab.loc)
+      drop.neg.ties.for.layout=T, vertex.size=2, vertex.label.dist=1)
 
   cat("\n\n \\pagebreak \n\n ")
 
   cat(sprintf("\n\n#### Module %s - Fruchtername Reingold Layout - Color \n\n", cnt.i))
 
   plot(cca.output, cnt.i, LAYOUT = layout.fruchterman.reingold, bw=F,
-      drop.neg.ties.for.layout=F, vertex.size=2, vertex.label.dist=1,
-           vertex.label.degree=lab.loc)
+      drop.neg.ties.for.layout=F, vertex.size=2, vertex.label.dist=1)
 
   cat("\n\n \\pagebreak \n\n ")
 
@@ -90,8 +79,7 @@ for(cnt.i in 1:length(cca.output$modules)){
               White\n\n", cnt.i))
 
   plot(cca.output, cnt.i, LAYOUT = layout.fruchterman.reingold, bw=T,
-       drop.neg.ties.for.layout=F, vertex.size=2, vertex.label.dist=1,
-            vertex.label.degree=lab.loc)
+       drop.neg.ties.for.layout=F, vertex.size=2, vertex.label.dist=1)
 
   cat("\n\n \\pagebreak \n\n ")
 }
