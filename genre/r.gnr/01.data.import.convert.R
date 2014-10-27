@@ -18,6 +18,7 @@ if(prj.import.state == "done"){
   vct.names <- tolower(vct.names)
   vct.names <- gsub("_", ".", vct.names)
   vct.names <- gsub("c3.1n.", "", vct.names)
+  vct.names <- gsub("glisten.", "", vct.names)
   names(df.music) <- vct.names
   fun.verbose("Colume names transformed to lowercase and dot seperated")
 

@@ -4,12 +4,11 @@
 source("../config.R")
 source(prj.head)
 
-fun.install.require(c("corclass","RCA"))
-
 if(prj.cca.state != "done"){
+  fun.install.require(c("corclass"))
   load(pth.music.rdata)
 
-  vec.genre <- grep("^glisten", colnames(df.music)) 
+  vec.genre <- seq(93, 153, by=3)
 
   df.genre <- df.music[vec.genre]
   df.genre <- sapply(df.genre, as.numeric)
@@ -18,8 +17,12 @@ if(prj.cca.state != "done"){
   cca.output <- cca(df.genre)
 
   save(cca.output, file="../data.gnr/cca.output.Rdata")
-  save(rca.output, file="../data.gnr/rca.output.Rdata")
+}
 
+if(prj.rca.state != "done"){
+  load(pth.music.rdata)
+  fun.install.require(c("corclass","RCA"))
+  save(rca.output, file="../data.gnr/rca.output.Rdata")
   vec.rca <- c(0.05, 0.075, 0.1, 0.25, 0.5)
   for(key.p in vec.rca){
     print(key.p)
