@@ -18,7 +18,6 @@ source(prj.head)
 fun.install.require(c("rmarkdown", "beepr", "ggplot2", "xtable", "corclass", "RCA"))
 
 load("../data.gnr/cca.output.Rdata")
-load("../data.gnr/rca.output.Rdata")
 ```
 # CCA
 
@@ -56,10 +55,16 @@ for(cnt.i in 1:length(cca.output$modules)){
 
 # RCA
 
-## Summary
-
 ```{r, results='asis', echo=F, fig.width=9, fig.height=5.5}
-print(xtable(summary(rca.output)), type="latex", comment=F)
+vec.rca <- c(0.05, 0.075, 0.1, 0.25, 0.5)
+for(key.p in vec.rca){
+  cat(sprintf("\n\n## RCA P = %s \n\n", key.p))
+
+  load(sprintf("../data.gnr/rca.output.%s.Rdata",key.p))
+  print(xtable(summary(rca.output)), type="latex", comment=F)
+
+  cat("\n\n \\pagebreak \n\n ")
+}
 ```
 
 \pagebreak
