@@ -12,9 +12,13 @@ if(prj.cca.state != "done"){
   df.genre <- df.music[vec.genre]
   df.genre <- sapply(df.genre, as.numeric)
 
-  cca.output <- cca(df.genre)
-
+  # cca object
+  cca.output <- cca(df.genre, zero.action=c("ownclass")
   save(cca.output, file="../data.gnr/cca.output.Rdata")
+
+  # Saving cluster membership in a vector
+  cca.membership <- cca.output$membership
+  save(cca.membership, file="../data.gnr/cca.membership.Rdata")
 }
 
 if(prj.rca.state != "done"){
