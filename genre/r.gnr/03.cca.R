@@ -1,27 +1,24 @@
 # Note: Running the cca analyisis takes about an hour on the cmc server.
 # DO NOT RUN with `prj.cca.state != done` on your pc.
 
-source("../config.R")
-source(prj.head)
+source("../library.gnr/head.R")
 
 if(prj.cca.state != "done"){
   fun.install.require(c("corclass"))
-  load(pth.music.rdata)
+  load("../data.gnr/music.Rdata")
 
   vec.genre <- seq(93, 153, by=3)
-  vec.genre.filtered  <- vec.genre[vec.genre != 99]
 
   df.genre <- df.music[vec.genre]
   df.genre <- sapply(df.genre, as.numeric)
 
-  df.genre.filtered <- df.music[vec.genre.filtered]
-  df.genre.filtered <- sapply(df.genre.filtered, as.numeric)
-
-  cca.output <- cca(df.genre)
-  cca.output.filtered <- cca(df.genre.filtered)
-
+  # cca object
+  cca.output <- cca(df.genre, zero.action=c("ownclass")
   save(cca.output, file="../data.gnr/cca.output.Rdata")
-  save(cca.output.filtered, file="../data.gnr/cca.output.filtered.Rdata")
+
+  # Saving cluster membership in a vector
+  cca.membership <- cca.output$membership
+  save(cca.membership, file="../data.gnr/cca.membership.Rdata")
 }
 
 if(prj.rca.state != "done"){
@@ -39,21 +36,8 @@ if(prj.rca.state != "done"){
   }
 }
 
-cca.batch <- "cca"
 rmarkdown::render(
-                  "xx.03.cca.rca.Rmd"
-                  , output_file= "../report.gnr/03.cca.rca.pdf"
+                  "xx.03.cca.Rmd"
+                  , output_file= "../report.gnr/03.cca.pdf"
                   );
 fun.beep(8) # Mario winning sound
-
-cca.batch <- "cca.filtered"
-rmarkdown::render(
-                  "xx.03.cca.rca.Rmd"
-                  , output_file= "../report.gnr/03.cca.filtered.rca.pdf"
-                  );
-fun.beep(8) # Mario winning sound
-
-
-
-
-

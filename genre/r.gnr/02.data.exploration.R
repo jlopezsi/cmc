@@ -1,7 +1,7 @@
 # Attention: Takes long time to process
 # Attention: It plays "beeps" on progress
 
-source("../config.R")
+source("../library.gnr/head.R")
 
 rmarkdown::render(
                   "xx.02.data.exploration.Rmd"

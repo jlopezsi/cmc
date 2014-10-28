@@ -1,0 +1,83 @@
+---
+title: "CCA Analysis "
+output:
+  pdf_document:
+    highlight: tango
+    fig_width: 7
+    fig_height: 6
+    fig_caption: true
+    toc: true
+    toc_depth: 4
+    number_sections: true
+---
+```{r include=FALSE}
+
+source("../library.gnr/head.R")
+
+fun.install.require(c("rmarkdown", "beepr", "ggplot2", "xtable", "corclass", "RCA"))
+
+# if(cca.batch=="cca.filtered"){
+#   rm(cca.output)
+#   load("../data.gnr/cca.output.filtered.Rdata")
+#   cca.output  <- cca.output.filtered
+#   rm(cca.output.filtered)
+# }else{
+load("../data.gnr/cca.output.Rdata")
+# }
+```
+
+# CCA
+
+## Summary
+
+```{r, results='asis', echo=F, fig.width=9, fig.height=5.5}
+print.cca(cca.output)
+
+print(xtable(summary(cca.output)), type="latex", comment=F)
+
+cat("\n\n \\pagebreak \n\n ")
+```
+
+\pagebreak
+
+## Modules
+
+```{r, results='asis', echo=F, fig.width=7, fig.height=7}
+lst.layout <- list()
+
+for(cnt.i in 1:length(cca.output$modules)){
+  cat(sprintf("\n\n### Module %s \n\n", cnt.i))
+
+  lst.layout[[cnt.i]]  <- list()
+
+  for(cnt.j in 1:10){
+    lst.layout[[c(cnt.i, cnt.j)]] <- plot(cca.output, cnt.i, bw=F, drop.neg.ties.for.layout=F
+                                          , main = sprintf("Module %s - Layout %s", cnt.i, cnt.j))
+    lst.layout[[c(cnt.i, cnt.j)]]
+
+    cat("\n\n \\pagebreak \n\n ")
+  }
+}
+# if(cca.batch=="cca.filtered"){
+  # save(lst.layout, file="../data.gnr/cca.filtered.layout.Rdata")
+# }else{
+save(lst.layout, file="../data.gnr/cca.layout.Rdata")
+# }
+
+# # RCA
+# 
+# ```{r, results='asis', echo=F, fig.width=9, fig.height=5.5}
+# vec.rca <- c(0.05, 0.075, 0.1, 0.25, 0.5)
+# for(key.p in vec.rca){
+#   cat(sprintf("\n\n## RCA P = %s \n\n", key.p))
+# 
+#   load(sprintf("../data.gnr/rca.output.%s.Rdata",key.p))
+#   print(xtable(summary(rca.output)), type="latex", comment=F)
+# 
+#   cat("\n\n \\pagebreak \n\n ")
+# }
+# ```
+# 
+# \pagebreak
+
+```
