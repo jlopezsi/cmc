@@ -1,6 +1,8 @@
 # Note: Running the cca analyisis takes about an hour on the cmc server.
 # DO NOT RUN with `prj.cca.state != done` on your pc.
 
+# TODO drop all codes related to filtered data
+
 source("../config.R")
 source(prj.head)
 
@@ -9,19 +11,19 @@ if(prj.cca.state != "done"){
   load(pth.music.rdata)
 
   vec.genre <- seq(93, 153, by=3)
-  vec.genre.filtered  <- vec.genre[vec.genre != 99]
+  # vec.genre.filtered  <- vec.genre[vec.genre != 99]
 
   df.genre <- df.music[vec.genre]
   df.genre <- sapply(df.genre, as.numeric)
 
-  df.genre.filtered <- df.music[vec.genre.filtered]
-  df.genre.filtered <- sapply(df.genre.filtered, as.numeric)
+  # df.genre.filtered <- df.music[vec.genre.filtered]
+  # df.genre.filtered <- sapply(df.genre.filtered, as.numeric)
 
   cca.output <- cca(df.genre)
-  cca.output.filtered <- cca(df.genre.filtered)
+  # cca.output.filtered <- cca(df.genre.filtered)
 
   save(cca.output, file="../data.gnr/cca.output.Rdata")
-  save(cca.output.filtered, file="../data.gnr/cca.output.filtered.Rdata")
+  # save(cca.output.filtered, file="../data.gnr/cca.output.filtered.Rdata")
 }
 
 if(prj.rca.state != "done"){
@@ -39,19 +41,19 @@ if(prj.rca.state != "done"){
   }
 }
 
-cca.batch <- "cca"
+# cca.batch <- "cca"
 rmarkdown::render(
-                  "xx.03.cca.rca.Rmd"
-                  , output_file= "../report.gnr/03.cca.rca.pdf"
+                  "xx.03.cca.Rmd"
+                  , output_file= "../report.gnr/03.cca.pdf"
                   );
 fun.beep(8) # Mario winning sound
 
-cca.batch <- "cca.filtered"
-rmarkdown::render(
-                  "xx.03.cca.rca.Rmd"
-                  , output_file= "../report.gnr/03.cca.filtered.rca.pdf"
-                  );
-fun.beep(8) # Mario winning sound
+# cca.batch <- "cca.filtered"
+# rmarkdown::render(
+                  # "xx.03.cca.rca.Rmd"
+                  # , output_file= "../report.gnr/03.cca.filtered.rca.pdf"
+                  # );
+# fun.beep(8) # Mario winning sound
 
 
 
