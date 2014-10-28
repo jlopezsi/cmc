@@ -19,4 +19,3 @@ session.verbose.level <- 3
 session.debug.level <- 3
 
 session.beep <- T
-a silly note
