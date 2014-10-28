@@ -51,7 +51,7 @@ for(cnt.i in 1:length(cca.output$modules)){
   lst.layout[[cnt.i]]  <- list()
 
   for(cnt.j in 1:10){
-    lst.layout[[c(cnt.i, cnt.j)]] <- plot(cca.output, cnt.i, bw=F, drop.neg.ties.for.layout=F
+    lst.layout[[c(cnt.i, cnt.j)]] <- plot(cca.output, cnt.i, bw=F, drop.neg.ties.for.layout=T
                                           , main = sprintf("Module %s - Layout %s", cnt.i, cnt.j))
     lst.layout[[c(cnt.i, cnt.j)]]
 
