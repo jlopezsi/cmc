@@ -1,0 +1,29 @@
+---
+title: "NMF Analysis "
+output:
+  pdf_document:
+    highlight: tango
+    fig_width: 7
+    fig_height: 6
+    fig_caption: true
+    toc: true
+    toc_depth: 4
+    number_sections: true
+---
+```{r include=FALSE}
+
+source("../library.gnr/head.R")
+
+fun.install.require(c("NMF"))
+
+```
+
+# NMF
+
+## Summary
+
+```{r, results='asis', echo=F, fig.width=9, fig.height=5.5}
+```
+
+\pagebreak
+

@@ -1,5 +1,5 @@
 ---
-title: "CCA and RCA Analysis "
+title: "CCA Analysis "
 output:
   pdf_document:
     highlight: tango
@@ -12,8 +12,7 @@ output:
 ---
 ```{r include=FALSE}
 
-source("../config.R")
-source(prj.head)
+source("../library.gnr/head.R")
 
 fun.install.require(c("rmarkdown", "beepr", "ggplot2", "xtable", "corclass", "RCA"))
 
