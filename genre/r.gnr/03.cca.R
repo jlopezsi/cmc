@@ -13,7 +13,7 @@ if(prj.cca.state != "done"){
   df.genre <- sapply(df.genre, as.numeric)
 
   # cca object
-  cca.output <- cca(df.genre, zero.action=c("ownclass")
+  cca.output <- cca(df.genre, zero.action=c("ownclass"))
   save(cca.output, file="../data.gnr/cca.output.Rdata")
 
   # Saving cluster membership in a vector
