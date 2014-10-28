@@ -30,8 +30,15 @@ load("../data.gnr/cca.membership.Rdata")
 
 ```{r, results='asis', echo=F, fig.width=9, fig.height=5.5}
 
-color <- c("black", "red", "green", "blue")
+color <- c("red", "green", "blue")
 s.arrow(mca.output$co, xax=1, yax=2, boxes=F, clabel=0.75, grid=F, possub="topleft") 
+
+cat("\n\n \\pagebreak \n\n")
+
+s.arrow(mca.output$co, xax=1, yax=2, boxes=F, clabel=0.75, grid=F, possub="topleft", sub="Module 1")
+
+
+s.arrow(mca.output$co, xax=1, yax=2, boxes=F, clabel=0.75, grid=F, possub="topleft", sub="Module 3")
 s.class(mca.output$li, as.factor(cca.membership), cellipse = 2, col=color)
 
 
