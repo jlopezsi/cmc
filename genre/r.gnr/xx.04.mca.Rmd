@@ -38,7 +38,7 @@ s.arrow(mca.output$co, xax=1, yax=2, boxes=F, clabel=0.75, grid=F, possub="tople
 
 cat("\n\n \\pagebreak \n\n")
 
-# for 
+# for each cca module plot the mca graph
 for(cnt.i in 1:length(levels(as.factor(cca.membership)))){
   print(sprintf("\n\n #### XX Graph For Observations In CCA Module %s \n\n", cnt.i))
   tmp.mca.output <- mca.cluster.output[[cnt.i]]
