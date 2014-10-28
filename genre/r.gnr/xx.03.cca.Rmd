@@ -26,9 +26,7 @@ load("../data.gnr/cca.output.Rdata")
 # }
 ```
 
-# CCA
-
-## Summary
+# Summary
 
 ```{r, results='asis', echo=F, fig.width=9, fig.height=5.5}
 print.cca(cca.output)
@@ -40,13 +38,13 @@ cat("\n\n \\pagebreak \n\n ")
 
 \pagebreak
 
-## Modules
+# Modules
 
 ```{r, results='asis', echo=F, fig.width=7, fig.height=7}
 lst.layout <- list()
 
 for(cnt.i in 1:length(cca.output$modules)){
-  cat(sprintf("\n\n### Module %s \n\n", cnt.i))
+  cat(sprintf("\n\n## Module %s \n\n", cnt.i))
 
   lst.layout[[cnt.i]]  <- list()
 
