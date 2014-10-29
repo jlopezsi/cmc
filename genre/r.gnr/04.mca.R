@@ -1,8 +1,8 @@
 source("../library.gnr/head.R")
 
-if(prj.mca.state != "done"){
+if(prj.mca.state != "tmpdone"){
   # Loading libraries
-  fun.install.require(c("ade4"))
+  fun.install.require(c("ca"))
 
   # Loading music data
   load("../data.gnr/music.Rdata")
@@ -17,13 +17,18 @@ if(prj.mca.state != "done"){
   # Excluding rows with zero cluster
   df.genre <- df.genre[-cca.zeros, ]
 
+  df.descriptors  <- df.music[, c(169, 171, 174, 167, 185, 181)]
+  df.descriptors  <- df.descriptors[-cca.zeros, ]
+
   # analyze and save the output of mca 
-  mca.output <- dudi.acm(df.genre, scannf=F,  nf=2)
+  df.mjca <- data.frame(df.genre, df.descriptors, data.frame(cca.membership))
+  mca.output <- mjca(df.mjca, supcol = 22:28)
   save(mca.output, file="../data.gnr/mca.output.Rdata")
 
   mca.cluster.output = list()
   for(cnt.i in 1:length(levels(as.factor(cca.membership)))){
-    mca.cluster.output[[cnt.i]] <- dudi.acm(df.genre[cca.membership == cnt.i, ], scannf=F,  nf=2)
+    tmp.df.mjca <- subset(df.mjca, cca.membership==cnt.i)
+    mca.cluster.output[[cnt.i]] <- mjca(tmp.df.mjca, supcol = 22:28)
   }
   save(mca.cluster.output, file="../data.gnr/mca.cluster.output.Rdata")
 
