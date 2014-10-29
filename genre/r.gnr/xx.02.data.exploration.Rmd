@@ -18,7 +18,7 @@ fun.install.require(c("beepr", "circlize","ggplot2","xtable","stats"))
 
 load(pth.music.rdata)
 
-arr.groupby <- c("gender","age5", "occupaton5", "educ3")
+arr.groupby <- c("gender","age5", "occupation", "educ3", "habitat", "fam.3niv")
 
 arr.categorical         <- c("Interests", "Genres", "Genres.Child" , "Genres.Solo"
                              , "Genres.Ballad", "Genres.Flamenco", "Genres.NewFlamenco"
