@@ -33,7 +33,8 @@ load("../data.gnr/cca.zeros.Rdata")
 load("../data.gnr/music.Rdata")
 # Array of descriptors
 arr.groupby <- c("gender","age5", "occupation", "educ3", "habitat", "fam.3niv")
-df.descriptors  <- df.music[, c(169, 171, 174, 167, 185, 181)]
+## df.descriptors  <- df.music[, c(169, 171, 174, 167, 185, 181)]
+df.descriptors  <- df.music[, c(181,174)]
 df.descriptors  <- df.descriptors[-cca.zeros, ]
 ```
 
@@ -49,13 +50,16 @@ s.arrow(mca.output$co, xax=1, yax=2, boxes=F, clabel=0.75, possub="topleft")
 # XX Descriptors
 
 ```{r, results='asis', echo=F, fig.width=9, fig.height=5.5}
-s.arrow(supcol(mca.output , data.frame( scalewt( data.matrix(df.descriptors))))$cosup, clab = 1)
+s.arrow(supcol(mca.output , as.matrix(df.descriptors))$cosup, clab = 1)
+```
 
 # XX Graph With All Observations Without Descriptors
 
 ```{r, results='asis', echo=F, fig.width=9, fig.height=5.5}
 s.arrow(mca.output$co, xax=1, yax=2, boxes=F, clabel=0.75, possub="topleft") 
-s.arrow(supcol(mca.output , 4 * data.frame( scalewt( data.matrix(df.descriptors))))$cosup , add.p = TRUE, clab = 0.5)
+# s.arrow(supcol(mca.output , data.frame( scalewt( data.matrix(df.descriptors))))$cosup , add.p = TRUE, clab = 0.5)
+s.arrow(supcol(mca.output , data.frame(scalewt(df.descriptors)))$cosup , add.p = TRUE, clab = 0.5)
+symbols(0, 0, circles = 1, inches = FALSE, add = TRUE)
 ```
 
 ```{r, results='asis', echo=F, fig.width=9, fig.height=5.5}
@@ -67,7 +71,7 @@ for(cnt.i in 1:length(levels(as.factor(cca.membership)))){
   tmp.mca.output <- mca.cluster.output[[cnt.i]]
 
   s.arrow(tmp.mca.output$co, xax=1, yax=2, boxes=F, clabel=0.75, possub="topleft", sub=sprintf("Module %s",cnt.i))
-  s.arrow(supcol(tmp.mca.output , 4 * data.frame( scalewt( data.matrix(df.descriptors[cca.membership == cnt.i, ]))))$cosup , add.p = TRUE, clab = 0.5)
+  s.arrow(supcol(tmp.mca.output , data.frame( scalewt( data.matrix(df.descriptors[cca.membership == cnt.i, ]))))$cosup , add.p = TRUE, clab = 0.5)
 
   cat("\n\n \\pagebreak \n\n")
 }
