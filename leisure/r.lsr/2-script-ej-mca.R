@@ -9,7 +9,11 @@ s.arrow(oci.acm1_en$co, xax=1, yax=2, boxes=F, clabel=0.75, grid=F, possub="topl
 oci.acm1_en.co13<-oci.acm1_en$co[,c(1,3)]
 s.arrow(oci.acm1_en.co13, boxes=F, clabel=0.75, grid=F, possub="topleft", sub="Dimensions 1 i 3")
 oci.acm1_en.co23<-oci.acm1_en$co[,c(2,3)]
-s.arrow(oci.acm1_en.co23, boxes=F, clabel=0.75, grid=F, possub="topleft", sub="Dimensions 2 i 3")
+s.arrow(oci.acm1_en.co23, boxes=F, clabel=0.75, grid=F, possub="topleft", sub="Dimensions 2 i 3")£
+#plot supplementary variables
+s.arrow(supcol(dudi1, data.frame(scalewt(doubs$env)))$cosup,
+        add.p = TRUE, clab = 2)
+
 #Plot with ggplot2
 
 require(ggplot2)
