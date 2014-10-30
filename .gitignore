@@ -3,4 +3,5 @@ pp4
 gnr
 lsr
 
-*.Rdata
+genre/r.gnr/.RData
+genre/r.gnr/.Rhistory
