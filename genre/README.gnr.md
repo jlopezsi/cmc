@@ -8,6 +8,10 @@ The aim of this paper is to use Social Network Analysis (SNA) techniques of musi
 Project code name
   ~ gnr
 
+## TODO
+
+  * Descriptive analysis table of `genres` and `social indicators`.
+
 ## Conventions
 
   * Files and directories at the root folder have the .prjid extension (e.g.
