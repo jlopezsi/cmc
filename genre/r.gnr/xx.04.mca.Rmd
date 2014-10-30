@@ -37,6 +37,10 @@ arr.groupby <- c("gender","age5", "occupation", "educ3", "habitat", "fam.3niv")
 df.descriptors  <- df.music[, c(181,174)]
 df.descriptors  <- df.descriptors[-cca.zeros, ]
 
+df.toplot = data.frame(mca.output$colcoord)
+rownames(df.toplot) = mca.output$levelnames
+
+# plot
 ```
 
 
@@ -44,43 +48,68 @@ df.descriptors  <- df.descriptors[-cca.zeros, ]
 
 # XX Graph With All Observations Without Descriptors
 
-```{r, results='asis', echo=F, fig.width=9, fig.height=5.5}
-plot(mca.output)
+```{r, results='asis', echo=F, fig.width=9, fig.height=12}
 
-plot(mca.output, )
+# df.tmp <- df.toplot[1:42, ]
+# 
+# ggplot(data = df.tmp, 
+#        aes(x = X1, y = X2, label = rownames(df.tmp))) +
+#   geom_hline(yintercept = 0, colour = "gray70") +
+#   geom_vline(xintercept = 0, colour = "gray70") +
+#   geom_text()+
+#   ggtitle("MCA plot of variables using R package ca")
+# 
+# df.tmp <- df.toplot[43:66, ]
+# 
+# ggplot(data = df.tmp, 
+#        aes(x = X1, y = X2, label = rownames(df.tmp))) +
+#   geom_hline(yintercept = 0, colour = "gray70") +
+#   geom_vline(xintercept = 0, colour = "gray70") +
+#   geom_text()+
+#   ggtitle("MCA plot of variables using R package ca")
+# 
+# df.tmp <- df.toplot[67, ]
+# 
+# ggplot(data = df.tmp, 
+#        aes(x = X1, y = X2, label = rownames(df.tmp))) +
+#   geom_hline(yintercept = 0, colour = "gray70") +
+#   geom_vline(xintercept = 0, colour = "gray70") +
+#   geom_text()+
+#   ggtitle("MCA plot of variables using R package ca")
+
+plot(mca.output, what=c("active","active"), arrows=c(T,T), col = c("black", "grey"))
+
 ```
 
 # XX Descriptors
 
-```{r, results='asis', echo=F, fig.width=9, fig.height=5.5}
-plot(mca.output)
+```{r, results='asis', echo=F, fig.width=9, fig.height=12}
+plot(mca.output, what=c("passive", "passive"), arrows=c(T,T), col = c("black", "grey"))
 ```
 
 # XX Graph With All Observations Without Descriptors
 
-```{r, results='asis', echo=F, fig.width=9, fig.height=5.5}
-plot(mca.output)
-```
+```{r, results='asis', echo=F, fig.width=9, fig.height=12}
+plot(mca.output, arrows=c(T,T), col = c("black", "grey"))
 
-```{r, results='asis', echo=F, fig.width=9, fig.height=5.5}
 cat("\n\n \\pagebreak \n\n")
 
 # for each cca module plot the mca graph
 for(cnt.i in 1:length(levels(as.factor(cca.membership)))){
   cat(sprintf("\n\n## XX Graph For Observations In CCA Module %s \n\n", cnt.i))
   tmp.mca.output <- mca.cluster.output[[cnt.i]]
-
-
-  plot(tmp.mca.output)
+  plot(tmp.mca.output, what=c("active","active"), arrows=c(T,T), col = c("black", "grey"))
+  plot(tmp.mca.output, what=c("passive","passive"), arrows=c(T,T), col = c("black", "grey"))
+  plot(tmp.mca.output, arrows=c(T,T), col = c("black", "grey"))
   cat("\n\n \\pagebreak \n\n")
 }
 ```
 
-# XX Graph Colored by CCA clusters
 
 ```{r, results='asis', echo=F, fig.width=9, fig.height=5.5}
+# XX Graph Colored by CCA clusters
 # Different colors for each cluster
-color <- c("red", "green", "blue")
+# color <- c("red", "green", "blue")
 # Ploting cellipse mca groups colored by cca clusters
 
 

@@ -21,8 +21,23 @@ if(prj.mca.state != "tmpdone"){
   df.descriptors  <- df.descriptors[-cca.zeros, ]
 
   # analyze and save the output of mca 
-  df.mjca <- data.frame(df.genre, df.descriptors, data.frame(cca.membership))
+  df.mjca <- data.frame(df.genre, df.descriptors, data.frame(factor(cca.membership)))
+
+  names(df.mjca) <- c("chl","swr","bld","flm","nfl","flk","spp","lpp","fpp","bls","jzz","wrl","rgg","rap","tcn","hrk","hus","cls","lyr","opr","opt","gnd","age","ocp","edu","hbt","fml","cca")
+  for(cnt.y in 1:21){
+    levels(df.mjca[,cnt.y]) <- c("y","n")
+  }
+  for(cnt.y in 22:28){
+    print(levels(df.mjca[,cnt.y]))
+  }
+  levels(df.mjca$gnd) <- c("f","m")
+  levels(df.mjca$ocp) <- c("aut","emp","ump","rtr","std","hhl")
+  levels(df.mjca$edu) <- c("lss","dpl","uni")
+  levels(df.mjca$hbt) <- c("cpt",">100","50-100","10-50","<10")
+  levels(df.mjca$fml) <- c("<=2","3-4",">4")
+
   mca.output <- mjca(df.mjca, supcol = 22:28)
+
   save(mca.output, file="../data.gnr/mca.output.Rdata")
 
   mca.cluster.output = list()
