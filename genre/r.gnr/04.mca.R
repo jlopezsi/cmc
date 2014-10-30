@@ -1,6 +1,6 @@
 source("../library.gnr/head.R")
 
-if(prj.mca.state != "done"){
+if(prj.mca.state != "tempdone"){
   # Loads libraries
   fun.install.require(c("ca", "ade4"))
 
