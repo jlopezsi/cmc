@@ -53,6 +53,13 @@ Project code name
   * Cloned to the `cmc` server. Generated `data.gnr/cca.output.Rdata`.
   * Plotted the results in `report.gnr/03.cca.pdf`.
 
+@abaghan (27/10/2014 - 30/10/2014): 
+  * Orgnized the manuscript files
+  * Added an `elsarticle` RMarkdown template in `playgournd` directory.
+  * Added `r.gnr/04.mca.R` to conduct mca analysis. It uses two packages to do 
+    the analysis, `ade4` and `ca`. The plots are generated and reported in 
+    `report.gnr/04.mca.pdf`.
+
 ## Variables measuring access to music
 
 ### Recorded music
