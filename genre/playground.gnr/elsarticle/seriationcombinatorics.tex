@@ -1,0 +1,165 @@
+
+\documentclass[preprint,times,authoryear,12pt]{elsarticle}
+
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amssymb,amsmath}
+
+
+%%%%%%%%%% Remove the following before submission %%%%%%%%%%%%%%%%%%
+
+\usepackage{mathspec,xltxtra,xunicode}
+%\usepackage{unicode-math}
+\defaultfontfeatures{Scale=MatchLowercase}
+%\setmainfont[Mapping=tex-text,Numbers=OldStyle]{Palatino LT Std}
+%\setmainfont[Ligatures=TeX,Numbers=OldStyle]{Minion Pro}
+%\setsansfont[Mapping=tex-text]{ITC Legacy Sans Std Medium}
+%\setmonofont{Bitstream Vera Sans Mono}
+%\setmathfont(Digits,Latin,Greek)[Script=Math,Uppercase=Italic,Lowercase=Italic]{Minion Math Semibold}
+%\setmathfont[range={\mathbfup->\mathup}]{MinionMath-Bold.otf}
+%\setmathfont[range={\mathbfit->\mathit}]{MinionMath-Bold.otf}
+%\setmathfont[range={\mathit->\mathit}]{MinionMath-Bold.otf}
+
+%%%%%%%%%% Remove the above before submission %%%%%%%%%%%%%%%%%%
+
+%% The amsthm package provides extended theorem environments
+%% \usepackage{amsthm}
+
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers after \end{frontmatter}.
+\usepackage{lineno}
+\usepackage{graphicx}
+\usepackage{xspace}
+\usepackage{bm}
+\usepackage{longtable}
+\usepackage{hyphenat}
+\usepackage{lipsum}
+\usepackage{url}
+\usepackage{madsen-macros}
+
+\journal{Unnamed Journal}
+
+% Pandoc toggle for numbering sections (defaults to be off)
+\setcounter{secnumdepth}{0}
+
+% Pandoc header
+
+
+\begin{document}
+
+\begin{frontmatter}
+
+
+\title{RESEARCH NOTE:\\ Combinatorial Structure of the Deterministic Seriation Method with Multiple Spatial Solutions}
+
+\author{Mark E. Madsen}
+\address{Department of Anthropology, Box 353100, University of Washington, Seattle WA, 98195 USA}
+\ead{mark@madsenlab.org}
+\ead[url]{http://madsenlab.org}
+
+\author{Carl P. Lipo}
+\address{Department of Anthropology and IIRMES, 1250 Bellflower Blvd, California State University at Long Beach, Long Beach CA, 90840 USA}
+\ead{Carl.Lipo@csulb.edu}
+\ead[url]{http://lipolab.org}
+
+\end{frontmatter}
+
+\subparagraph{keywords}\label{keywords}
+
+seriation \textbar{} combinatorics \textbar{} algorithms \textbar{}
+cultural transmission
+
+\section{Abstract}\label{abstract}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dictum
+mauris quis turpis pellentesque, quis porta arcu varius. Suspendisse
+dictum at odio id luctus. Curabitur ut tristique nisl. Pellentesque
+habitant morbi tristique senectus et netus et malesuada fames ac turpis
+egestas. Vivamus molestie at elit a sodales. Vestibulum suscipit leo sed
+semper facilisis. Nam lacinia lobortis imperdiet. Nulla facilisi. Duis
+suscipit elementum risus, vitae molestie eros accumsan ut. Nulla
+facilisi. Praesent quis adipiscing sem. Interdum et malesuada fames ac
+ante ipsum primis in faucibus.
+
+\section{Introduction}\label{introduction}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dictum
+mauris quis turpis pellentesque, quis porta arcu varius. Suspendisse
+dictum at odio id luctus. Curabitur ut tristique nisl. Pellentesque
+habitant morbi tristique senectus et netus et malesuada fames ac turpis
+egestas. Vivamus molestie at elit a sodales. Vestibulum suscipit leo sed
+semper facilisis. Nam lacinia lobortis imperdiet. Nulla facilisi. Duis
+suscipit elementum risus, vitae molestie eros accumsan ut. Nulla
+facilisi. Praesent quis adipiscing sem. Interdum et malesuada fames ac
+ante ipsum primis in faucibus.
+
+\section{Single Seriation
+Combinatorics}\label{single-seriation-combinatorics}
+
+Since the factorial function grows so quickly, the computational cost of
+determining the correct permutation within a given seriation solution
+group is controlled by the size of the largest subset, especially if the
+other subsets are relatively small, as in the previous example. At
+worst, for a solution set with $m$ solution groups, $m-1$ solution
+groups will contain 1 assemblage each, and the last solution group will
+consist of the remaining $n-m-1$ assemblages. This means, of course,
+that the worst case would involve consideration of on the order of
+$(n-m-1)!$ permutations within each solution group, for each of the
+subsets given by Equation \ref{eq:sum-stirling}. This yields:
+
+\[\sum_{m=1}^n \stirlingsubset{n}{m} (n-m-1)!\]
+
+Table \ref{tab:total-mult} gives the total number of possible solutions
+for assemblages ranging from 4 to 100, where solutions may fall into
+multiple seriation groups of any size.
+
+\begin{verbatim}
+Error in `[.data.frame`(tli, 1:4, 1:10): undefined columns selected
+\end{verbatim}
+
+\begin{verbatim}
+Error in print(xt3, include.rownames = FALSE): object 'xt3' not found
+\end{verbatim}
+
+\section{Conclusions}\label{conclusions}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dictum
+mauris quis turpis pellentesque, quis porta arcu varius. Suspendisse
+dictum at odio id luctus. Curabitur ut tristique nisl. Pellentesque
+habitant morbi tristique senectus et netus et malesuada fames ac turpis
+egestas. Vivamus molestie at elit a sodales. Vestibulum suscipit leo sed
+semper facilisis. Nam lacinia lobortis imperdiet. Nulla facilisi. Duis
+suscipit elementum risus, vitae molestie eros accumsan ut. Nulla
+facilisi. Praesent quis adipiscing sem. Interdum et malesuada fames ac
+ante ipsum primis in faucibus.
+
+\section{Acknowledgements}\label{acknowledgements}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dictum
+mauris quis turpis pellentesque, quis porta arcu varius. Suspendisse
+dictum at odio id luctus. Curabitur ut tristique nisl. Pellentesque
+habitant morbi tristique senectus et netus et malesuada fames ac turpis
+egestas. Vivamus molestie at elit a sodales. Vestibulum suscipit leo sed
+semper facilisis. Nam lacinia lobortis imperdiet. Nulla facilisi. Duis
+suscipit elementum risus, vitae molestie eros accumsan ut. Nulla
+facilisi. Praesent quis adipiscing sem. Interdum et malesuada fames ac
+ante ipsum primis in faucibus.
+
+
+%% References with bibTeX database:
+
+\bibliographystyle{model2-names}
+\bibliography{seriationcombinatorics}
+
+
+
+
+
+
+
+
+
+\end{document}
+
+%%
+%% End of file `elsarticle-template-2-harv.tex'.

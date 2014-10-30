@@ -19,7 +19,7 @@ if(prj.cca.state != "done"){
   cca.zeros <- attributes(cca.output$cormat)$zeros
   save(cca.zeros, file="../data.gnr/cca.zeros.Rdata")
 
-  # Saving cluster membership in a vector
+  # Saving cca module membership in a vector
   cca.membership <- cca.output$membership
   save(cca.membership, file="../data.gnr/cca.membership.Rdata")
 }
