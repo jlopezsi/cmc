@@ -57,6 +57,25 @@ if(prj.mca.state != "tmpdone"){
   }
   # Saves the list of cca subset results for each module
   save(mca.module.output, file="../data.gnr/mca.module.output.Rdata")
+  
+  # Repeats the same analysis by the `ade4` package
+
+  # Conducts mca.ade4 analysis
+  mca.ade4.output <- dudi.acm(df.genre, scannf=F,  nf=2)
+  # Saves mca.ade4 analysis
+  save(mca.ade4.output, file="../data.gnr/mca.ade4.output.Rdata")
+
+  # A list containing all mca.ade4 subset results
+  mca.ade4.cluster.output = list()
+
+  # for each cca module
+  for(cnt.i in 1:length(levels(as.factor(cca.membership)))){
+    # Conducts mca.ade4 for current cca mudlue
+    mca.ade4.cluster.output[[cnt.i]] <- dudi.acm(df.genre[cca.membership == cnt.i, ], scannf=F,  nf=2)
+  }
+
+  # Saves the list of cca.ade4 subset results for each module
+  save(mca.ade4.cluster.output, file="../data.gnr/mca.ade4.cluster.output.Rdata")
 }
 
 # Renders the report
