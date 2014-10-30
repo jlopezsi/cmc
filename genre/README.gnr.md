@@ -6,7 +6,7 @@ The aim of this paper is to use Social Network Analysis (SNA) techniques of musi
 ## Info
 
 Project code name
-  ~ gnr
+  `~ gnr`
 
 ## TODO
 
