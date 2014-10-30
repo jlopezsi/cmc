@@ -39,41 +39,18 @@ load("../data.gnr/music.Rdata")
 
 ```{r, results='asis', echo=F, fig.width=9, fig.height=12}
 # Tries to plot with GGPLOT2
-#
-# df.toplot = data.frame(mca.output$colcoord)
-# rownames(df.toplot) = mca.output$levelnames
-#
-# df.tmp <- df.toplot[1:42, ]
-# 
-# ggplot(data = df.tmp, 
-#        aes(x = X1, y = X2, label = rownames(df.tmp))) +
-#   geom_hline(yintercept = 0, colour = "gray70") +
-#   geom_vline(xintercept = 0, colour = "gray70") +
-#   geom_text()+
-#   ggtitle("MCA plot of variables using R package ca")
-# 
-# df.tmp <- df.toplot[43:66, ]
-# 
-# ggplot(data = df.tmp, 
-#        aes(x = X1, y = X2, label = rownames(df.tmp))) +
-#   geom_hline(yintercept = 0, colour = "gray70") +
-#   geom_vline(xintercept = 0, colour = "gray70") +
-#   geom_text()+
-#   ggtitle("MCA plot of variables using R package ca")
-# 
-# df.tmp <- df.toplot[67, ]
-# 
-# ggplot(data = df.tmp, 
-#        aes(x = X1, y = X2, label = rownames(df.tmp))) +
-#   geom_hline(yintercept = 0, colour = "gray70") +
-#   geom_vline(xintercept = 0, colour = "gray70") +
-#   geom_text()+
-#   ggtitle("MCA plot of variables using R package ca")
+
 
 # Plots overall genre space
 cat("\n\n# MCA Analysis for All Observations \n\n")
-plot(mca.output, what=c("active","active"), arrows=c(T,T), col = c("black", "grey")
+plot(mca.output, what=c("active","active"), arrows=c(T,T), col = c("black", "grey"), contrib=c("absolute",F)
      , main="MCA - Genre Spaces - All Observations")
+
+plot(mca.output, what=c("active","active"), arrows=c(T,T), col = c("black", "grey"), contrib=c("absolute",F), map="rowgab"
+     , main="MCA - Genre Spaces - All Observations - RowGab")
+
+plot(mca.output, what=c("active","active"), arrows=c(T,T), col = c("black", "grey"), contrib=c("absolute",F), map="rowgreen"
+     , main="MCA - Genre Spaces - All Observations - RowGreen")
 cat("\n\n \\pagebreak \n\n")
 
 # Plots overall descriptors space
