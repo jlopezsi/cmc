@@ -1,3 +1,31 @@
+# Music Genres
+
+| Old label           | New label   | Description              |
+| ------------------- | ----------- | ------------------------ |
+| glisten_chid        | Children    | Children's songs         |
+| glisten_solo        | Songwriter  | Songwriter               |
+| glisten_ballad      | Ballands    | Melodic songs            |
+| glisten_flamenco    | Flamenco    | Flamenco                 |
+| glisten_newflamenco | NewFlamenco | New flamenco             |
+| glisten_OSfolklore  | Folk        | Other Spanish folk music |
+| glisten_Spoprock    | PopRockS    | Spanish proprock         |
+| glisten_Lpoprock    | PopRockL    | Latino poprock           |
+| glisten_Fpoprock    | PopRock     | International PopRock    |
+| glisten_blues       | Blues       | Blues                    |
+| glisten_jazz        | Jazz        | Jazz                     |
+| glisten_wmusic      | World       | World Music              |
+| glisten_reggae      | Reggae      | Reggae                   |
+| glisten_rap         | Rap         | Rap                      |
+| glisten_electr      | Tecno       | Electronic, tecno        |
+| glisten_hardrock    | Hardrock    | Hardrock                 |
+| glisten_house       | House       | House                    |
+| glisten_classic     | Classic     | Classic                  |
+| glisten_lirica      | Lyrical     | Lyrical music            |
+| glisten_opera       | Opera       | Opera                    |
+| glisten_zar         | Operetta    | Operetta                 |
+
+
+
 [1] "IDENTI"   : identification number of each individual                
 [2] "TRIM"    : quarter (1, 2, 3 i 4) in which individuals were interviewed 
   

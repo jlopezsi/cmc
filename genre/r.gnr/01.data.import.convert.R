@@ -1,4 +1,5 @@
 source("../library.gnr/head.R")
+;a
 
 if(prj.import.state == "done"){
   fun.verbose("Data has already imported. Exiting.")
@@ -14,12 +15,20 @@ if(prj.import.state == "done"){
   fun.verbose(sprintf("%s rows imported", n.df.music))
 
   ## Trims colnames
-  vct.names <- names(df.music)
-  vct.names <- tolower(vct.names)
-  vct.names <- gsub("_", ".", vct.names)
-  vct.names <- gsub("c3.1n.", "", vct.names)
-  vct.names <- gsub("glisten.", "", vct.names)
-  names(df.music) <- vct.names
+  vec.names <- names(df.music)
+  vec.names <- tolower(vec.names)
+  vec.names <- gsub("_", ".", vec.names)
+  vec.names <- gsub("c3.1n.", "", vec.names)
+  vec.names <- gsub("glisten.", "", vec.names)
+  vec.names <- gsub("education", "education.raw", vec.names)
+  vec.names <- gsub("age", "age.raw", vec.names)
+  vec.names <- gsub("occupation", "occupation.raw", vec.names)
+
+  vec.names[prj.genre.col.ids] <- tolower(prj.genre.labels)
+  vec.names[prj.descriptors.col.ids] <- tolower(prj.descriptors.labels)
+
+
+  names(df.music) <- vec.names
   fun.verbose("Colume names transformed to lowercase and dot seperated")
 
   ## Saves the rdata file

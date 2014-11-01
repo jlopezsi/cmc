@@ -12,13 +12,12 @@ if(prj.mca.state != "tempdone"){
   load("../data.gnr/cca.membership.Rdata")
 
   # Creates genre dataframe
-  vec.genre <- seq(93, 153, by=3)
-  df.genre <- df.music[vec.genre]
+  df.genre <- df.music[, prj.genre.col.ids]
   # Excludes rows with zero module
   df.genre <- df.genre[-cca.zeros, ]
 
   # Selects discriptors for mca analysis
-  df.descriptors  <- df.music[, c(169, 171, 174, 167, 185, 181)]
+  df.descriptors  <- df.music[, prj.descriptors.col.ids]
 
   # Omits cca module zero
   df.descriptors  <- df.descriptors[-cca.zeros, ]
@@ -27,17 +26,18 @@ if(prj.mca.state != "tempdone"){
   df.mjca <- data.frame(df.genre, df.descriptors, data.frame(factor(cca.membership)))
 
   # Renames names for more readabilities
-  names(df.mjca) <- c("chl","swr","bld","flm","nfl","flk","spp","lpp","fpp","bls","jzz","wrl","rgg","rap","tcn","hrk","hus","cls","lyr","opr","opt","gnd","age","ocp","edu","hbt","fml","cca")
+  names(df.mjca) <- c(prj.genre.shortname, prj.descriptors.shortnames, prj.cca.shortnames)
 
   # Shortens levels for more readabilities
+  # `prj.` varibales are stored in `config.R`
   for(cnt.y in 1:21){
-    levels(df.mjca[,cnt.y]) <- c("n","y")
+    levels(df.mjca[,cnt.y]) <- prj.genre.level
   }
-  levels(df.mjca$gnd) <- c("f","m")
-  levels(df.mjca$ocp) <- c("aut","emp","ump","rtr","std","hhl")
-  levels(df.mjca$edu) <- c("sec","grd","pst")
-  levels(df.mjca$hbt) <- c("cpt",">100","50-100","10-50","<10")
-  levels(df.mjca$fml) <- c("<=2","3-4",">4")
+  levels(df.mjca$gnd) <- prj.gender.level
+  levels(df.mjca$ocp) <- prj.occupation.level
+  levels(df.mjca$edu) <- prj.education.level
+  levels(df.mjca$hbt) <- prj.habitation.level
+  levels(df.mjca$fml) <- prj.family.level
 
   # Conducts mca analysis 
   mca.output <- mjca(df.mjca, supcol = 22:28)
