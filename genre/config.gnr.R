@@ -72,8 +72,9 @@ prj.descriptors.col.names  <- tolower(prj.descriptors.labels)
 # Short labels for descriptors
 prj.genres.short.levels  <- c("n","y")
 prj.gender.short.levels       <- c("f","m")
+prj.age.short.levels          <- c("<25", "25-34", "35-44", "45-54", ">54")
 prj.occupation.short.levels   <- c("slf","emp","ump","rtr","std","otr")
-prj.ecucation.short.levels    <- c("edu1","edu2","edu3")
+prj.education.short.levels    <- c("edu1","edu2","edu3")
 prj.habitation.short.levels   <- c("cpt",">100","50-100","10-50","<10")
 prj.family.short.levels       <- c("<=2","3-4",">4")
 

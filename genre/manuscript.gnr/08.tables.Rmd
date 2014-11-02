@@ -22,15 +22,18 @@ for(cnt.i in prj.descriptors.col.ids){
   cnt.j <- cnt.j + 1
   cnt.k <- cnt.k + 2
   hlines  <- c(hlines, cnt.k)
+  tmp.level <- get(paste0("prj.", prj.descriptors.col.names[cnt.j] ,".short.levels"))
   cnt.k <- cnt.k + length(names(table(df.music[cnt.i])))
-  tab.2 <- rbind(tab.2, c("", ""))
-  tab.2 <- rbind(tab.2, c(prj.descriptors.descriptions[cnt.j], ""))
-  tab.2 <- rbind(tab.2, cbind(names(table(df.music[cnt.i])), paste0(100*round(prop.table(table(df.music[cnt.i])),2)," %")))
+  tab.2 <- rbind(tab.2, c("", "", ""))
+  tab.2 <- rbind(tab.2, c(prj.descriptors.descriptions[cnt.j], prj.descriptors.short.names[cnt.j], ""))
+  tab.2 <- rbind(tab.2, cbind(names(table(df.music[cnt.i]))
+                              , paste0(prj.descriptors.short.names[cnt.j], ":", tmp.level)
+                              , paste0(100*round(prop.table(table(df.music[cnt.i])),2)," %")))
 }
 hlines  <- c(hlines, nrow(tab.2))
 
 
-colnames(tab.2) <- c("Clusters", "Sample")
+colnames(tab.2) <- c("Clusters", "Abb.", "Sample")
 rownames(tab.2) <- rep("", nrow(tab.2))
 
 tab.2 <- data.frame(tab.2)
@@ -38,8 +41,8 @@ tab.2 <- data.frame(tab.2)
 
 tab.2  <- xtable(tab.2, caption="Descriptive statistics of social position indicators", label="tab:stat.descriptors")
 
-align(tab.2) <- "llr"
+align(tab.2) <- "lllr"
 
-print(tab.2 , tabular.environment="tabularx" ,width="0.5\\textwidth" ,include.rownames=FALSE, hline.after = hlines, comment=F, booktabs=T)
+print(tab.2 , tabular.environment="tabularx" ,width="0.6\\textwidth" ,include.rownames=FALSE, hline.after = hlines, comment=F, booktabs=T)
 
 ```
