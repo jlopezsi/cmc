@@ -11,10 +11,10 @@ if(prj.mca.state != "tempdone"){
   # Loads vector of cca membership
   load("../data.gnr/cca.membership.Rdata")
 
-  # Creates genre dataframe
-  df.genre <- df.music[, prj.genre.col.ids]
+  # Creates genres dataframe
+  df.genres <- df.music[, prj.genres.col.ids]
   # Excludes rows with zero module
-  df.genre <- df.genre[-cca.zeros, ]
+  df.genres <- df.genres[-cca.zeros, ]
 
   # Selects discriptors for mca analysis
   df.descriptors  <- df.music[, prj.descriptors.col.ids]
@@ -23,21 +23,21 @@ if(prj.mca.state != "tempdone"){
   df.descriptors  <- df.descriptors[-cca.zeros, ]
 
   # analyze and save the output of mca 
-  df.mjca <- data.frame(df.genre, df.descriptors, data.frame(factor(cca.membership)))
+  df.mjca <- data.frame(df.genres, df.descriptors, data.frame(factor(cca.membership)))
 
   # Renames names for more readabilities
-  names(df.mjca) <- c(prj.genre.shortname, prj.descriptors.shortnames, prj.cca.shortnames)
+  names(df.mjca) <- c(prj.genres.short.names, prj.descriptors.short.names, prj.cca.short.names)
 
   # Shortens levels for more readabilities
   # `prj.` varibales are stored in `config.R`
   for(cnt.y in 1:21){
-    levels(df.mjca[,cnt.y]) <- prj.genre.level
+    levels(df.mjca[,cnt.y]) <- prj.genres.short.levels
   }
-  levels(df.mjca$gnd) <- prj.gender.level
-  levels(df.mjca$ocp) <- prj.occupation.level
-  levels(df.mjca$edu) <- prj.education.level
-  levels(df.mjca$hbt) <- prj.habitation.level
-  levels(df.mjca$fml) <- prj.family.level
+  levels(df.mjca$gnd) <- prj.gender.short.levels
+  levels(df.mjca$ocp) <- prj.occupation.short.levels
+  levels(df.mjca$edu) <- prj.education.short.levels
+  levels(df.mjca$hbt) <- prj.habitation.short.levels
+  levels(df.mjca$fml) <- prj.family.short.levels
 
   # Conducts mca analysis 
   mca.output <- mjca(df.mjca, supcol = 22:28)
@@ -61,7 +61,7 @@ if(prj.mca.state != "tempdone"){
   # Repeats the same analysis by the `ade4` package
 
   # Conducts mca.ade4 analysis
-  mca.ade4.output <- dudi.acm(df.genre, scannf=F,  nf=2)
+  mca.ade4.output <- dudi.acm(df.genres, scannf=F,  nf=2)
   # Saves mca.ade4 analysis
   save(mca.ade4.output, file="../data.gnr/mca.ade4.output.Rdata")
 
@@ -71,7 +71,7 @@ if(prj.mca.state != "tempdone"){
   # for each cca module
   for(cnt.i in 1:length(levels(as.factor(cca.membership)))){
     # Conducts mca.ade4 for current cca mudlue
-    mca.ade4.module.output[[cnt.i]] <- dudi.acm(df.genre[cca.membership == cnt.i, ], scannf=F,  nf=2)
+    mca.ade4.module.output[[cnt.i]] <- dudi.acm(df.genres[cca.membership == cnt.i, ], scannf=F,  nf=2)
   }
 
   # Saves the list of cca.ade4 subset results for each module

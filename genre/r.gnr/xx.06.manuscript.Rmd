@@ -1,0 +1,47 @@
+---
+title: "`r prj.manuscript.title`"
+documentclass: article
+classoption: a4paper, draft, notitlepage, 18pt
+author: "`r prj.manuscript.authors`"
+
+output:
+  pdf_document:
+    includes:
+      in_header: xx.06.manuscript.header.tex
+    highlight: tango
+    fig_width: 7
+    fig_height: 6
+    fig_caption: true
+    number_sections: true
+---
+
+```{r child = '../manuscript.gnr/00.forematter.Rmd'}
+```
+
+```{r child = '../manuscript.gnr/01.introduction.Rmd'}
+```
+
+```{r child = '../manuscript.gnr/02.theoretical.framework.Rmd'}
+```
+
+```{r child = '../manuscript.gnr/03.research.design.Rmd'}
+```
+
+```{r child = '../manuscript.gnr/04.findings.Rmd'}
+```
+
+```{r child = '../manuscript.gnr/05.discussion.Rmd'}
+```
+
+```{r child = '../manuscript.gnr/06.conclusions.Rmd'}
+```
+
+```{r child = '../manuscript.gnr/07.refrences.Rmd'}
+```
+
+```{r child = '../manuscript.gnr/08.tables.Rmd'}
+```
+
+```{r child = '../manuscript.gnr/09.graphics.Rmd'}
+```
+

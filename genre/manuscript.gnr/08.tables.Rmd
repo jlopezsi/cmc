@@ -1,0 +1,45 @@
+# Tables
+
+```{r results='asis', echo=F, warning=F}
+
+# Calcs the prop.table for each genre
+genre.pt <- sapply(prj.genres.col.ids, function(x){paste0(round(prop.table(table(df.music[x]))[2],3)*100, "%")})
+
+# Ma#s the output table
+tab.1 <- cbind(prj.genres.labels, prj.genres.descriptions,  prj.genres.short.names, as.vector(genre.pt))
+colnames(tab.1) <- c("Genre Name", "Description", "Abb.", "Percentage of Yes")
+print(xtable(tab.1, caption="Descriptive statistics of music genres", label="tab:stat.genres"), type="latex", comment=F)
+```
+
+\pagebreak
+
+```{r xtable, results='asis', echo=F, warning=F}
+tab.2  <- c()
+cnt.j <- 0
+cnt.k <- 0
+hlines  <- c(-1, 0)
+for(cnt.i in prj.descriptors.col.ids){
+  cnt.j <- cnt.j + 1
+  cnt.k <- cnt.k + 2
+  hlines  <- c(hlines, cnt.k)
+  cnt.k <- cnt.k + length(names(table(df.music[cnt.i])))
+  tab.2 <- rbind(tab.2, c("", ""))
+  tab.2 <- rbind(tab.2, c(prj.descriptors.descriptions[cnt.j], ""))
+  tab.2 <- rbind(tab.2, cbind(names(table(df.music[cnt.i])), paste0(100*round(prop.table(table(df.music[cnt.i])),2)," %")))
+}
+hlines  <- c(hlines, nrow(tab.2))
+
+
+colnames(tab.2) <- c("Clusters", "Sample")
+rownames(tab.2) <- rep("", nrow(tab.2))
+
+tab.2 <- data.frame(tab.2)
+
+
+tab.2  <- xtable(tab.2, caption="Descriptive statistics of social position indicators", label="tab:stat.descriptors")
+
+align(tab.2) <- "llr"
+
+print(tab.2 , tabular.environment="tabularx" ,width="0.5\\textwidth" ,include.rownames=FALSE, hline.after = hlines, comment=F, booktabs=T)
+
+```

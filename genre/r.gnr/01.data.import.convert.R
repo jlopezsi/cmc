@@ -22,13 +22,26 @@ if(prj.import.state == "done"){
   vec.names <- gsub("education", "education.raw", vec.names)
   vec.names <- gsub("age", "age.raw", vec.names)
   vec.names <- gsub("occupation", "occupation.raw", vec.names)
+  vec.names <- gsub(".liric", ".lyrical", vec.names)
+  vec.names <- gsub(".fpoprock", ".intpoprock", vec.names)
 
-  vec.names[prj.genre.col.ids] <- tolower(prj.genre.labels)
-  vec.names[prj.descriptors.col.ids] <- tolower(prj.descriptors.labels)
+  # Sets readable column names for genres and descrtiptors
+  vec.names[prj.genres.col.ids] <- prj.genres.col.names
+  vec.names[prj.descriptors.col.ids] <- prj.descriptors.col.names
 
-
+  # Sets new col names and verboses
   names(df.music) <- vec.names
   fun.verbose("Colume names transformed to lowercase and dot seperated")
+
+  for(cnt.y in prj.genres.col.ids){
+    levels(df.music[,cnt.y]) <- prj.genres.long.levels
+  }
+  # Setting readable levels for variables
+  levels(df.music$gender) <- prj.gender.long.levels
+  levels(df.music$occupation) <- prj.occupation.long.levels
+  levels(df.music$education) <- prj.education.long.levels
+  levels(df.music$habitation) <- prj.habitation.long.levels
+  levels(df.music$family) <- prj.family.long.levels
 
   ## Saves the rdata file
   save(df.music, file=pth.music.rdata)

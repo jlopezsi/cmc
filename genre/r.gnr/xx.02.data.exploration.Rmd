@@ -14,59 +14,43 @@ output:
 
 source("../library.gnr/head.R")
 
-fun.install.require(c("beepr", "circlize","ggplot2","xtable","stats"))
+# Loads libraries
+fun.install.require(c("beepr", "circlize","ggplot2","xtable","stats", "rapport"))
 
-load(pth.music.rdata)
+# Loads music genres data
+load("../data.gnr/music.Rdata")
 
-arr.groupby <- c("gender","age5", "occupation", "educ3", "habitat", "fam.3niv")
+# Descriptors
+arr.groupby <- prj.descriptors.col.names
 
-arr.categorical         <- c("Interests", "Genres", "Genres.Child" , "Genres.Solo"
-                             , "Genres.Ballad", "Genres.Flamenco", "Genres.NewFlamenco"
-                             , "Genres.OsFolklore", "Genres.SPopRock", "Genres.LPopRock"
-                             , "Genres.FPopRock", "Genres.Blues", "Genres.Jazz", "Genres.WMusic"
-                             , "Genres.Reggae", "Genres.Rap", "Genres.Electr", "Genres.HardRock"
-                             , "Genres.House", "Genres.Classic", "Genres.Liric", "Genres.Opera"
-                             , "Genres.Zar", "Genres.Other")
+arr.categorical         <- c("Interests", "Genres")
 
 arr.interests           <- c("interest.clasicm","interest.concertam"
                              ,"interest.listenm","interest.music")
 
-arr.genres              <- c("solo", "flamenco" , "spoprock"
-                            , "jazz", "rap", "opera")
+arr.genres              <- c("ballad", "flamenco" , "spanishpoprock"
+                             , "jazz", "rap", "opera")
 
-arr.genres.child        <- c("gbuy.child","gdowrec.child", "child")
-arr.genres.solo         <- c("gbuy.solo", "gdowrec.solo","solo")
-arr.genres.ballad       <- c("gbuy.ballad","gdowrec.ballad", "ballad")
-arr.genres.flamenco     <- c("gbuy.flamenco", "gdownrec.flamenco","flamenco")
-arr.genres.newflamenco  <- c("gbuy.newflamenco","gdowrec.newflamenco", "newflamenco")
-arr.genres.osfolklore   <- c("gbuy.osfolklore", "gdowrec.osfolklore","osfolklore")
-arr.genres.spoprock     <- c("gbuy.spoprock","gdowrec.spoprock", "spoprock")
-arr.genres.lpoprock     <- c("gbuy.lpoprock", "gdowrec.lpoprock","lpoprock")
-arr.genres.fpoprock     <- c("gbuy.fpoprock","gdowrec.fpoprock", "fpoprock")
-arr.genres.blues        <- c("gbuy.blues", "gdowrec.blues","blues")
-arr.genres.jazz         <- c("gbuy.jazz","gdowrec.jazz", "jazz")
-arr.genres.wmusic       <- c("gbuy.wmusic", "gdowrec.wmusic","wmusic")
-arr.genres.reggae       <- c("gbuy.reggae","gdowrec.reggae", "reggae")
-arr.genres.rap          <- c("gbuy.rap", "gdowrec.rap","rap")
-arr.genres.electr       <- c("gbuy.electr","gdowrec.electr", "electr")
-arr.genres.hardrock     <- c("gbuy.hardrock", "gdowrec.hardrock","hardrock")
-arr.genres.house        <- c("gbuy.house","gdowrec.house", "house")
-arr.genres.classic      <- c("gbuy.classic", "gdowrec.classic","classic")
-arr.genres.liric        <- c("gbuy.liric","gdowrec.liric", "liric")
-arr.genres.opera        <- c("gbuy.opera", "gdowrec.opera","opera")
-arr.genres.zar          <- c("gbuy.zar","gdowrec.zar", "zar")
-arr.genres.other        <- c("gbuy.other", "gdowrec.other","other")
 
 attach(df.music)
 ```
 
 \newpage
 
+```{r, results='asis', echo=F, warning=F}
+for(v in c(prj.descriptors.col.names, prj.genres.col.names)){
+  g <- rapport("Descriptives", data=df.music, var=v, file.path="../r.gnr/", graph.hi.res=T)
+  print(g)
+  cat("\n\n \\pagebreak \n\n ")
+}
+```
+
 # Interests
 
 ## Descriptives
 
 ```{r, results='asis', echo=F, fig.width=9, fig.height=5.5}
+
 for(arr in arr.categorical){
   arr.title <- arr
   arr <- get(paste0("arr.", tolower(arr)))
@@ -81,35 +65,32 @@ for(arr in arr.categorical){
 
     cat("\n\n")
 
+    for(gb in arr.groupby){
+      gg <- ggplot(df.music, aes_string(x=sprintf("%s",cl))) +
+      geom_freqpoly(aes_string(group = sprintf("%s",gb), colour = sprintf("%s",gb))) +
+      ggtitle(sprintf("Frequency Polygraph of %s\nGrouped by %s", cl, gb))
 
+      print(gg)
+      cat("\n\n \\pagebreak \n\n ")
+    }
 
-
-            for(gb in arr.groupby){
-              gg <- ggplot(df.music, aes_string(x=sprintf("%s",cl))) +
-              geom_freqpoly(aes_string(group = sprintf("%s",gb), colour = sprintf("%s",gb))) +
-              ggtitle(sprintf("Frequency Polygraph of %s\nGrouped by %s", cl, gb))
-
-              print(gg)
-              cat("\n\n \\pagebreak \n\n ")
-            }
-
-            #  print(ggplot(df.music, aes(x = cl, color = occupaton5)) + geom_density())
-            #  print(ggplot(df.music, aes(x = cl, color = age5)) + geom_density())
-            #  print(ggplot(df.music, aes(x = cl, color = educ3)) + geom_density())
+    #  print(ggplot(df.music, aes(x = cl, color = occupaton5)) + geom_density())
+    #  print(ggplot(df.music, aes(x = cl, color = age5)) + geom_density())
+    #  print(ggplot(df.music, aes(x = cl, color = educ3)) + geom_density())
   }
 
   cat("\n\n### Contingencies\n\n")
 
   for(cmb in combn(arr,2, simplify=F)){
-      cat(sprintf("\n\n### %s vs %s\n\n", cmb[1], cmb[2]))
+    cat(sprintf("\n\n### %s vs %s\n\n", cmb[1], cmb[2]))
 
-      print(mosaicplot( as.formula(paste("~", cmb[1], "+", cmb[2])), data=df.music,
-                       color=2:20))
+    print(mosaicplot( as.formula(paste("~", cmb[1], "+", cmb[2])), data=df.music,
+                     color=2:20))
 
-      mat=table(get(cmb[1]), get(cmb[2]))
-      rownames(mat) <- paste(cmb[1], rownames(mat),sep="\n")
-      colnames(mat) <- paste(cmb[2], colnames(mat),sep="\n")
-      print(chordDiagram(mat, directional = TRUE, transparency = 0.5))
+    mat=table(get(cmb[1]), get(cmb[2]))
+    rownames(mat) <- paste(cmb[1], rownames(mat),sep="\n")
+    colnames(mat) <- paste(cmb[2], colnames(mat),sep="\n")
+    print(chordDiagram(mat, directional = TRUE, transparency = 0.5))
   }
 
   # Beep after each array

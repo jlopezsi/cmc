@@ -1,0 +1,4 @@
+\begin{abstract}
+Lorem ipsum\ldots
+\end{abstract}
+\keywords{one, two, three, four}
