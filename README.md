@@ -4,4 +4,13 @@
 
 ### Generes
 
+codename: `gnr`
+
+### Group
+
+codename: `grp`
+
 ### Leisure
+
+codename: `lsr`
+
