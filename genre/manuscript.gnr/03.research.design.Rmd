@@ -1,6 +1,6 @@
-# 3 Research Design
+# Research Design
 
-## 3.1 Data and variables
+## Data and variables
 
 The data for our study came from a Spanish survey on habits and cultural
 practices for 2006-2007 (see Ministry of Culture (2007) for technical details).
@@ -16,7 +16,7 @@ level (age and gender) but also at the autonomous community level (Ministry of
 Culture, 2007:11). In the interest of brevity, background data referring to the
 research described below are provided in supplementary form in Tables A1-A6.
 
-### 3.1.1 Cultural space: musical listening indicators
+### Cultural space: musical listening indicators
 
 Individuals interviewed were asked about the kind of music he/she normally
 listen to.  Individuls were given a list of musical genres and they just had to
@@ -29,7 +29,7 @@ music and techno (tcn), hardrock (hrk), house (hus), classical music (cls),
 Lyrical music (lyr), opera (opr), operetta (opt). Desciptors are provided in
 Table~\ref{tab:stat.genres}. 
 
-### 3.1.2. Social space: indicators of individual position
+### Social space: indicators of individual position
 
 According to Bourdieu???s theoretical framework, the properties of individuals
 are indicators of their social position, such that variations in individual
@@ -53,80 +53,63 @@ categories); number of individuals aged 15 and over in the household (three
 categories); habitat where the household was located (five categories); and sex
 (Table~\ref{tab:stat.descriptors}).
 
-## 3.2 Analysis
+## Analysis
 
-### 3.2.1 Uncovering the music schemes 
+### Uncovering the music schemes 
 
-#### 3.2.1.1 Correlation Classification Analysis
+#### Correlation Classification Analysis
 
-Coorelation Classification Analysis (CCA) is a method to measure shared cultural
-schemas in survey data, developed by Andrei Boutyline (2014). 
+To uncover and measure shared music schemas in survey data we used Correlation
+Classification Analysis (CCA) developed by Andrei Boutyline (2014) ???. CCA is
+based on Relational Class Analysis (RCA), a novel methodology with the aim of
+measuring shared cultural schemas developed by @goldberg2011mapping
+\cite{goldberg2011mapping}. At the core [@goldberg2011mapping]
+of RCA approach is a novel similarity measure termed *relationality* which in
+CCA approach is changed into a Pearson correlation measurement termed
+*correlation class*. Boutyline contends that correlationality (i.e. the level of
+pairwise correlations) can quantify the extent to which two respondents organize
+their attitudes according to such a shared cultural schema more accurately and
+technically faster than RCA.
 
+CCA calculates the Pearson correlation scores for each pair of respondents and
+uses the result matrix to construct and value the links of a network in which
+nodes are individual survey respondents. Then the method drops waker ties,
+partitions the network via Newman's (2006) eigenvector-based modularity
+maximization algorithm to assign individuals to groups the way that  correlation
+scores are high within groups, and lower between groups.
 
-At the core of CCA's approach is a novel similarity measure termed
-"correlational class" which Goldberg states can quantify the extent to which two
-respondents organize their attitudes according to such a shared cultural
-schema. RCA calculates the relationality scores for each pair of respondents
+#### Multiple Correspondence Analysis
 
-Pearson’s correlation is often interpreted as the "measure of the degree of
-linear relationship between two variables" (Stockburger 2007; see Rodgers and
-Nicewander 1988 for a detailed treatment). Thus, Pearson's correlation appears
-to be a perfect candidate for this task.
+To test our theoretical framework, we needed an instrument capable of analyzing
+two related spaces: that of individuals and that of Internet use. Like Bourdieu
+in La Distinction (1984), we used the multiple correspondence analysis (MCA)
+technique (Greenacre, 1993; Greenacre & Blasius, 1994; Lebart, Morineau, &
+Warwick, 1984); in particular, we used the implementation of MCA by Ven- ables
+and Ripley (2002, pp. 329–330). The MCA enabled us to build up the Internet use
+and indi- vidual spaces from a set of uses large enough to allow a full
+multidimensional display of individuals (Rouanet, Ackermann, & Le Roux, 2004).
+How individuals were related to their Internet use patterns revealed their
+linkages with other individuals. A geometric representation of the Internet use
+space is as simple as diagonalizing an n-by-l matrix G of n individuals (rows)
+observed for p Internet use (dummy variables) with l (1⁄4 p Â 2) total cate-
+gory levels (columns). 
 
+A simple geometric display consists of a two-dimensional space where 
 
+Inter- net
+use and use level are plotted according to their association with each of these
+dimensions. The result is an asymmetric row plot of the matrix of individuals
+according to Internet use. To interpret the social space constructed in this
+way, we used the inertias (total variance) of the principal axes and the
+contributions of the Internet use categories to the axes (see Ambrogi,
+Biganzoli, & Boracchi, 2005). MCA enables active variables to be distinguished
+from supplementary properties, with the latter term used to define variables
+that have no impact on the geometric orienta- tion of the dimensions but which
+may help with interpretation (Greenacre, 1993). In our research, we used MCA
+both as an exploratory and explanatory tool; for the latter, we used the
+‘‘predict’’ method for the ‘‘MCA’’ class implemented in the Modern Applied
+Statistics with S (MASS) package (Venables & Ripley, 2002), using the R language
+and environment for statistical analysis, version 2.9.0 (R Development Core
+Team, 2009).
 
-At the core of RCA’s approach is a novel similarity measure termed
-“relationality,” which Goldberg contends can quantify the extent to which two
-respondents organize their attitudes according to such a shared cultural
-schema. RCA calculates the relationality scores for each pair of respondents
-and interprets the result as an adjacency matrix for a valued network, where
-the nodes are individual survey respondents and ties between them are their
-pairwise relationalities. After adjusting tie strengths for a bias in the
-relationality measure and dropping weaker ties, it partitions the network via
-Newman’s (2006) eigenvector-based modularity maximization algorithm, which
-assigns individuals to groups so that relationality scores are high within
-groups, and lower between groups.
-
-Goldberg (2011) developed relationality as a tool to detect shared cultural
-schemas in survey data—a novel methodological task that is, in itself, a bold
-conceptual innovation. However, existing work on RCA does not provide a formal
-definition of shared cultural schemas, making relationality’s performance
-difficult to analyze. As I demonstrate below, however, the theoretical
-reasoning behind RCA easily yields such a definition. Moreover, this
-formalization reveals that, in order to detect shared cultural schemas,
-relationality must measure the degree of linear dependency between two vectors
-of responses—the same quantity for which Pearson’s correlation is a
-long-established measure. When I revisit Goldberg’s introductory example
-(Goldberg 2011:1404-1405) with Pearson’s correlation, I discover that it
-produces a substantially more accurate result than Goldberg’s relationality.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### 3.2.2 Interpreting the music schemes
+### Interpreting the music schemes

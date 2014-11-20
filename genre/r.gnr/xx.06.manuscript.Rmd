@@ -3,7 +3,7 @@ title: "`r prj.manuscript.title`"
 documentclass: article
 classoption: a4paper, draft, notitlepage, 18pt
 author: "`r prj.manuscript.authors`"
-
+bibliography: ../manuscript.gnr/xx.refrences.aba.bib
 output:
   pdf_document:
     includes:
