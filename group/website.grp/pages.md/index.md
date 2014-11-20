@@ -57,12 +57,12 @@ liquentibus loqueretur Argis.
 <div class="row">
 <div class="col-lg-12 ulbigger">
 
-Aeternus sed Victor taloque, et corpus pectoris aequor, inclitus susurra pars.
-**Horruit aquila** isto, tamen vivum tempore multa vina virginis verbisque.
-Vincis flores modo: muneris capiti, vultus et minari septemque confinia, cepit
-et nitidos, esset arbitrium. Patria suspicor innumeris antris mea, et bina, qui
-montes sistrorum [falsum](http://zeus.ugent.be/) mihi quoque dotatissima
-liquentibus loqueretur Argis.
+Hi this is a text. Aeternus sed Victor taloque, et corpus pectoris aequor,
+inclitus susurra pars. Vincis flores modo: muneris capiti, vultus et minari
+septemque confinia, cepit added a new line et nitidos, esset arbitrium. Patria
+suspicor innumeris antris mea, et bina, qui montes sistrorum
+[falsum](http://zeus.ugent.be/) mihi quoque dotatissima liquentibus loqueretur
+Argis.
 
 </div>
 </div>
