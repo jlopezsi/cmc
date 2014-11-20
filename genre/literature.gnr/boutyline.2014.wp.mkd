@@ -1,8 +1,8 @@
-Improving the Measurement of Shared Cultural Schemas
-with Correlational Class Analysis *
+        Improving the Measurement of Shared Cultural Schemas
+                with Correlational Class Analysis *
 
-Andrei Boutyline
-University of California, Berkeley
+                         Andrei Boutyline
+              University of California, Berkeley
 
 WORKING PAPER
 Please do not cite without permission.
@@ -22,9 +22,7 @@ all correspondence to Andrei Boutyline at Department of Sociology, 410 Barrows
 Hall, University of California, Berkeley, CA 94720. Email:
 boutyline@berkeley.edu
 
-Correlational Class Analysis 2
-
-ABSTRACT
+# ABSTRACT
 
 The task of measuring shared cultural schemas is among the most central
 methodological challenges in sociology of culture. Relational Class Analysis
@@ -32,7 +30,7 @@ methodological challenges in sociology of culture. Relational Class Analysis
 data. It uses a novel measure called "relationality" to quantify the extent to
 which two respondents organize their attitudes according to a shared cultural
 schema. However, since existing work lacks a formal definition of such schemas,
-RCA’s accuracy is difficult to assess. In this paper, I build on the
+RCA's accuracy is difficult to assess. In this paper, I build on the
 theoretical reasoning behind RCA to arrive at this formal definition. In doing
 so, I discover that shared cultural schemas should result in linear
 dependencies between rows in a survey dataset—the same relationship as measured
@@ -50,14 +48,13 @@ Bryson (1996), in which a handful of musical tastes closely associated with
 low-education listeners are distinguished from tastes for all other genres. I
 conclude by highlighting further areas for methodological improvement.
 
-Correlational Class Analysis 3
-
-Improving the Measurement of Shared Cultural Schemas with Correlational Class Analysis
+Improving the Measurement of Shared Cultural Schemas with Correlational Class
+Analysis
 
 The task of revealing intelligible structures of meaning beneath complex
 collections of cultural data is among the most central methodological
 challenges posed by sociology of culture (Mohr and Rawlings 2012; Mohr 1998).
-From the perspective of culture and cognition (DiMaggio 1997, 2011), this task
+From the perspective of culture and cognition (DiMaggio 1998, 2011), this task
 is a search for “cultural schemas”—abstract shared structures which specify
 relationships between cultural elements. In a high-profile recent work,
 Goldberg (2011) proposes an innovative methodology for identifying groups of
@@ -69,16 +66,14 @@ behavior (Miranda, Summers, and Kim 2012) and economic sociology (DiMaggio and
 Goldberg 2010). However, existing work has not yet provided a clear formal
 definition of cultural schemas, the central concept under investigation. This
 is a crucial limitation as, without such a definition, it is impossible to
-quantify how well RCA measures what it purports to measure. In this paper, I
-build on Goldberg’s (2011) theoretical reasoning to arrive at this missing
-definition, which I then use to develop a substantially more accurate,
-computationally faster, and analytically more parsimonious alternative I call
-Correlational Class Analysis (CCA).  Goldberg (2011) introduces RCA using a
-case study of musical tastes. Taking a cue from relational theories of meaning
-(e.g., Mohr 1998; Saussure 1916 [2013];
+quantify how well RCA measures what it purports to measure. 
 
-Correlational Class Analysis 4
-
+In this paper, I build on Goldberg’s (2011) theoretical reasoning to arrive at
+this missing definition, which I then use to develop a substantially more
+accurate, computationally faster, and analytically more parsimonious
+alternative I call Correlational Class Analysis (CCA).  Goldberg (2011)
+introduces RCA using a case study of musical tastes. Taking a cue from
+relational theories of meaning (e.g., Mohr 1998; Saussure 1916 [2013];
 Emirbayer 1997), RCA searches for cultural schemas that define not the musical
 tastes themselves, but the relationships between these tastes—that is, which
 genre tastes are perceived as similar and which as opposed. This kind of schema
@@ -105,8 +100,6 @@ Newman’s (2006) eigenvector-based modularity maximization algorithm, which
 assigns individuals to groups so that relationality scores are high within
 groups, and lower between groups.
 
-Correlational Class Analysis 5
-
 Goldberg (2011) developed relationality as a tool to detect shared cultural
 schemas in survey data—a novel methodological task that is, in itself, a bold
 conceptual innovation. However, existing work on RCA does not provide a formal
@@ -132,8 +125,6 @@ Goldberg’s (2011) RCA analysis of the 1993 GSS musical tastes data, and find
 that CCA results differ in substantive ways from RCA’s. I conclude by
 discussing the remaining limitations of the method, and by highlighting further
 areas for improvement.
-
-Correlational Class Analysis 6
 
 SHARED SCHEMAS
 
@@ -163,18 +154,14 @@ In contrast to A and B, respondent C is indifferent towards pop, blues and
 rock, strongly dislikes classical and opera, and strongly likes bluegrass and
 country: 𝐶 = {3,3,3,1,1,5,5}. These tastes again follow the same relative
 pattern as A and B, except all tastes are vertically shifted, inverted and
-amplified: 𝐶 = 2 ∗ (−1) ∗ 𝐴 + 11, or,
-
-Correlational Class Analysis 7
-
-equivalently, 𝐶 = 2 ∗ (−1) ∗ 𝐵 + 7. Finally, respondent D strongly dislikes pop
-and rock, strongly likes blues, likes classical, opera and bluegrass, and
-dislikes country: 𝐷 = {1,5,1,4,4,4,2}. Unlike A, B and C, this respondent
-construes an opposition between bluegrass and country, but not between
-bluegrass and opera. No series of inversions, multiplications or shifts of this
-pattern can transform it into the one exhibited by A, B and C. We thus conclude
-that, while respondents A, B and C follow the same schema, respondent D does
-not.
+amplified: 𝐶 = 2 ∗ (−1) ∗ 𝐴 + 11, or, equivalently, 𝐶 = 2 ∗ (−1) ∗ 𝐵 + 7.
+Finally, respondent D strongly dislikes pop and rock, strongly likes blues,
+likes classical, opera and bluegrass, and dislikes country: 𝐷 =
+{1,5,1,4,4,4,2}. Unlike A, B and C, this respondent construes an opposition
+between bluegrass and country, but not between bluegrass and opera. No series
+of inversions, multiplications or shifts of this pattern can transform it into
+the one exhibited by A, B and C. We thus conclude that, while respondents A, B
+and C follow the same schema, respondent D does not.
 
 From this example, we can surmise that two responds follow exactly the same
 schema if (i) their attitudes are identical, (ii) their attitudes are exact
@@ -193,8 +180,6 @@ otherwise capture the degree to which one pattern can be approximated by linear
 transformations of the other.
 
 Relationality
-
-Correlational Class Analysis 8
 
 Goldberg (2011) offers relationality 𝑅 𝑖𝑗 as a measure of this schematic
 similarity. It is computed by first taking the vector of attitudes belonging to
@@ -221,12 +206,9 @@ this diagram in Figure 2A below 3.  Relationality achieves its maximum value
 for the respondent pair A and B (AB = 1.00), thus clearly indicating that the
 two follow the same schema. Conversely, the absolute relationality between the
 pair A and D is approximately 0.2, which is appropriately low as A and D follow
-different schemas. Since C follows the same schema as A and B, the
-
-Correlational Class Analysis 9
-
-absolute relationalities AC and BC should optimally be equal to the same value
-as AB (1.00). Unfortunately, this is not the case: both AC and BC have absolute
+different schemas. Since C follows the same schema as A and B, the absolute
+relationalities AC and BC should optimally be equal to the same value as AB
+(1.00). Unfortunately, this is not the case: both AC and BC have absolute
 relationalities of approximately 0.3, which is far closer to the relationality
 of the unrelated pair AD (0.2). Thus, relationality appears to grossly
 understate the schematic similarity between respondent C and respondents A and
@@ -252,21 +234,18 @@ This shortcoming means that there is merit in trying out a different measure of
 schematic similarity. Recall that two respondents X and Y exactly follow the
 same schema if there exist such constants 𝑘 ≠ 0 and b such that 𝑌 = 𝑘𝑋 + 𝑏.
 Thus, provided that X and Y have a finite non-zero variance, it can be easily
-shown that the absolute Pearson’s
-
-Correlational Class Analysis 10
-
-correlation |𝑟| between X and Y equals 1 if and only if they follow exactly the
-same schema. As the two responses become more and more linearly independent of
-one another—that is, as the best possible linear transformation of X leaves an
-ever larger percentage of Y’s variance unexplained—the value of |𝑟| decreases
-monotonically towards 0. Finally, |𝑟| will be equal to 0 if and only if 𝑘 = 0
-gives the best linear approximation of Y, or, in other words, if the best
-linear approximation of Y ignores the contents of X altogether. This is why
-Pearson’s correlation is often interpreted as the “measure of the degree of
-linear relationship between two variables” (Stockburger 2007; see Rodgers and
-Nicewander 1988 for a detailed treatment). Thus, Pearson’s correlation appears
-to be a perfect candidate for this task.
+shown that the absolute Pearson’s correlation |𝑟| between X and Y equals 1 if
+and only if they follow exactly the same schema. As the two responses become
+more and more linearly independent of one another—that is, as the best possible
+linear transformation of X leaves an ever larger percentage of Y’s variance
+unexplained—the value of |𝑟| decreases monotonically towards 0. Finally, |𝑟|
+will be equal to 0 if and only if 𝑘 = 0 gives the best linear approximation of
+Y, or, in other words, if the best linear approximation of Y ignores the
+contents of X altogether. This is why Pearson’s correlation is often
+interpreted as the “measure of the degree of linear relationship between two
+variables” (Stockburger 2007; see Rodgers and Nicewander 1988 for a detailed
+treatment). Thus, Pearson’s correlation appears to be a perfect candidate for
+this task.
 
 Figure 2B demonstrates the results obtained by applying Pearson’s correlation
 to the same problem. The absolute correlations AB, AC and BC all equal 1,
@@ -280,12 +259,9 @@ implemented an algorithm for detecting schematic classes based on absolute row
 correlations instead of relationalities, which I term Correlational Class
 Analysis (CCA; see Appendix A for details). And indeed, when I applied CCA to
 the same 800row dataset, it correctly assigned all the rows into the two
-schematic classes present in the
-
-Correlational Class Analysis 11
-
-data. Thus, while RCA failed to correctly recover the schematic classes in
-Goldberg’s example, CCA produced a perfect answer.
+schematic classes present in the data. Thus, while RCA failed to correctly
+recover the schematic classes in Goldberg’s example, CCA produced a perfect
+answer.
 
 Therefore, though Goldberg asserts that relationality’s far greater
 computational complexity makes it “more sensitive to interdependencies” between
@@ -309,8 +285,6 @@ sufficient basis for drawing such a broad conclusion. To rule out the
 possibility that CCA’s apparently superior performance is due to features
 specific to this introductory example, I turn to simulation to carry out a more
 thorough and realistic test.
-
-Correlational Class Analysis 12
 
 The formal definition of shared schemas can serve as the basis for such
 simulations. Since two response vectors exactly follow the same schema if and
@@ -337,13 +311,10 @@ the first step. Finally, the third step generates a random number of
 respondents following each of these schemas by applying random linear
 transformation and adding random noise, both generated using the ranges and
 variances set in the first step. I repeat the entire procedure 5000 times 6,
-creating simulated datasets
-
-Correlational Class Analysis 13
-
-that widely differ in the ranges of simulated variables, variance of individual
-responses, signal to noise ratio, and many other parameters. A more detailed
-description of the simulation procedure can be found in Appendix B.
+creating simulated datasets that widely differ in the ranges of simulated
+variables, variance of individual responses, signal to noise ratio, and many
+other parameters. A more detailed description of the simulation procedure can
+be found in Appendix B.
 
 Figure 3 illustrates a single simulation run. The randomly determined
 parameters from the first step of the run set the schema variance to 0.51,
@@ -368,13 +339,10 @@ theoretically consistent way from one of those schemas. Thus, as in Goldberg’s
 (2011) introductory example, the true schematic class membership for each
 simulated respondent is known by design. The simulation’s goal is to assess the
 accuracy with which the group assignments made by the two algorithms correspond
-to this known membership. If two respondents were generated
-
-Correlational Class Analysis 14
-
-from the same schema, they should be assigned to the same group; if they were
-created from different schemas, they should belong to different groups.  For
-each run, I measured this classification accuracy with Normalized Mutual
+to this known membership. If two respondents were generated from the same
+schema, they should be assigned to the same group; if they were created from
+different schemas, they should belong to different groups.  For each run, I
+measured this classification accuracy with Normalized Mutual
 
 Information (NMI):
 
@@ -403,15 +371,12 @@ The results of these 5000 tests are presented in Table 1 under the heading
 from 0.69 to 0.97,while RCA’s extends 0.54 to 0.88. Thus, while CCA’s 75th
 percentile is just shy of a perfect accuracy, RCA’s 75th percentile barely
 surpasses CCA’s median. The substantive significance of these differences is
-clearer when the CCA accuracies (Y) are plotted against the RCA
-
-Correlational Class Analysis 15
-
-accuracies (X) in Figure 4. While the accuracies are strongly associated (𝑅 2 =
-0.79), CCA is more accurate than RCA in the vast majority of cases (88.1%). In
-contrast, RCA is more accurate than CCA in only 5.2% of the cases. Thus, when
-RCA and CCA disagree, which they do in 93.3% of the cases, the odds that CCA’s
-result is more accurate than RCA’s exceed 16:1.
+clearer when the CCA accuracies (Y) are plotted against the RCA accuracies (X)
+in Figure 4. While the accuracies are strongly associated (𝑅 2 = 0.79), CCA is
+more accurate than RCA in the vast majority of cases (88.1%). In contrast, RCA
+is more accurate than CCA in only 5.2% of the cases. Thus, when RCA and CCA
+disagree, which they do in 93.3% of the cases, the odds that CCA’s result is
+more accurate than RCA’s exceed 16:1.
 
 [Figure 4 about here]
 
@@ -434,8 +399,6 @@ CCA’s average accuracy in these cases approaches 0.97, RCA’s average accurac
 never rises above 0.85.
 
 [Figure 5 about here]
-
-Correlational Class Analysis 16
 
 These results also allow a comparison of CCA and RCA performance when the
 schema variance is very low. In such situations, pairwise correlations between
@@ -462,24 +425,20 @@ further degrade its accuracy when violated. While a correlation of zero always
 indicates an absence of a linear relationship, the equivalent “null value” of
 relationality differs from dataset to dataset and is generally skewed above
 zero (Goldberg 2011:Appendix A). RCA attempts to compensate for this skew by
-re-centering the matrix of relationalities by its
-
-Correlational Class Analysis 17
-
-mean. However, this approach only works under the assumption that the true mean
-relationality between all the rows in the data is zero, or, equivalently, that
-the relationality values are distributed symmetrically around their null value.
-This is generally the case only if the proportion of respondents following a
-schema without inverting it equals the proportion following its inverse 8—a
-quantity I call inversion probability. For example, when this probability is
-50%, the number of highbrow respondents following the schema “like classical,
-like opera, dislike rock, dislike country” would equal the number of lowbrow
-respondents following its inverse, “dislike classical, dislike opera, like
-rock, like country”. However, since in reality the number of highbrow
-respondents can differ greatly from the number of lowbrow respondents, there is
-no reason to expect that the inversion probability generally equals 50%. This
-suggests that RCA’s symmetry assumption may be frequently violated by empirical
-data.
+re-centering the matrix of relationalities by its mean. However, this approach
+only works under the assumption that the true mean relationality between all
+the rows in the data is zero, or, equivalently, that the relationality values
+are distributed symmetrically around their null value. This is generally the
+case only if the proportion of respondents following a schema without inverting
+it equals the proportion following its inverse 8—a quantity I call inversion
+probability. For example, when this probability is 50%, the number of highbrow
+respondents following the schema “like classical, like opera, dislike rock,
+dislike country” would equal the number of lowbrow respondents following its
+inverse, “dislike classical, dislike opera, like rock, like country”. However,
+since in reality the number of highbrow respondents can differ greatly from the
+number of lowbrow respondents, there is no reason to expect that the inversion
+probability generally equals 50%. This suggests that RCA’s symmetry assumption
+may be frequently violated by empirical data.
 
 All the simulations presented above have granted RCA’s symmetry assumption by
 keeping the inversion probability fixed at 50%. To examine the performance of
@@ -492,8 +451,6 @@ CCA accuracies remain unchanged from the first simulation. On the other hand,
 the median accuracy of RCA drops to 0.67, significantly lower than its prior
 median of 0.74 (Wilcoxon W = 13802245, p < 0.0001), and below CCA’s 25th
 percentile of accuracy. CCA is now more than 3 times as likely as RCA to
-
-Correlational Class Analysis 18
 
 produce a nearly perfect answer (NMI > 0.95), while RCA is more than 20 times
 as likely to produce an almost completely incorrect one (NMI < 0.05). Thus,
@@ -602,7 +559,7 @@ simulation analyses above, where the results of the two methods were correlated
 but rarely the same, with CCA offering the more accurate answer in the
 overwhelming majority of cases. While the simulations showed that this
 difference is statistically reliable, these GSS analyses illustrate that it can
-also be substantively important.  
+also be substantively important.
 
 [Table 2 about here]
 

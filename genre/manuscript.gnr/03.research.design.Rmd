@@ -2,21 +2,131 @@
 
 ## 3.1 Data and variables
 
-The data for our study came from a Spanish survey on habits and cultural practices for 2006-2007 (see Ministry of Culture (2007) for technical details). Surveyed were 14 822 Spanish and non-Spanish individuals of both sexes, aged 15 years and older, and resident in Spain at the time of interview. The survey was conducted in four waves (1 per quarter) between March 2006 and February 2007; each quarterly survey was based on a representative random sample of about 25% of the sampled individuals (all four quarterly surveys were used for our analysis), stratified by autonomous communities and municipalities according to size. Stratification by autonomous community was necessary to produce a representative sample with a 95% confidence level, not only at an aggregate level (age and gender) but also at the autonomous community level (Ministry of Culture, 2007:11). 
-In the interest of brevity, background data referring to the research described below are provided in supplementary form in Tables A1-A6.
+The data for our study came from a Spanish survey on habits and cultural
+practices for 2006-2007 (see Ministry of Culture (2007) for technical details).
+Surveyed were 14 822 Spanish and non-Spanish individuals of both sexes, aged 15
+years and older, and resident in Spain at the time of interview. The survey was
+conducted in four waves (1 per quarter) between March 2006 and February 2007;
+each quarterly survey was based on a representative random sample of about 25%
+of the sampled individuals (all four quarterly surveys were used for our
+analysis), stratified by autonomous communities and municipalities according to
+size. Stratification by autonomous community was necessary to produce a
+representative sample with a 95% confidence level, not only at an aggregate
+level (age and gender) but also at the autonomous community level (Ministry of
+Culture, 2007:11). In the interest of brevity, background data referring to the
+research described below are provided in supplementary form in Tables A1-A6.
 
-### 3.1.1 Cultural spcace: musical listening indicators
+### 3.1.1 Cultural space: musical listening indicators
 
-Individuals interviewed were asked about the kind of music he/she normally listen to.  Individuls were given a list of musical genres and they just had to choose the ones they usually listen to. The following multiple answers (21 in total) were possible: songs for children (chl), songwriters (swr), ballads (bls), flamenco (flk),  new flamenco (nfl), other spanish folk songs (flk), international pop rock (ipp), Spanihs poprock (spp), latino poprock (lpp), blues (bls), jazz (jzz), world music (wrl), reggea (rgg), rap (rap), electronic music and techno (tcn), hardrock (hrk), house (hus), classical music (cls), Lyrical music (lyr), opera (opr), operetta (opt). Desciptors are provided in Table~\ref{tab:stat.genres}. 
+Individuals interviewed were asked about the kind of music he/she normally
+listen to.  Individuls were given a list of musical genres and they just had to
+choose the ones they usually listen to. The following multiple answers (21 in
+total) were possible: songs for children (chl), songwriters (swr), ballads
+(bls), flamenco (flk),  new flamenco (nfl), other spanish folk songs (flk),
+international pop rock (ipp), Spanihs poprock (spp), latino poprock (lpp),
+blues (bls), jazz (jzz), world music (wrl), reggea (rgg), rap (rap), electronic
+music and techno (tcn), hardrock (hrk), house (hus), classical music (cls),
+Lyrical music (lyr), opera (opr), operetta (opt). Desciptors are provided in
+Table~\ref{tab:stat.genres}. 
 
 ### 3.1.2. Social space: indicators of individual position
-According to Bourdieu???s theoretical framework, the properties of individuals are indicators of their social position, such that variations in individual properties ??? level and structure of capital, age, gender, etc. ??? are variations in the individual???s social position that are visible in a social map. 
-The Ministry of Culture survey on which we based our research elicited information on education as an indicator of cultural capital, and on occupational status as an indicator of economic capital, but provided no occupational breakdown, and collected no information on incomes. As a proxy for economic capital in our study, therefore, we used occupational status,  namely, the following five categories: employed persons; entrepreneurs and self-employed workers (freelancers); unemployed persons; people receiving old-age or disability pensions and individuals performing unpaid domestic tasks (homemakers); and students. Educational attainment was recorded in three categories, as follows: third-level post-graduate education, third-level graduate education, and upper secondary education or below. Age, interpreted here as an indicator of an individual???s life stage, was assigned to five categories. In order to complete the description of the social space, four additional variables were included, as follows: personal situation (five categories); number of individuals aged 15 and over in the household (three categories); habitat where the household was located (five categories); and sex (Table~\ref{tab:stat.descriptors}).
+
+According to Bourdieu???s theoretical framework, the properties of individuals
+are indicators of their social position, such that variations in individual
+properties ??? level and structure of capital, age, gender, etc. ??? are
+variations in the individual???s social position that are visible in a social
+map. The Ministry of Culture survey on which we based our research elicited
+information on education as an indicator of cultural capital, and on
+occupational status as an indicator of economic capital, but provided no
+occupational breakdown, and collected no information on incomes. As a proxy for
+economic capital in our study, therefore, we used occupational status,  namely,
+the following five categories: employed persons; entrepreneurs and
+self-employed workers (freelancers); unemployed persons; people receiving
+old-age or disability pensions and individuals performing unpaid domestic tasks
+(homemakers); and students. Educational attainment was recorded in three
+categories, as follows: third-level post-graduate education, third-level
+graduate education, and upper secondary education or below. Age, interpreted
+here as an indicator of an individual???s life stage, was assigned to five
+categories. In order to complete the description of the social space, four
+additional variables were included, as follows: personal situation (five
+categories); number of individuals aged 15 and over in the household (three
+categories); habitat where the household was located (five categories); and sex
+(Table~\ref{tab:stat.descriptors}).
 
 ## 3.2 Analysis
 
 ### 3.2.1 Uncovering the music schemes 
 
-Correlation Classification Analysis
+#### 3.2.1.1 Correlation Classification Analysis
+
+Coorelation Classification Analysis (CCA) is a method to measure shared cultural
+schemas in survey data, developed by Andrei Boutyline (2014). 
+
+
+At the core of CCA's approach is a novel similarity measure termed
+"correlational class" which Goldberg states can quantify the extent to which two
+respondents organize their attitudes according to such a shared cultural
+schema. RCA calculates the relationality scores for each pair of respondents
+
+Pearson’s correlation is often interpreted as the "measure of the degree of
+linear relationship between two variables" (Stockburger 2007; see Rodgers and
+Nicewander 1988 for a detailed treatment). Thus, Pearson's correlation appears
+to be a perfect candidate for this task.
+
+
+
+At the core of RCA’s approach is a novel similarity measure termed
+“relationality,” which Goldberg contends can quantify the extent to which two
+respondents organize their attitudes according to such a shared cultural
+schema. RCA calculates the relationality scores for each pair of respondents
+and interprets the result as an adjacency matrix for a valued network, where
+the nodes are individual survey respondents and ties between them are their
+pairwise relationalities. After adjusting tie strengths for a bias in the
+relationality measure and dropping weaker ties, it partitions the network via
+Newman’s (2006) eigenvector-based modularity maximization algorithm, which
+assigns individuals to groups so that relationality scores are high within
+groups, and lower between groups.
+
+Goldberg (2011) developed relationality as a tool to detect shared cultural
+schemas in survey data—a novel methodological task that is, in itself, a bold
+conceptual innovation. However, existing work on RCA does not provide a formal
+definition of shared cultural schemas, making relationality’s performance
+difficult to analyze. As I demonstrate below, however, the theoretical
+reasoning behind RCA easily yields such a definition. Moreover, this
+formalization reveals that, in order to detect shared cultural schemas,
+relationality must measure the degree of linear dependency between two vectors
+of responses—the same quantity for which Pearson’s correlation is a
+long-established measure. When I revisit Goldberg’s introductory example
+(Goldberg 2011:1404-1405) with Pearson’s correlation, I discover that it
+produces a substantially more accurate result than Goldberg’s relationality.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### 3.2.2 Interpreting the music schemes
