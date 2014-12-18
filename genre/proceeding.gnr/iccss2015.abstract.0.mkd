@@ -1,0 +1,69 @@
+﻿# Measuring of shared music schemas: bringing together the structural and lifestyles analysis through networks of correlated music genres
+
+Research into the meaning of cultural classifications has usually distinguished
+between cultural schemes--discourses--and taste groups . Cultural schemes
+classifies cultural expressions according to the meaning individuals attribute
+to them and have favoured structural analysis conducted with Geometric Data
+Analysis methods. Taste groups, instead have been approached as descriptions of
+groups of individuals’ taste patterns combining the cultural schemes found in
+the structural analysis through clustering methods (van Eijck & Lievens 2008).
+In the former case we classify cultural expressions, in the latter, individuals.
+But the structural analysis implicitly supposes that all individuals share the
+the same schemas of cultural classification, and the clustering, loses the
+shared cultural schemes.
+
+But whether all individuals share the same schemas of cultural classification is
+an empirical matter and its interpretation, a theoretical one. May be the
+seminal work of  Bourdieu (1984) is  one of fey work that implicitly
+acknowledges the existence of heterogeneous cultural schemes, that we calls
+habitus,  but he is only interested in the homology between the spaces of
+cultural practices and preferences and the social space. This means that he was
+not interested in whether young individuals and middle age individuals differ in
+the way they classify cultural expressions, holding constant their social
+classes.
+
+One way of overcoming this limitation is applying a new family of methods called
+Relational Class Analysis (Goldberg 2011). RCA aims at measuring and revealing
+shared cultural schemes. However, instead of using Goldberg’s measure of
+relationality to quantify how much two individuals share a cultural schema, we
+use Pearson’s correlations between individuals music tastes to form a matrix for
+a valued network, where the nodes are respondents and ties between them are
+their pairwise correlations. (We used the package corclass (Boutyline 2013)
+implemented in the R language and Environment for Data Analysis (R Core team
+2013) Then we partition the network via Newman’s (2006) eigenvector-based
+modularity maximization algorithm, which assigns individuals to groups so that
+Pearson’s correlation are high within groups and lower between them. 
+
+The data for our study came from a Spanish survey on habits and cultural
+practices for 2006-2007 (see Ministry of Culture (2007) for technical details).
+Individuals interviewed were asked about the kind of music they normally listen
+to. They were offered 21 music genres to choose from.  The survey also recorded
+the educational level, occupation, age, gender, personal situation, and
+city-size. 
+
+The findings….
+
+References
+
+Van Eijck, K., & Lievens, J. (2008). Cultural omnivorousness as a combination of
+highbrow, pop, and folk elements: The relation between taste patterns and
+attitudes concerning social integration. Poetics, 36(2-3), 217–242.
+doi:10.1016/j.poetic.2008.02.002
+
+Bourdieu, P. (1984). Distinction: A Social Critique of the Judgement of Taste.
+Cambridge, Mass: Harvard University Press.
+
+Boutyline, A. (2013). corclass: Correlational Class Analysis. Retrieved from
+http://CRAN.R-project.org/package=corclass
+
+R Core Team. (2014). R: A Language and Environment for Statistical Computing.
+Vienna, Austria: R Foundation for Statistical Computing. Retrieved from
+http://www.R-project.org/
+
+Goldberg, A. (2011). Mapping shared understandings using relational class
+analysis: the case of the cultural omnivore reexamined1. American Journal of
+Sociology, 116(5), 1397–1436.
+
+Newman, M. E. J. (2006). Finding community structure in networks using the
+eigenvectors of matrices. Physical Review E, 74(3).
+doi:10.1103/PhysRevE.74.036104

@@ -3,8 +3,8 @@ title: "MCA Analysis "
 output:
   pdf_document:
     highlight: tango
-    fig_width: 7
-    fig_height: 6
+    fig_width: 4
+    fig_height: 4
     fig_caption: true
     toc: true
     toc_depth: 4
@@ -45,18 +45,20 @@ color <- c("red", "green", "blue")
 
 # Summary
 
-```{r, results='asis', warning=FALSE, echo=F, fig.width=9, fig.height=12}
+```{r, results='asis', warning=FALSE, echo=F, fig.width=4, fig.height=4}
 # Tries to plot with GGPLOT2
 
 
 # Plots overall genre space
 cat("\n\n# MCA Analysis for All Observations \n\n")
 plot(mca.output, what=c("active","active"), arrows=c(T,T), col = c("black", "grey"), contrib=c("absolute",F)
-     , main="MCA - Genre Spaces - All Observations")
+     , main="MCA - Genre Spaces - All Observations", xlab="", ylab="")
+
+cat("\n\n")
 
 # Plots overall descriptors space
 plot(mca.output, what=c("passive", "passive"), arrows=c(T,T), col = c("black", "grey")
-     , main="MCA - Desc. Spaces - All Observations")
+     , main="MCA - Desc. Spaces - All Observations", xlab="", ylab="")
 cat("\n\n \\pagebreak \n\n")
 
 # Plots observations

@@ -1,0 +1,20 @@
+---
+title: "`r prj.manuscript.title`"
+documentclass: article
+classoption: a4paper, draft, notitlepage, 18pt
+author: "`r prj.manuscript.authors`"
+
+output:
+  pdf_document:
+    includes:
+      in_header: xx.06.manuscript.header.tex
+    highlight: tango
+    fig_width: 7
+    fig_height: 6
+    fig_caption: true
+    number_sections: true
+---
+
+```{r child = '../proceeding.gnr/iccss2015/00.forematter.Rmd'}
+```
+

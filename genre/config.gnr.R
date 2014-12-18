@@ -91,5 +91,5 @@ prj.family.long.levels       <- c("2 members or fewer","3-4 members",">4 members
 prj.cca.short.names  <- "cca"
 prj.cca.labels      <- "CCAModuleMembership"
 
-prj.manuscript.title  <- "Suggested table: change `prj.manuscript.title` in `config.R`"
+prj.manuscript.title  <- "Measuring of shared music schemas: bringing together the structural and lifestyles analysis through networks of correlated music genres"
 prj.manuscript.authors  <- "Jordi Lopez Sintas, Abahgna Ghahraman"
