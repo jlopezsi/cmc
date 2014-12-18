@@ -2,7 +2,7 @@ source("../library.gnr/head.R")
 
 if(prj.mca.state != "tempdone"){
   # Loads libraries
-  fun.install.require(c("ca", "ade4"))
+  fun.install.require(c("ca", "ade4", "e1071"))
 
   # Loads music data
   load("../data.gnr/music.Rdata")
@@ -68,8 +68,16 @@ if(prj.mca.state != "tempdone"){
   # A list containing all mca.ade4 subset results
   mca.ade4.module.output = list()
 
+  lca.output <- list()
+
   # for each cca module
   for(cnt.i in 1:length(levels(as.factor(cca.membership)))){
+    lca.output[[cnt.i]] <- list()
+
+    for(cnt.j in 1:8){
+      lca.output[[cnt.i]][[cnt.j]] <- lca(data.matrix(df.genres[cca.membership == cnt.i, ]), 2, matchdata=T)
+      summary(lca.output[[cnt.i]][[cnt.j]])
+    }
     # Conducts mca.ade4 for current cca mudlue
     mca.ade4.module.output[[cnt.i]] <- dudi.acm(df.genres[cca.membership == cnt.i, ], scannf=F,  nf=2)
   }
