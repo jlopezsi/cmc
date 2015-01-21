@@ -7,7 +7,6 @@ output: pdf_document
 
 # Introduction
 
-
 # The stratification of leisure
 
 Since Bourdieu (1979) groundbreaking monograph, *La Distinction*, published in
@@ -666,7 +665,7 @@ suggests that speaking at home other foreign languages increaes the probability
 of being classified in the religigous pattern of leisure; but its interaction
 with parents' educational level reduces the probability of being classified in
 the religious and cultural pattern individuals whose parents have a college
-degree. 
+degree.
 
 Our findings have theoretical and methodological implications. The biological
 age does not structure leisure practices orthogally to social position. Although
