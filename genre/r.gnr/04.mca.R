@@ -2,7 +2,7 @@ source("../library.gnr/head.R")
 
 if(prj.mca.state != "tempdone"){
   # Loads libraries
-  fun.install.require(c("ca", "ade4", "cluster"))
+  fun.install.require(c("ca", "ade4", "ClustOfVar"))
 
   # Loads music data
   load("../data.gnr/music.Rdata")
@@ -68,25 +68,30 @@ if(prj.mca.state != "tempdone"){
   # A list containing all mca.ade4 subset results
   mca.ade4.module.output = list()
 
-  agnes.output <- list()
+  km.output <- list()
+  tree.output <- list()
+  stab.output <- list()
 
+  pdf("km.pdf")
   # for each cca module
   for(cnt.i in 1:length(levels(as.factor(cca.membership)))){
-    agnes.output[[cnt.i]] <- list()
 
-    for(cnt.j in 1:8){
-      # lca.output[[cnt.i]][[cnt.j]] <- lca(data.matrix(df.genres[cca.membership == cnt.i, ]), 2, matchdata=T)
-      agnes.output[[cnt.i]][[cnt.j]] <- agnes(data.matrix(df.genres[cca.membership == cnt.i, ]), 
-                                              diss=F, keep.diss=F, keep.data=F)
-    }
+
+    tree.output[[cnt.i]] <- hclustvar(X.quali=df.descriptors[cca.membership == cnt.i, ])
+    plot(tree.output[[cnt.i]])
+    stab.output[[cnt.i]] <- stability(tree.output[[cnt.i]],B=40)
+
+
+
     # Conducts mca.ade4 for current cca mudlue
     mca.ade4.module.output[[cnt.i]] <- dudi.acm(df.genres[cca.membership == cnt.i, ], scannf=F,  nf=2)
   }
+  dev.off()
 
   # Saves the list of cca.ade4 subset results for each module
   save(mca.ade4.module.output, file="../data.gnr/mca.ade4.module.output.Rdata")
 
-  save(agnes.output, file="../data.gnr/agnes.output.Rdata")
+  save(km.output, file="../data.gnr/km.output.Rdata")
 }
 
 # Renders the report
