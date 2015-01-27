@@ -14,3 +14,7 @@ codename: `grp`
 
 codename: `lsr`
 
+### Patterns of leisure
+
+codename: `patterns`
+
