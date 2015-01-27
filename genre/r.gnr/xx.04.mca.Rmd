@@ -64,6 +64,7 @@ cat("\n\n \\pagebreak \n\n")
 # Plots observations
 s.class(mca.ade4.output$li, as.factor(cca.membership), cellipse = 2, col=color)
 
+
 cat("\n\n# MCA Analysis for CCA Modules \n\n")
 
 # for each cca module plot the mca graph
@@ -71,6 +72,8 @@ for(cnt.i in 1:length(levels(as.factor(cca.membership)))){
   # Makes the temp mca output variable for each cca module
   tmp.mca.output <- mca.module.output[[cnt.i]]
   tmp.mca.ade4.output <- mca.ade4.module.output[[cnt.i]]
+
+  s.class(mca.ade4.output$li, as.factor(cca.membership), cellipse = 2, col=color)
 
   cat(sprintf("\n\n## CCA Module %s \n\n", cnt.i))
 
