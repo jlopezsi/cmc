@@ -41,3 +41,11 @@ html:
 		--bibliography=../../group/bibliography.grp/database.bib \
 		-output main.html
 	firefox main.html
+
+figures:
+	pdf2eps 1 manuscript.archive/figure1
+	pdf2eps 1 manuscript.archive/figure2a
+	pdf2eps 1 manuscript.archive/figure2b
+	pdf2eps 1 manuscript.archive/figure2
+	pdf2eps 1 manuscript.archive/figure3
+	mv manuscript.archive/*.eps .
