@@ -5,7 +5,6 @@ doc:
 		--csl ../../group/library.grp/apa.csl \
 		--filter pandoc-citeproc \
 		--reference-docx=../../group/library.grp/reference.docx \
-		--bibliography=../../group/bibliography.grp/database.bib \
 		--latexmathml \
 		main.Rmd \
 		--output=main.docx
@@ -28,7 +27,6 @@ pdf:
 		--csl=../../group/library.grp/apa.csl \
 		--filter pandoc-citeproc \
 		--latex-engine=pdflatex \
-		--bibliography=../../group/bibliography.grp/database.bib \
 		--output=main.pdf
 	evince main.pdf
 
@@ -38,7 +36,6 @@ html:
 		-s -S -N \
 		--template=../../group/library.grp/html.template \
 		--filter pandoc-citeproc --csl=../../group/library.grp/apa.csl \
-		--bibliography=../../group/bibliography.grp/database.bib \
 		-output main.html
 	firefox main.html
 

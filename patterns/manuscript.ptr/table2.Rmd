@@ -13,13 +13,23 @@ Table 2: Model Selection (BIC values)
 | 9  | -1276.96    | -1118.638   | -1252.93    | -1103.86    | -1289.66    | -1178.82    | -1219.88    | -1297.13    | -1167.07    | -1234.01    |
 
 Note:
-EII: Spherical, volumen=equal, shape=equal, orientation=Not available     
-VII: Spherical, volumen=variable, shape=equal, orientation=Not available  
-EEI: Diagonal, volumen=equal, shape=equal, orientation=coordinate axes
+
+EII: Spherical, volume=equal, shape=equal, orientation=Not available
+
+VII: Spherical, volume=variable, shape=equal, orientation=Not available
+
+EEI: Diagonal, volume=equal, shape=equal, orientation=coordinate axes
+
 VEI: Diagonal, Volume=variable, shape=equal, orientation=coordinate axes
-EVI: Diagonal, volumen=equal, shape=variable, orientation=coordinate axes 
-VVI: Diagonal, volumen=variable, shape=variable, orientation=coordinate axes 
-EEE: Ellipsoidal, volumen= equal, shape=equal, orienation=equal
-EEV: Ellipsoidal, valume=equal, shape=equal, orientation=variale  
-VEV: Ellipsoidal, volumen=variable, shape=equal, orienation=variable 
+
+EVI: Diagonal, volume=equal, shape=variable, orientation=coordinate axes
+
+VVI: Diagonal, volume=variable, shape=variable, orientation=coordinate axes
+
+EEE: Ellipsoidal, volume= equal, shape=equal, orientation=equal
+
+EEV: Ellipsoidal, volume=equal, shape=equal, orientation=variable
+
+VEV: Ellipsoidal, volume=variable, shape=equal, orientation=variable
+
 VVV: Ellipsoidal, volume=equal, shape=variable, orientation=variable
