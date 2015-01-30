@@ -1,13 +1,32 @@
 ---
 title: 'Young People’s Leisure Patterns: Testing Social Age, Social Gender and Linguistic Capital Hypothesis'
 author: "Jordi López Sintas, Abaghan Ghanrhaman, Elena Pérez-Rubiales"
-date: "16 de septiembre de 2014"
+date: January 2015
+abstract: We are interested in analyzing the patterns of leisure activities
+conducted by young individuals in order to identify and describe
+age-differentiated and socially recognized patterns of leisure activities. In
+the theoretical framework we argue that the effect of the main social categories
+that structure young individuals leisure patterns might be mediated by
+individuals' social positions. The effect of this proposition challenges recent
+finding that proposes that social position indicators structures leisure
+patterns orthogonally to age. We have found that leisure practices can be
+classified around three leisure habitus: 1) the habitus of doing leisure
+activities, 2) the habitus con doing cultural activities, and 3) the habitus of
+conducting social or entertainment activities. Young people leisure habitus can
+be classified into four patterns of leisure: a social pattern, a
+cultural/omnivours pattern, an entertainment pattern, a religious pattern. The
+association of leisure patterns to the social categories suggests that when we
+take into account the mediating role of social position indicators on the main
+social categories, the main effect age, gender, and linguistic habitus vanishes,
+as predicted by the *social age hypothesis*, the *social gender hypothesis*, and
+the linguistic capital hypothesis. That is, young people do not form an
+homogeneous social category, but  their leisure practices are still socially
+differentiated, placing specially young people immigrants into a disadvantage
+position.
 output:
   word_document: default
   pdf_document:
     toc: yes
-  includes:
-    in_header: header.tex
 ---
 
 # Introduction

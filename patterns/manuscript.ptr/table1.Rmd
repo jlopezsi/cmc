@@ -1,0 +1,35 @@
+Table 2: Model Selection (BIC values)
+--------------------------------------------------------------
+| k  | EII         | VII         | EEI         | VEI         | EVI         | VVI         | EEE         | EEV         | VEV         | VVV         |
+| -- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
+| 1  | -2490.37    | -2490.37    | -2004.80    | -2004.80    | -2004.80    | -2004.80    | -2025.17    | -2025.17    | -2025.17    | -2025.17    |
+| 2  | -2057.15    | -1630.42    | -2012.61    | -1600.13    | -1712.06    | -1503.83    | -1951.95    | -1481.45    | -1353.03    | -1322.49    |
+| 3  | -1789.19    | -1487.67    | -1444.41    | -1474.30    | -1441.30    | -1434.12    | -1569.48    | -1322.56    | -1212.03    | -1215.09    |
+| 4  | -1434.70    | -1291.12    | -1330.74    | -1260.74    | -1334.64    | -1231.43    | -1319.66    | -1327.10    | -1073.20    | -1105.54    |
+| 5  | -1344.85    | -1160.90    | -1251.57    | -1142.86    | -1304.06    | -1157.72    | -1263.03    | -1270.40    | -1095.81    | -1136.63    |
+| 6  | -1363.01    | -1093.62    | -1283.59    | -1079.30    | -1351.89    | -1105.83    | -1295.07    | -1277.53    | -1088.74    | -1131.02    |
+| 7  | -1272.07    | -1102.79    | -1281.71    | -1076.53    | -1323.46    | -1115.39    | -1284.98    | -1264.47    | -1093.91    | -1148.74    |
+| 8  | -1280.08    | -1128.17    | -1264.86    | -1106.47    | -1314.69    | -1179.13    | -1234.86    | -1240.98    | -1114.00    | -1196.02    |
+| 9  | -1276.96    | -1118.638   | -1252.93    | -1103.86    | -1289.66    | -1178.82    | -1219.88    | -1297.13    | -1167.07    | -1234.01    |
+
+Note:
+
+EII: Spherical, volume=equal, shape=equal, orientation=Not available
+
+VII: Spherical, volume=variable, shape=equal, orientation=Not available
+
+EEI: Diagonal, volume=equal, shape=equal, orientation=coordinate axes
+
+VEI: Diagonal, Volume=variable, shape=equal, orientation=coordinate axes
+
+EVI: Diagonal, volume=equal, shape=variable, orientation=coordinate axes
+
+VVI: Diagonal, volume=variable, shape=variable, orientation=coordinate axes
+
+EEE: Ellipsoidal, volume= equal, shape=equal, orientation=equal
+
+EEV: Ellipsoidal, volume=equal, shape=equal, orientation=variable
+
+VEV: Ellipsoidal, volume=variable, shape=equal, orientation=variable
+
+VVV: Ellipsoidal, volume=equal, shape=variable, orientation=variable
