@@ -1,5 +1,6 @@
 ---
-title: 'Young People’s Leisure Patterns: Testing the Life Cycle Hypothesis'
+title: 'Young People’s Leisure Patterns: Testing Social Age, Social Gender and Linguistic Capital Hypothesis'
+author: "Jordi López Sintas, Abaghan Ghanrhaman, 
 author:
 - name: Jordi López Sintas
   affiliation: Universitat Autònoma de Barcelona
@@ -7,14 +8,88 @@ author:
 - name: Abaghan Ghahraman
   affiliation: Universitat Autònoma de Barcelona
   email: abaghan.ghahraman@uab.es
+- name: Elena Pérez-Rubiales
 date: January 2015
-abstract: Text for abstract goes here ???
+abstract: We are interested in analyzing the patterns of leisure activities
+conducted by young individuals in order to identify and describe
+age-differentiated and socially recognized patterns of leisure activities. In
+the theoretical framework we argue that the effect of the main social categories
+that structure young individuals leisure patterns might be mediated by
+individuals' social positions. The effect of this proposition challenges recent
+finding that proposes that social position indicators structures leisure
+patterns orthogonally to age. We have found that leisure practices can be
+classified around three leisure habitus: 1) the habitus of doing leisure
+activities, 2) the habitus con doing cultural activities, and 3) the habitus of
+conducting social or entertainment activities. Young people leisure habitus can
+be classified into four patterns of leisure: a social pattern, a
+cultural/omnivours pattern, an entertainment pattern, a religious pattern. The
+association of leisure patterns to the social categories suggests that when we
+take into account the mediating role of social position indicators on the main
+social categories, the main effect age, gender, and linguistic habitus vanishes,
+as predicted by the *social age hypothesis*, the *social gender hypothesis*, and
+the linguistic capital hypothesis. That is, young people do not form an
+homogeneous social category, but  their leisure practices are still socially
+differentiated, placing specially young people immigrants into a disadvantage
+position.
 output: word_document
 ...
 
 # Introduction
 
-## The stratification of leisure
+During the transition from adolescence to adulthood, in their social context,
+young individuals learn  the behavior that their family and peers expect of
+individuals holding concrete positions in the social structure (George 1993).
+The processes by which roles are assigned to individuals are experienced, first,
+at home and from relatives, and, secondly, when interacting with their peers in
+a wider social context (Pronovost 2009; Tolonen 2013). All this process is named
+the socialization process by which young people learn the skills and attitudes
+compatibles with the social roles assigned to them in the process of  becoming
+an adult (Pollock 2008).
+
+The life course of young people, then, reflects the intersection of their social
+factors as well as the historical moments lived with their personal biography
+(Elder 1985), hence life courses  are expected to vary across time, space and
+populations. Although in this piece of research we are not interested in the
+sequences of transitions of concrete individuals (Kuehn 2000) or cohorts of
+young people (Bynner 2012; Wyn & Woodman 2006), we are interested in studying
+the patterns of leisure activities conducted by young individuals in order to
+identify and describe age-differentiated and socially recognized patterns of
+leisure activities.
+
+Recent research has suggested that the composition and volume of individual's
+capital (Bourdieu 1979; Peterson & Kern 1992) as well as age are the main
+structuring factors of the cultural space (Tampubolon 2008a and b; López et al.
+2014) and that the latter structure cultural tastes orthogonally to the
+indicators of capital. How ever, Bourdieu’s social age hypothesis as well as the
+studies into the leisure of young people between indicates the existence of an
+interaction among gender, biological age, and social class of parents that would
+challenge the independence between biological age and social position (Zeijl et
+al 2000; Tolonen 2013). Researchers of young people leisure patterns have
+concluded that the current set of leisure opportunities is not equally
+accessible to everyone, that leisure activities of contemporary young people
+continues to be structured mainly by the indicators of social position that
+interacts with gender and ethnicity (Shildrick & MacDonald 2006; Tolonen 2013;
+Zeijl et al. 2001).
+
+How ever, to which extent young people leisure patterns are structured by social
+factors, historical moments and cultural contexts is empirical matter
+(Birchwood, Roberts & Pollock 2008).  Even more,  some the study of young people
+leisure patterns provides an ideal oportonity to reexamine the relevance of
+current theories and the relevance of the new social theories (Shildrick et al.
+2009). We will test theories with data from Catalonia, and autonomous region of
+Spain. This social setting is specially interesting to conduct research because:
+1) the current historical moment characterized by high levels of unemployment as
+well small or even negative rates of wealth creation, and 2)  the fact that 25%
+of its young population comes from immigrant families.
+
+In this research we are interested identifying and measuring young people
+leisure habitus, the leisure patterns of young individuals according to their
+leisure habitus, and then 1) test whether ordinary social categories structure
+young people leisure patterns, and 2)  test whether the social age, social
+gender, and linguistic capital hypothesis qualify the effect of ordinary social
+categories on leisure patterns.
+
+# The stratification of leisure
 
 Since @bourdieu_distincion_1979 groundbreaking monograph, *La Distinction*,
 published in English in 1984, the sociology of culture has been interested in
