@@ -16,8 +16,6 @@ doc:
 		-w docx table3.Rmd -o table3.docx
 	pandoc -r markdown\
 		-w docx table4.Rmd -o table4.docx
-	pandoc -r markdown\
-		-w docx table5.Rmd -o table5.docx
 	libreoffice main.docx
 
 pdf:
