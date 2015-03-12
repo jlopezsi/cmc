@@ -1,4 +1,4 @@
-all:
+pages:
 	pandoc pages.md/index.md --template=pages.md/template.html -o pages/index.html
 
 upload:

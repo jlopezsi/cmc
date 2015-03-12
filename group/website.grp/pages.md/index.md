@@ -15,20 +15,20 @@ title: CMC Research Group - Consumo, mercados y cultura
 
 Our reserach group is recognised and financed by regional government of Cataloni
 (la Generalitat de Catalunya), 2014-SGR-502, and financed by the national 
-R&D plan of Spain (
+R&D plan of Spain (currently ECO2011-29558-C02-01). 
 
 Nuestro grupo de investigación está reconocido y financiado por la Generalitat
 de Catalunya, 2014-SGR-502,  y financiado por el Plan Nacional de I+D+i de
-España (actualmente ECO2011-29558-C02-01). Los problemas de investigación los
-abordamos con un enfoque  interdisciplinar (sociología, economía, antropología,
-management, derecho, marketing, computación), colaborativo  (UAB, University of
-Haifa (Israel), UPC, URV, University of Varsow (Polonia)) e internacional
-(España, [Israel](http://en.wikipedia.org/wiki/Israel), Polonia, USA). Nuestro
-ámbito de investigación es las ciencias sociales, actualmente estudiamos la
-estructuración de  las prácticas culturales, la experiencia ocio, en la
-computación aplicada al análisis de datos qualitativos (CAQDAS), y la
-computación en las ciencias sociales, además  promover la transferencia de
-tecnología de investigación.
+España (actualmente ECO2011-29558-C02-01). 
+
+We address research problems with an international interdisciplinary approach
+(sociology, economics, anthropology, management, law, marketing, computing),
+collaborati (UAB, University of Haifa (Israel), UPC, URV, University of Varsow
+(Poland)) and (Spain, [Israel] (http://en.wikipedia.org/wiki/Israel), Poland,
+USA). Our field of social science research is currently studying the structuring
+of cultural practices, leisure experience in computing qualitativos applied to
+the analysis of data (CAQDAS), and computing in the social sciences, as well
+promote the transfer of technology research.
 
 [![www.uab.cat/](../img/logo_uab.jpeg)](http://www.uab.cat/)
 [![www.upc.edu/](../img/upc.png)](http://www.upc.edu/)
@@ -196,7 +196,7 @@ of texts, managing texts, coding and text intepretation (content analysis,
 narrative analysis, thematic analysis, grounded theory, case and cross-case
 analysis,  etc.)
 
-[![CAQDAS](../img/CAQDAS.gif)]
+![CAQDAS](../img/CAQDAS.gif)
 
 We offer practical support, training and information in the use of a range of
 software programs designed to assist qualitative data analysis under the
@@ -306,7 +306,7 @@ computational environment.
 ## URLs & Social networks
   * [cms.uab.es](http://cmc.uab.es/)
   * [www.facenook.com/**cmcgroup**](http://www.facebook.com/cmcgroup)
-  * [www.twitter.com/cmc @cmcgroup](http://www.twitter.com/cmcgroup)
+  * [www.twitter.com/**cmcgroup**](http://www.twitter.com/cmcgroup)
 
 </div>
 </div>
