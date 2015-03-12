@@ -1,3 +1,6 @@
+---
+output: word_document
+---
 Table 3: Description of leisure patterns
 | --------- | -------------- | -------------- | -------------- | ------------- |
 |           | Cluster 1      | Cluster 2      | Cluster 3      | Cluster 4     |

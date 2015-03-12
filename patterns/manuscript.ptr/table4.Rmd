@@ -1,3 +1,6 @@
+---
+output: word_document
+---
 **Table 4**: Multinomial Model (religious leisure pattern as the base pattern)
 | -------------------------------------------------------------------- | ------------ | ----------- | ------------ |
 |                                                                      | 1            | 2           | 3            |

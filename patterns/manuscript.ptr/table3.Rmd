@@ -1,3 +1,6 @@
+---
+output: word_document
+---
 
 Table 3: Testing hypotheses
 -----------------------------
