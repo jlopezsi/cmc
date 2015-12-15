@@ -13,22 +13,18 @@ title: CMC Research Group - Consumo, mercados y cultura
 #### Universitat Autonoma de Barcelona
 </p>
 
-Our reserach group is recognised and financed by regional government of Cataloni
-(la Generalitat de Catalunya), 2014-SGR-502, and financed by the national 
-R&D plan of Spain (currently ECO2011-29558-C02-01). 
-
-Nuestro grupo de investigación está reconocido y financiado por la Generalitat
-de Catalunya, 2014-SGR-502,  y financiado por el Plan Nacional de I+D+i de
-España (actualmente ECO2011-29558-C02-01). 
+Our reserach group is recognised and financed by regional government of
+Catalonia (la Generalitat de Catalunya), 2014-SGR-502, and financed by the
+national R&D plan of Spain (currently ECO2011-29558-C02-01). 
 
 We address research problems with an international interdisciplinary approach
 (sociology, economics, anthropology, management, law, marketing, computing),
 collaborati (UAB, University of Haifa (Israel), UPC, URV, University of Varsow
 (Poland)) and (Spain, [Israel] (http://en.wikipedia.org/wiki/Israel), Poland,
-USA). Our field of social science research is currently studying the structuring
-of cultural practices, leisure experience in computing qualitativos applied to
-the analysis of data (CAQDAS), and computing in the social sciences, as well
-promote the transfer of technology research.
+USA). Our field of social science research is currently studying the
+stratification of cultural practices, leisure experience in computing
+qualitativos applied to the analysis of data (CAQDAS), and computing in the
+social sciences, as well promote the transfer of technology research.
 
 [![www.uab.cat/](../img/logo_uab.jpeg)](http://www.uab.cat/)
 [![www.upc.edu/](../img/upc.png)](http://www.upc.edu/)
@@ -101,9 +97,6 @@ Assisted Qualitative Data Anaalysis (CAQDAS), 4) Computational Social Sciences.
 ## Current Projects
 
 ### The stratifiction of culture
-
-
-[pereat](http://kimjongunlookingatthings.tumblr.com/)?
 
 The stratification of leisure stream of research is based on P. Bourdieu (1979)
 groundbreaking monograph, *La Distiction*, published in english in 1984.
