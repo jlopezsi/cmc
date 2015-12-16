@@ -8,6 +8,18 @@ The aim of this paper is to ...
 Project code name
   `~ tvs`
 
+## Accounts
+
+### Viki API
+
+  * username: cmc.research.group@gmail.com
+  * password: cmcxnx383!
+
+  * Id: 100486a
+  * Name: cmc
+  * Platform: 3rd-party-web
+  * Secret: 412acbf87482c046988a966bfdee882b31055470202b9521a7102cdac32b9b10b8257decd8d0
+
 ## TODO
 
   * [done] Make the sig key
