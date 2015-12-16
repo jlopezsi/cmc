@@ -36,6 +36,11 @@ Project code name
 
 ### Data Download
 
+@abaghan (16/12/2015): 
+  
+  * Made the project structure
+  * Made a key for the viki api
+
 @jinju (16/12/2015): 
 
   * Added ...
