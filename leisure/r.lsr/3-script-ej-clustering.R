@@ -3,7 +3,7 @@ library(mclust)
 oci_en.Mclust <- Mclust(oci.acm1_en$li)
 a<-summary(oci_en.Mclust)
 print(a)
-plot(oci_en.Mclust, what = c("BIC"))
+plot(oci_en.Mclust, what = c("BIC"))data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAMElEQVR42mNgIAXY2Nj8x8cHC8AwMl9XVxe3QqwKcJmIVwFWhehW4LQSXQCnm3ABAHD6MDrmRgfrAAAAAElFTkSuQmCC
 plot(oci_en.Mclust, what = c("classification"))
 
 library(plyr)

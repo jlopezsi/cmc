@@ -1,6 +1,6 @@
 require(ade4)
 #factors<-read.delim('factors.txt')
-factors <- read.table('factors.txt',  header=T,sep="\t",quote="")
+#factors <- read.table('factors.txt',  header=T,sep="\t",quote="")
 
 oci.acm1_en<-dudi.acm(oci_en, scannf= FALSE, nf = 3, row.w=ej12_8$Pes)
 #inertia.dudi(oci.acm1_en, col.inertia=T)

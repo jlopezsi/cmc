@@ -42,9 +42,9 @@ summary(oci.ilu1_en$ParentsBirth)
 
 names(oci.ilu1_en)
 summary(oci.ilu1_en$c5_8)
-oci.ilu1_en <- rename(oci.ilu1_en, c('c5_8' = 'Education'))
+oci.ilu1_en <- rename(oci.ilu1_en, c('c5_8' = 'PEducation'))
 oci.ilu1_en$Education <- revalue(oci.ilu1_en$Education, c('Estudis inferiors a obligatoris' = '<LS', 'Estudis obligatoris' = 'LS', 'Estudis secundaris postobligatoris'='HS', 'Estudis universitaris' = 'College'))
-summary(oci.ilu1_en$Education)
+summary(oci.ilu1_en$PEducation)
 
 names(oci.ilu1_en)
 summary(oci.ilu1_en$c9_6c)
@@ -60,8 +60,8 @@ summary(oci.ilu1_en$Language)
 
 names(oci.ilu1_en)
 summary(oci.ilu1_en$c12f_2)
-oci.ilu1_en <- rename(oci.ilu1_en, c('c12f_2' = 'ParentsEducation'))
+oci.ilu1_en <- rename(oci.ilu1_en, c('c12f_2' = 'YEducation'))
 oci.ilu1_en$ParentsEducation <- revalue(oci.ilu1_en$ParentsEducation, c('Obligatoris o inferiors' = 'LS', 'Secundaris postobligatoris' = 'HS', 'Superiors' = 'College', 'No ho sap' = 'LS', 'No contesta' = 'LS'))
-summary(oci.ilu1_en$ParentsEducation)
+summary(oci.ilu1_en$YEducation)
 
 
