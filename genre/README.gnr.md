@@ -40,6 +40,7 @@ Project code name
   * `dir.`     : directory addresses
   * `df.`      : data frames
   * `fil.`     : files or file addresses
+  * `fun.`     : function name
   * `prj.`     : project config variables
   * `session.` : session config variables
   * `str.`     : strings

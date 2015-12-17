@@ -1,4 +1,4 @@
-## Install if needed and then include the libraries
+## Installs if needed and then includes the libraries
 fun.install.require <- function(libs){
   fun.print("Function initiated : [ fun.install.require ]")
   lapply(libs,
@@ -15,7 +15,7 @@ fun.install.require <- function(libs){
 }
 
 ## makes the timestamp
-fun.make.timestamp <- function(digits=10){
+fun.make.timestamp <- function(){
  return(as.character(round(as.numeric(Sys.time()))))
 }
 
