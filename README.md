@@ -54,5 +54,5 @@ codename: `tvs`
   * `prj.`     : project config variables
   * `session.` : session config variables
   * `str.`     : strings
-  * `vec.`     : vector
+  * `vct.`     : vector
 
