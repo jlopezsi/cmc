@@ -8,7 +8,7 @@ if(prj.import.state == "done"){
   fun.install.require(c("foreign"))
 
   fun.verbose("Opening the spss file")
-  df.imported <- read.spss(sprintf("../%s/Data/music13feb2012.sav", prj.archive.directory), to.data.frame=T)
+  df.imported <- read.spss(sprintf("../%s/music13feb2012.sav", prj.data.directory), to.data.frame=T)
 
   n.df.imported <- nrow(df.imported)
   fun.verbose(sprintf("%s rows imported", n.df.imported))

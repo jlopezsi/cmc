@@ -28,10 +28,6 @@ Project code name
   * Convert the `json` files to `mysql` files
   * Start the analysis
 
-## Conventions, Directories and  Prefixes
-
-  * For conventions and directories go to `genere` project
-
 ## Reports
 
 ### Data Download
