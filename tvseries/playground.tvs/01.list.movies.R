@@ -13,3 +13,7 @@ fun.verbose(str.viki.url.sig)
 str.viki.domain.url.sig <- fun.viki.make.domain.url.sig(str.url)
 fun.verbose(str.viki.domain.url.sig)
 
+str.url <- "/v4/containers/genres.json?"
+str.viki.url.sig <- fun.viki.make.url.sig(str.url)
+fun.verbose(str.viki.url.sig)
+

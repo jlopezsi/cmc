@@ -19,3 +19,6 @@ fun.viki.make.domain.url.sig <- function(url){
                 fun.make.viki.url.sig(url))
   )
 }
+
+fun.viki.list.genres <- function(){
+}
