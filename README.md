@@ -14,11 +14,15 @@ codename: `grp`
 
 codename: `lsr`
 
+### Patterns of leisure
+
+codename: `ptr`
+
 ### Analysis of TV series
 
 codename: `tvs`
 
-# Conventions
+## Conventions
 
   * Files and directories at the root folder have the .prjid extension (e.g.
     `library.gnr.R` where `library.R` is the original name and `gnr` is the is
