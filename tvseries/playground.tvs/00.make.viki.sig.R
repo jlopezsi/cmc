@@ -1,14 +1,20 @@
-library(digest)
+fun.install.require(c("digest"))
 
-url <- "/v4/movies.json?sort=views&app=9001&t=1356482778"
-key.viki <- "orange"
-sig <- hmac(key.viki, url, algo="sha1")
+## Viki api parameters
+prj.viki.api.id <- "100486a"
+prj.viki.api.secret <- "412acbf87482c046988a966bfdee882b31055470202b9521a7102cdac32b9b10b8257decd8d0"
 
-url.sig <- paste(url, sig, sep="&")
+## viki video parameters (oh my vinus epi 10)
+epi.10.oh.url <- "http://api.viki.io/v4/videos/1088600v.json"
 
+timestamp <- "1451381476"
 
-url <- "/v4/movies.json"
-key.viki <- "412acbf87482c046988a966bfdee882b31055470202b9521a7102cdac32b9b10b8257decd8d0"
-sig <- hmac(key.viki, url, algo="sha1")
+## viki url
+epi.10.oh.viki.url <- paste0(epi.10.oh.url,"?app=",prj.viki.api.id,"&t=", timestamp)
 
-url.sig <- paste(url, sig, sep="&")
+## viki url sig
+
+epi.10.oh.sig <- hmac(prj.viki.api.secret, epi.10.oh.viki.url, algo="sha1")
+
+epi.10.oh.viki.url.sig <- paste0(epi.10.oh.viki.url,"&sig=", epi.10.oh.sig)
+
