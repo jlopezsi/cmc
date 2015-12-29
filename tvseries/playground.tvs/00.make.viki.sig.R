@@ -18,3 +18,22 @@ epi.10.oh.sig <- hmac(prj.viki.api.secret, epi.10.oh.viki.url, algo="sha1")
 
 epi.10.oh.viki.url.sig <- paste0(epi.10.oh.viki.url,"&sig=", epi.10.oh.sig)
 
+## viki video parameters (list)
+
+list.url <- "http://api.viki.io/v4/list.json"
+
+## makes the timestamp
+
+fun.make.timestamp <-as.numeric(Sys.time())
+
+timestamp <- fun.make.timestamp
+
+## viki url
+list.viki.url <- paste0(list.url,"?app=",prj.viki.api.id,"&t=", timestamp)
+
+## viki url sig
+
+list.sig <- hmac(prj.viki.api.secret, list.viki.url, algo="sha1")
+
+list.viki.url.sig <- paste0(list.viki.url,"&sig=", list.sig)
+
