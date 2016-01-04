@@ -42,3 +42,11 @@ str.list.sig <- hmac(prj.viki.api.secret, str.list.viki.url, algo="sha1")
 
 str.list.viki.url.sig <- paste0(str.list.viki.url,"&sig=", str.list.sig)
 
+# Making sig for containers------------------------------------------------------------
+## url 
+str.containers.list.url <- "http://api.viki.io/v4/containers.json?ids=(ID1,ID2,IDN)"
+str.containers.list.viki.url <- Paste0(str.containers.list.url,"?app=",prj.viki.api.id,"&t=", timestamp)
+
+
+
+
