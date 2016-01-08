@@ -11,7 +11,6 @@
     
     write(toJSON(str.containers.viki.url.sig), file = "D:/research/cmc/tvseries/rawdata.tvs/containers.list.viki.json")
     
-    
 #Types-----------------------------------------------------------------------------------
    
    ##GET /v4/series.json
@@ -61,8 +60,8 @@
         write(toJSON(str.containers.genres.viki.url.sig), file = "D:/research/cmc/tvseries/rawdata.tvs/containers.origin.korea.viki.json")
     
 
-#subtitle_completion-----------------------------------------------------------------------
-   ##to the language code (Not the subtitles )
+#subtitle_completion (Not the subtitles )--------------------------------------------------
+   ##to the language code 
         # GET /v4/containers.json?&subtitle_completion=es
     str.containers.sub.es <- "http://api.viki.io/v4/containers.json"
     
@@ -74,5 +73,24 @@
     download.file(str.containers.sub.es.viki.url.sig,destfile="D:/research/cmc/tvseries/rawdata.tvs/containers.sub.es.viki", method="auto")
         
     write(toJSON(str.containers.sub.es.viki.url.sig), file = "D:/research/cmc/tvseries/rawdata.tvs/containers.sub.es.viki.json")
-        
+  
+    
+#people (Not..working...)------------------------------------------------------------------
+    #List people associated with a container
+    #GET /v4/containers/CONTAINER_ID/people.json
 
+#get url   
+    container.id <- "28538c"
+    str.people.url <- paste0("http://api.viki.io/v4/container/",container.id ,"/people.json")
+    str.people.viki.url <- paste0(str.people.url,"?app=",prj.viki.api.id,"&t=", timestamp)
+    str.people.sig <- hmac(prj.viki.api.secret, str.people.viki.url, algo="sha1")
+    str.people.viki.url.sig <- paste0(str.people.viki.url,"&sig=", str.people.sig)
+    
+# returns the url and sig
+    str.people.viki.url.sig
+    
+# Download the list 
+    download.file(str.people.viki.url.sig, destfile="D:/research/cmc/tvseries/rawdata.tvs/people.viki", method="auto")
+    
+    #Save list url 
+    write(toJSON(str.people.viki.url.sig), file = "D:/research/cmc/tvseries/rawdata.tvs/people.viki.json")    

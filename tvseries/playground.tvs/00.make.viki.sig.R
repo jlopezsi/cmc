@@ -1,4 +1,4 @@
-fun.install.require(c("digest"))
+fun.install.require(c("digest","RJSONIO"))
 
 ## Viki api parameters
 prj.viki.api.id <- "100486a"

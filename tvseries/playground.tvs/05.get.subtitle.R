@@ -1,4 +1,5 @@
-#Oh my vinus ep 10 subtitles download
+#Oh my vinus ep 10 subtitles download (Viki webpage prohibits to download data)
+
 ## v4/videos/VIDEO_ID/subtitles/LANGUAGE.srt
    str.sub.es <- "http://api.viki.io/v4/videos/1088600v/subtitles/es.srt"
    
