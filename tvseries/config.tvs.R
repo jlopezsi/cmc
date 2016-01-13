@@ -3,6 +3,7 @@ prj.name <- "tvs"
 
 ## Directory parameters
 prj.data.directory <- paste0("data",".",prj.name)
+prj.rawdata.directory <- paste0("rawdata",".",prj.name)
 prj.graph.directory <- paste0("graph",".",prj.name)
 prj.graphic.directory <- paste0("graphic",".",prj.name)
 prj.library.directory <- paste0("library",".",prj.name)
