@@ -7,14 +7,21 @@ fun.viki.make.url <- function(url, api.id, timestamp){
   }
   return(paste0(url, "app=", api.id, "&t=",timestamp))
 }
-
+## makes the paging and returns the viki url 
+fun.viki.make.url.paging <- function(url){
+  paging.url <- fun.viki.make.url(url, prj.viki.api.id, timestamp)
+  page.number <- 1
+  perpage <- 25
+  paging <- paste0("page=",page.number,"&per_page=",perpage)
+  return(paste0(paging.url,"&",paging))
+}
 
 ## makes the sig and returns the full viki url
 fun.viki.make.url.sig <- function(url){
   timestamp <- fun.make.timestamp()
-  viki.url <- fun.viki.make.url(url, prj.viki.api.id, timestamp)
+  viki.url <- fun.viki.make.url.paging(url)
   sig <- hmac(viki.url, prj.viki.api.secret, algo="sha1")
-  viki.url.sig <- paste0(viki.url, "&sig=", sig)
+  viki.url.sig <- paste0(viki.url,"&sig=", sig)
   return(viki.url.sig)
 }
 
