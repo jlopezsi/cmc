@@ -1,28 +1,37 @@
-#Get list of TV programme
+source("../library.tvs/head.R")
 
-
+## GET /v4/lists/list_id.json
 fun.install.require(c("digest","RJSONIO"))
 
-#Built-in Lists : 
-  # A list of featured content : List id is 1l
-  # A list of on air containers : List id is 2l
-  # A list of upcoming containers : List id is 6l
+## list parameters 
+## A list of featured content : List id is 1l
+## A list of on air containers : List id is 2l
+## A list of upcoming containers : List id is 6l
+tmp.list.id <- "1l"
 
-list.id <- "1l"
-air.list.id <- "2l"
-up.list.id <- "6l"
+## Make URL with sig and download the file 
+str.url <- paste0("/v4/lists/",tmp.list.id ,".json")
 
-# Get viki list url and sig ---------------------------------------------------------------
-## any url based on API documentation here
-str.list.url <- paste0("http://api.viki.io/v4/lists/",list.id ,".json")
-str.air.list.url <- paste0("http://api.viki.io/v4/lists/",air.list.id ,".json")
-str.up.list.url <- paste0("http://api.viki.io/v4/lists/",up.list.id ,".json")
+fil.viki.list <- paste0("tvs." , tmp.list.id, ".list.")
+
+fun.viki.download.url(str.url, fil.viki.list)
+
+#finding max pages 
+str.url <- paste0("/4/list/",tmp.list.id, ".json")
+
+str.url <- "/v4/series.json?page=1&per_page=25"
 
 
-#About Wanted lists (Not working...)-------------------------------------------------------
+### To do
+## Wanted lists (Not working...)
+## wanted lists mean : the lists of videos that need contributions: more subtitles etc
+## GET /v4/wanted_lists/contribution_subtitle_en.json
+## wanted list parameters 
+#tmp.wanted.language <- "en"
+#tmp.wanted.contribution <- "contribution_subtitle_"
 
-#To retrieve lists of videos that need contributions: more subtitles, more segements…       (thus called "wanted")
-#Each of the lists are identified with an alias, for example
-#GET /v4/wanted_lists/contribution_subtitle_en.json?app=100000a
+#str.url <- pasete0("/v4/wanted_lists/",tmp.wanted.contribution,tmp.wanted.language,".json")
 
-str.wanted.lists.url <- "http://api.viki.io/v4/wanted_lists/contribution_subtitle_en.json"
+#fil.viki.wanted.list <- paste0("tvs." ,tmp.wanted.contribution,".",tmp.wanted.language, "wanted.list.")
+
+#fun.viki.download.url(str.url, fil.viki.wanted.list)

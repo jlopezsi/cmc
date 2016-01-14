@@ -35,6 +35,3 @@ fun.viki.download.url <- function(url, fil.name){
   fun.verbose(sprintf("VIKI URL downloaded : [ %s ]",url))
 }
 
-## TODO
-fun.viki.list.genres <- function(){
-}
