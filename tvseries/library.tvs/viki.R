@@ -1,9 +1,20 @@
 ## contains viki api functions
 
+#Put ? when you make viki url if they don't have 
+
+fun.viki.make.url <- function(url, api.id, timestamp){
+                   url <- if(is.na("?")){
+                                   complete.cases("?")
+                 return(paste0(url,"app=", api.id, "&t=",timestamp))
+ }
+}
+
+
 ## makes the viki url
 fun.viki.make.url <- function(url, api.id, timestamp){
-  return(paste0(url, "&app=", api.id, "&t=",timestamp))
+  return(paste0(url, "?app=", api.id, "&t=",timestamp))
 }
+
 
 ## makes the sig and returns the full viki url
 fun.viki.make.url.sig <- function(url){
