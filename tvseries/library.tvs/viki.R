@@ -1,18 +1,11 @@
 ## contains viki api functions
 
-#Put ? when you make viki url if they don't have 
-
+## makes the viki url, also checks "?"
 fun.viki.make.url <- function(url, api.id, timestamp){
-                   url <- if(is.na("?")){
-                                   complete.cases("?")
-                 return(paste0(url,"app=", api.id, "&t=",timestamp))
- }
-}
-
-
-## makes the viki url
-fun.viki.make.url <- function(url, api.id, timestamp){
-  return(paste0(url, "?app=", api.id, "&t=",timestamp))
+  if(length(grep("\\?", url))==0){
+    url <- paste0(url, "?")
+  }
+  return(paste0(url, "app=", api.id, "&t=",timestamp))
 }
 
 
