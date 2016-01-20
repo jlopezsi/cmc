@@ -1,7 +1,7 @@
 source("../library.tvs/head.R")
 
 ## GET /v4/lists/list_id.json
-fun.install.require(c("digest","RJSONIO"))
+fun.install.require(c("digest","RJSONIO","plyr"))
 
 ## list parameters 
 ## A list of featured content : List id is 1l

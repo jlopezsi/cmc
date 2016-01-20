@@ -6,13 +6,13 @@ fun.viki.make.url <- function(url, api.id, timestamp){
     url <- paste0(url, "?")
   }
   timestamp <- fun.make.timestamp()
-  return(paste0(url, "app=", prj.viki.api.id, "&t=",timestamp))
+  return(paste0(url, "app=", prj.viki.api.id, "&t=", timestamp))
 }
 
-## makes the paging and returns the viki url 
+## makes the paging and returns the viki url
 fun.viki.make.url.paging <- function(url, page.number, perpage){
   paging.url <- fun.viki.make.url(url)
-  paging <- paste0("page=",page.number,"&per_page=",perpage)
+  paging <- paste0("page=",page.number,"&per_page=", perpage)
   return(paste0(paging.url,"&",paging))
 }
 
@@ -20,19 +20,19 @@ fun.viki.make.url.paging <- function(url, page.number, perpage){
 fun.viki.make.url.sig <- function(url, page.number, perpage){
   viki.url <- fun.viki.make.url.paging(url, page.number, perpage)
   sig <- hmac(viki.url, prj.viki.api.secret, algo="sha1")
-  viki.url.sig <- paste0(viki.url,"&sig=", sig)
+  viki.url.sig <- paste0(viki.url, "&sig=", sig)
   return(viki.url.sig)
 }
 
 ## attaches the viki domain to the url
 fun.viki.make.domain.url.sig <- function(url, page.number, perpage){
-  return(paste0(prj.viki.api.domain, 
+  return(paste0(prj.viki.api.domain,
                 fun.viki.make.url.sig(url, page.number, perpage))
   )
 }
 
 ## downloads the viki url and saves `.json` and `.url` files
-fun.viki.download.url <- function(url, fil.name, page.number=1, perpage=25){
+fun.viki.download.url <- function(url, fil.name, page.number=2, perpage=25){
   domain.sig.url <- fun.viki.make.domain.url.sig(url, page.number, perpage)
   fun.verbose(domain.sig.url)
   fil.name <- paste0("../", prj.rawdata.directory,"/", fil.name)
@@ -40,4 +40,3 @@ fun.viki.download.url <- function(url, fil.name, page.number=1, perpage=25){
   write(toJSON(domain.sig.url), file = paste0(fil.name, ".url"))
   fun.verbose(sprintf("VIKI URL downloaded : [ %s ]",url))
 }
-
