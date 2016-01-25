@@ -6,21 +6,25 @@
 
 codename: `gnr`
 
+Music Generes - CCA analysis
+
 ### Group
 
 codename: `grp`
+
+General files about the administration of the cmc group and projects
 
 ### Leisure
 
 codename: `lsr`
 
-### Patterns of leisure
-
-codename: `ptr`
+Geographical analysis of leisure patterns
 
 ### Analysis of TV series
 
 codename: `tvs`
+
+Text mining of TV series
 
 ## Conventions
 
