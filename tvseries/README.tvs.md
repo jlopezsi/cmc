@@ -1,3 +1,6 @@
+---
+output: word_document
+---
 
 # sentiment-analysis-of-tv-series
 

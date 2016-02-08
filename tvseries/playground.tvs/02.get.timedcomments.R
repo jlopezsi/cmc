@@ -6,6 +6,7 @@ fun.install.require(c("digest","RJSONIO","plyr"))
 ## viki video parameters (oh my vinus epi 10)
 tmp.video.id <- "1088600v"
 tmp.language <- "en"
+
 tmp.series.id <- "28538c"
 tmp.episod.number <- "10"
 tmp.page.number <- 2
@@ -48,3 +49,4 @@ fun.download.all.pages.url <- function(url){
   ##Delete the temp.files
   rm(data.1, data.2, data.3, data.4)
 }
+
