@@ -1,6 +1,12 @@
 ## General parameters
 prj.name <- "tvs"
 
+## States
+prj.viki.state.init <- "todo" # c("todo", "done")
+
+## Languages
+prj.viki.languages <- c("en")
+
 ## Directory parameters
 prj.data.directory <- paste0("data",".",prj.name)
 prj.rawdata.directory <- paste0("rawdata",".",prj.name)
