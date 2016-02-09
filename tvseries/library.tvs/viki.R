@@ -128,18 +128,19 @@ fun.viki.list.videos <- function(){
 
     for(cnt.videos in 1:nrow(videos)){
       tmp.videos <- videos[cnt.videos, ]
-      for(cnt.languages in prj.viki.languages)
-      fun.verbose(sprintf("Downloading timed comments in %s for #%s of %s"
-                          , cnt.languages, tmp.videos$number, tmp.series$id))
-      url <- sprintf("/v4/videos/%s/timed_comments/%s.json", tmp.videos$id, cnt.languages)
-      fil.name <- sprintf("%s/timed.comments.%02d.%s", tmp.series$id,  tmp.videos$number, cnt.languages)
-      fun.viki.download.url(url, fil.name)
-      fil.address <- fun.viki.retrieve.fil.address(fil.name)
-      fil.address.json <- paste0(fil.address, ".full.json")
-      if(file.exists(fil.address.json)){
-        timed.comments <- fromJSON(txt=fil.address.json)
-        fil.address.saved <- paste0(fil.address, ".full.saved")
-        save(timed.comments, file=fil.address.saved)
+      for(cnt.languages in prj.viki.languages) {
+        fun.verbose(sprintf("Downloading timed comments in %s for #%s of %s"
+                            , cnt.languages, tmp.videos$number, tmp.series$id))
+        url <- sprintf("/v4/videos/%s/timed_comments/%s.json", tmp.videos$id, cnt.languages)
+        fil.name <- sprintf("%s/timed.comments.%02d.%s", tmp.series$id,  tmp.videos$number, cnt.languages)
+        fun.viki.download.url(url, fil.name)
+        fil.address <- fun.viki.retrieve.fil.address(fil.name)
+        fil.address.json <- paste0(fil.address, ".full.json")
+        if(file.exists(fil.address.json)){
+          timed.comments <- fromJSON(txt=fil.address.json)
+          fil.address.saved <- paste0(fil.address, ".full.saved")
+          save(timed.comments, file=fil.address.saved)
+        }
       }
     }
   }
