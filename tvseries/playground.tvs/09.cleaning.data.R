@@ -5,10 +5,10 @@ library(tm)
 library(ggplot2)
 library(wordcloud)
 library(RColorBrewer)
+library(tm)
 
 ## Importing data from Json file
-
-data.29584c.01.en.json <- fromJSON(file = )
+data.29584c.01.en.json <- fromJSON("../rawdata.tvs/29584c/timed.comments.01.en.json")
 
 ## Prepare the text for analysis
 # remove unnecessary space
@@ -49,3 +49,23 @@ txt.29584c.01.en= sapply(txt.29584c.01.en, try.error)
 ## remove NAs in some_txt
 txt.29584c.01.en= txt.29584c.01.en[!is.na(txt.29584c.01.en)]
 names(txt.29584c.01.en) = NULL
+
+## making corpus
+corpus <- tm_map(corpus,content_transformer(tolower))
+corpus <- tm_map(corpus, removePunctuation)
+
+corpus <- tm_map(corpus, stripWhitespace)
+
+corpus <- tm_map(corpus, removeWords,stopwords(english))
+
+## words frequency
+dtm <- DocumentTermMatrix(corpus)
+dtm2 <- as.matrix(dtm)
+frequency <- colSums(dtm2)
+frequency <- sort(frequency, decreasing=TRUE)
+head(frequency)
+
+## words could
+words <- names(frequency)
+wordcloud(words[1:500], frequency[1:500])
+
