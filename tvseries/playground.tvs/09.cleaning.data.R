@@ -12,23 +12,23 @@ data.29584c.01.en.json <- fromJSON("../rawdata.tvs/29584c/timed.comments.01.en.j
 
 ## Prepare the text for analysis
 # remove unnecessary space
-txt.29584c.01.en <- gsub("[ \t]{2,}","",txt.29584c.01.en)
-txt.29584c.01.en <- gsub("^\\s+|\\s+$", "", txt.29584c.01.en)
+data.29584c.01.en.json <- gsub("[ \t]{2,}","",data.29584c.01.en.json)
+data.29584c.01.en.json <- gsub("^\\s+|\\s+$", "", data.29584c.01.en.json)
 # remove punct
-txt.29584c.01.en <- gsub("[[:punct:]]", "", txt.29584c.01.en)
+data.29584c.01.en.json <- gsub("[[:punct:]]", "", data.29584c.01.en.json)
 # remove cntrl
-txt.29584c.01.en <- gsub("[[:cntrl:]]", "", txt.29584c.01.en)
+data.29584c.01.en.json <- gsub("[[:cntrl:]]", "", data.29584c.01.en.json)
 # remove
-txt.29584c.01.en <- gsub("\\d+", "", txt.29584c.01.en)
+data.29584c.01.en.json <- gsub("\\d+", "", data.29584c.01.en.json)
 # remove number
-txt.29584c.01.en <- gsub("[[:digit:]]", "", txt.29584c.01.en)
+data.29584c.01.en.json <- gsub("[[:digit:]]", "", data.29584c.01.en.json)
 # remove url
-txt.29584c.01.en <- gsub("http\\+", "", txt.29584c.01.en)
+data.29584c.01.en.json <- gsub("http\\+", "", data.29584c.01.en.json)
 # remove user information
-txt.29584c.01.en <- gsub("[user:+]", "", txt.29584c.01.en)
+data.29584c.01.en.json <- gsub("[user:+]", "", data.29584c.01.en.json)
 #example of user information : "user":{"id":"7905008u","username":"minsu_lee","name":"MInsu Lee","staff":false,"images":{"avatar":{"url":"https://graph.facebook.com/100001765202612/picture?width=215&height=215"}}}},
 #
-txt.29584c.01.en <- gsub("[[:digit:]]", "", txt.29584c.01.en)
+data.29584c.01.en.json <- gsub("[[:digit:]]", "", data.29584c.01.en.json)
 ## define "tolower error handling" function
 try.error = function(x)
 {
@@ -44,19 +44,13 @@ return(y)
 }
 
 ## lower case using try.error with sapply
-txt.29584c.01.en= sapply(txt.29584c.01.en, try.error)
+data.29584c.01.en.json <- sapply(data.29584c.01.en.json, try.error)
 
 ## remove NAs in some_txt
-txt.29584c.01.en= txt.29584c.01.en[!is.na(txt.29584c.01.en)]
-names(txt.29584c.01.en) = NULL
+data.29584c.01.en.json = data.29584c.01.en.json [!is.na(data.29584c.01.en.json)]
+names(data.29584c.01.en.json) = NULL
 
-## making corpus
-corpus <- tm_map(corpus,content_transformer(tolower))
-corpus <- tm_map(corpus, removePunctuation)
-
-corpus <- tm_map(corpus, stripWhitespace)
-
-corpus <- tm_map(corpus, removeWords,stopwords(english))
+corpus <- data.29584c.01.en.json
 
 ## words frequency
 dtm <- DocumentTermMatrix(corpus)
