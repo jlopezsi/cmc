@@ -1,5 +1,7 @@
 ## Cleaning the data
-## ? only choose Korean drama files among the all the series ?
+## Unsolved problem
+# how can only choose Korean drama files among the all the series ??
+# how can make a loops for the all the series for cleaning??
 
 ## Download a relevant package
 library(jsonlite)

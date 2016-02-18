@@ -1,0 +1,135 @@
+	
+200 OK
+1317ms	
+GET https://api.viki.io/v4/containers/23066c.json?app=100000a
+200 OK
+235ms	
+GET https://api.viki.io/v4/series/23066c/trailers.json?app=100000a
+200 OK
+1534ms	
+GET https://api.viki.io/v4/containers/22719c.json?app=100000a
+200 OK
+240ms	
+GET https://api.viki.io/v4/series/22719c/trailers.json?app=100000a
+200 OK
+139ms	
+GET https://api.viki.io/v4/containers/22343c.json?app=100000a
+200 OK
+199ms	
+GET https://api.viki.io/v4/series/22343c/trailers.json?app=100000a
+200 OK
+106ms	
+GET https://api.viki.io/v4/containers/23602c.json?app=100000a
+200 OK
+167ms	
+GET https://api.viki.io/v4/series/23602c/trailers.json?app=100000a
+200 OK
+112ms	
+GET https://api.viki.io/v4/containers/22978c.json?app=100000a
+200 OK
+315ms	
+GET https://api.viki.io/v4/series/22978c/clips.json?app=100000a
+200 OK
+227ms	
+GET https://www.viki.com/explore?country=korea&page=2&year=2014&_pjax=%23pjaxify-container
+200 OK
+530ms	
+GET https://api.viki.io/v4/containers/24146c.json?app=100000a
+200 OK
+185ms	
+GET https://api.viki.io/v4/series/24146c/trailers.json?app=100000a
+200 OK
+148ms	
+GET https://api.viki.io/v4/containers/25963c.json?app=100000a
+200 OK
+117ms	
+GET https://api.viki.io/v4/series/25963c/clips.json?app=100000a
+200 OK
+155ms	
+GET https://api.viki.io/v4/containers/25478c.json?app=100000a
+200 OK
+192ms	
+GET https://api.viki.io/v4/series/25478c/trailers.json?app=100000a
+200 OK
+100ms	
+GET https://api.viki.io/v4/containers/23078c.json?app=100000a
+200 OK
+244ms	
+GET https://api.viki.io/v4/series/23078c/trailers.json?app=100000a
+200 OK
+529ms	
+GET https://api.viki.io/v4/containers/22591c.json?app=100000a
+200 OK
+128ms	
+GET https://api.viki.io/v4/series/22591c/trailers.json?app=100000a
+200 OK
+123ms	
+GET https://www.viki.com/explore?_pjax=%23pjaxify-cont...=korea&page=3&year=2014&_pjax=%23pjaxify-container
+200 OK
+531ms	
+GET https://api.viki.io/v4/containers/24065c.json?app=100000a
+200 OK
+228ms	
+GET https://api.viki.io/v4/series/24065c/trailers.json?app=100000a
+200 OK
+218ms	
+GET https://api.viki.io/v4/containers/29375c.json?app=100000a
+200 OK
+214ms	
+GET https://api.viki.io/v4/series/29375c/trailers.json?app=100000a
+200 OK
+196ms	
+GET https://api.viki.io/v4/containers/25771c.json?app=100000a
+200 OK
+191ms	
+GET https://api.viki.io/v4/series/25771c/trailers.json?app=100000a
+200 OK
+226ms	
+GET https://api.viki.io/v4/containers/25882c.json?app=100000a
+200 OK
+762ms	
+GET https://api.viki.io/v4/containers/24662c.json?app=100000a
+200 OK
+408ms	
+GET https://api.viki.io/v4/series/24662c/trailers.json?app=100000a
+200 OK
+155ms	
+GET https://api.viki.io/v4/series/25882c/clips.json?app=100000a
+200 OK
+129ms	
+GET https://www.viki.com/explore?country=korea&year=2013&_pjax=%23pjaxify-container
+200 OK
+457ms	
+GET https://api.viki.io/v4/containers/10688c.json?app=100000a
+200 OK
+197ms	
+GET https://api.viki.io/v4/series/10688c/trailers.json?app=100000a
+200 OK
+646ms	
+GET https://api.viki.io/v4/containers/9343c.json?app=100000a
+200 OK
+207ms	
+GET https://api.viki.io/v4/series/9343c/clips.json?app=100000a
+200 OK
+165ms	
+GET https://api.viki.io/v4/containers/11041c.json?app=100000a
+200 OK
+869ms	
+GET https://api.viki.io/v4/series/11041c/trailers.json?app=100000a
+200 OK
+110ms	
+GET https://www.viki.com/explore?_pjax=%23pjaxify-cont...=korea&page=2&year=2013&_pjax=%23pjaxify-container
+200 OK
+608ms	
+GET https://api.viki.io/v4/containers/11247c.json?app=100000a
+200 OK
+240ms	
+GET https://api.viki.io/v4/series/11247c/trailers.json?app=100000a
+200 OK
+146ms	
+GET https://api.viki.io/v4/containers/23263c.json?app=100000a
+200 OK
+106ms	
+GET https://api.viki.io/v4/series/23263c/clips.json?app=100000a
+200 OK
+124ms	
