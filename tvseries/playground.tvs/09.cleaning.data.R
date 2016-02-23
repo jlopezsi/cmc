@@ -22,16 +22,27 @@ class(data.29584c.01.en.json)
 txt.data.29584c.01.en <- paste(data.29584c.01.en.json$value, collapse=" ")
 head(txt.data.29584c.01.en)
 source.txt.data.29584c.01.en <- VectorSource(txt.data.29584c.01.en)
+## premprocesing data
+## 1 making a coopus of data
 corpus <- Corpus(source.txt.data.29584c.01.en)
+## 2 remove  the emoticons
 corpus <- tm_map(corpus, removePunctuation)
+## 3 remove the space
 corpus <- tm_map(corpus, stripWhitespace)
-corpus <- tm_map(corpus, removeWords, stopwords("english"))
+## 5. correct errors
 corpus <- tm_map(corpus, content_transformer(tolower))
+## 4 stopwords English
+corpus <- tm_map(corpus, removeWords, stopwords("english"))
+
+## 6. stemming task
+corpus <- tm_map(corpus, stemDocument)
+
 stopwords("english")
 
 
-## words frequency
+## make data matrix for frequency
 dtm <- DocumentTermMatrix(corpus)
+findFreqTerms(dtm, 5)
 dtm2 <- as.matrix(dtm)
 frequency <- colSums(dtm2)
 frequency <- sort(frequency, decreasing=TRUE)
@@ -52,3 +63,4 @@ wordcloud(words[1:500], frequency[1:500])
 # make a corpus
 #txt.corpus <- Corpus(VectorSource(corpus4))
 #inspect(txt.corpus)
+
