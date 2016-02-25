@@ -20,7 +20,7 @@ t.c.29584c.1.e <- timed.comments.29584c.01.en
 str(t.c.29584c.1.e)
 class(t.c.29584c.1.e)
 
-## make a corpus
+## make a corpus ?? PUT "." IN THE END OF EVERYCOMMENTS
 timed.comments.29584c.01.en <- paste(t.c.29584c.1.e$value, collapse=" ")
 head(timed.comments.29584c.01.en)
 ## preprocessing cleaning data

@@ -4,6 +4,8 @@
 #install.packages("pander")
 library(syuzhet)
 library(coreNLP)
+#downloadCoreNLP()
+
 ## Download txt
 my_example_text <- "I begin this story with a neutral statement.
   Basically this is a very silly test.
@@ -34,9 +36,10 @@ afinn_vector
 nrc_vector <- get_sentiment(s_v, method="nrc")
 nrc_vector
 
-## Use coreNLP package for Stanford Example:
-#tagger_path <- ":d/research/stanford-corenlp-full-2015-12-09"
-#stanford_vector <- get_sentiment(s_v, method="stanford", tagger_path)
+## Use coreNLP package for Stanford Example
+#downloadCoreNLP()
+tagger_path <- "../applications/stanford-corenlp-full-2014-04-20"
+stanford_vector <- get_sentiment(s_v, method="stanford", tagger_path)
 #stanford_vector
 
 ## sum of sentiment scores
@@ -57,7 +60,7 @@ ylab= "Emotional Valence"
 
 ## with a long data set
 # 1. upload data
-portrait.txt <- read.delim(file.choose(), header = T, stringsAsFactors = F)
+portrait.txt <- read.table("portrait.txt", header = T, sep = "\t")
 class(portrait.txt)
 # 2 change as character
 poa_v <- as.character(portrait.txt)
