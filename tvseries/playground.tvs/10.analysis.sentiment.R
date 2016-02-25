@@ -35,8 +35,8 @@ nrc_vector <- get_sentiment(s_v, method="nrc")
 nrc_vector
 
 ## Use coreNLP package for Stanford Example:
-tagger_path <- "/research/stanford-corenlp-full-2015-12-09"
-#tanford_vector <- get_sentiment(s_v, method="stanford", tagger_path)
+#tagger_path <- ":d/research/stanford-corenlp-full-2015-12-09"
+#stanford_vector <- get_sentiment(s_v, method="stanford", tagger_path)
 #stanford_vector
 
 ## sum of sentiment scores
@@ -56,11 +56,18 @@ ylab= "Emotional Valence"
 )
 
 ## with a long data set
+# 1. upload data
 portrait.txt <- read.delim(file.choose(), header = T, stringsAsFactors = F)
 class(portrait.txt)
+# 2 change as character
 poa_v <- as.character(portrait.txt)
 class(poa_v)
+# 3 data frame
 poa_v <- get_sentences(poa_v)
+class(poa_v)
+str(poa_v)
+head(poa_v, 10)
+# 4 sentiment analysis
 poa_sent <- get_sentiment(poa_v, method="bing")
 plot(
 poa_sent,

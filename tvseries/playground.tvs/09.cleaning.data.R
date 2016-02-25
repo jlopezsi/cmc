@@ -14,41 +14,46 @@ library(syuzhet)
 library(coreNLP)
 
 ## Importing data from Json file
-data.29584c.01.en.json <- fromJSON("../rawdata.tvs/29584c/timed.comments.01.en.json")
-
+timed.comments.29584c.01.en <- fromJSON("../rawdata.tvs/29584c/timed.comments.01.en.json")
+t.c.29584c.1.e <- timed.comments.29584c.01.en
 ## checking the data form
-str(data.29584c.01.en.json)
-class(data.29584c.01.en.json)
+str(t.c.29584c.1.e)
+class(t.c.29584c.1.e)
 
 ## make a corpus
-txt.data.29584c.01.en <- paste(data.29584c.01.en.json$value, collapse=" ")
-head(txt.data.29584c.01.en)
-source.txt.data.29584c.01.en <- VectorSource(txt.data.29584c.01.en)
-## premprocesing data
-# 1 making a coopus of data
-corpus <- Corpus(source.txt.data.29584c.01.en)
-# 2 remove  the emoticons
-corpus <- tm_map(corpus, removePunctuation)
-# 3 remove the space
-#corpus <- tm_map(corpus, stripWhitespace)
-# 4. correct errors
-corpus <- tm_map(corpus, content_transformer(tolower))
-# 5 stopwords English
-corpus <- tm_map(corpus, removeWords, stopwords("english"))
-# 6. stemming task
-#corpus <- tm_map(corpus, stemDocument)
+timed.comments.29584c.01.en <- paste(t.c.29584c.1.e$value, collapse=" ")
+head(timed.comments.29584c.01.en)
+## preprocessing cleaning data
+# 1. delete signs
+comments <- gsub("[[:punct:]]","", timed.comments.29584c.01.en )
+# 2. delete ids
+comments <- gsub("xe+","", comments )
+head(comments)
+# 3. delete non english words
+comments <- gsub("[^a
+-zA-Z0-9]","", comments)
+head(comments)
+class(comments)
+
 
 ## analysing the sentiment using syuzhet package
-dtm <- as.character(corpus)
-timed.comments <- get_sentences(dtm)
-class(s_v)
-str(s_v)
-head(s_v)
-timed_sent <- get_sentiment(timed.comments, method="bing")
-
+# 1 data frame
+timed.comments <- get_sentences(comments)
+class(timed.comments)
+str(timed.comments)
+head(timed.comments)
+# 2 bing
+timed.sent.bing <- get_sentiment(timed.comments, method="bing")
+timed.sent.bing
+# 3 afinn
+timed.sent.afinn <- get_sentiment(timed.comments, method="afinn")
+timed.sent.afinn
+# 4 nrc
+timed.sent.nrc <- get_sentiment(timed.comments, method="nrc")
+timed.sent.nrcr
 ## make a plot for sentiment analysis with Bing & Liu
 plot(
-timed_sent,
+timed.sent.bing,
 type="h",
 main="Time comments sentiment analysis",
 xlab = "Time",
@@ -56,7 +61,7 @@ ylab= "Emotional Valence"
 )
 
 ## percentage values
-percent_vals <- get_percentage_values(timed_sent)
+percent_vals <- get_percentage_values(timed.sent.bing)
 plot(
 percent_vals,
 type="l",
@@ -68,7 +73,7 @@ col="red"
 
 ## transformed values
 ft_values <- get_transformed_values(
-timed_sent,
+timed.sent.bing,
 low_pass_size = 3,
 x_reverse_len = 100,
 scale_vals = TRUE,
@@ -84,13 +89,13 @@ col = "red"
 )
 
 ## nrc sentiment analysis
-nrc_data <- get_nrc_sentiment(timed_sent)
+nrc_data <- get_nrc_sentiment(timed.sent.bing)
 # find a angry sentiment
 angry_items <- which(nrc_data$anger > 0)
-s_v[angry_items]
+timed.comments[angry_items]
 # find a joy sentiment
 joy_items <- which(nrc_data$joy > 0)
-s_v[joy_items]
+timed.comments[joy_items]
 # simple to view all of the emotions and their values:
 pander::pandoc.table(nrc_data[, 1:8])
 # examine only the positive and negative valence
@@ -106,16 +111,4 @@ cex.names = 0.7,
 las = 1,
 main = "Emotions in Sample text", xlab="Percentage"
 )
-
-## make data matrix for frequency
-#dtm <- DocumentTermMatrix(corpus)
-#findFreqTerms(dtm, 5)
-#dtm2 <- as.matrix(dtm)
-#frequency <- colSums(dtm2)
-#frequency <- sort(frequency, decreasing=TRUE)
-#head(frequency)
-
-## words could
-#words <- names(frequency)
-#wordcloud(words[1:500], frequency[1:500])
 
