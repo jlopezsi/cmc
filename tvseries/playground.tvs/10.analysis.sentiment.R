@@ -1,7 +1,9 @@
 ## Analysis Sentiment
-install.packages("syuzhet")
+#install.packages("syuzhet")
+#install.packages("coreNLP")
+#install.packages("pander")
 library(syuzhet)
-
+library(coreNLP)
 ## Download txt
 my_example_text <- "I begin this story with a neutral statement.
   Basically this is a very silly test.
@@ -32,6 +34,11 @@ afinn_vector
 nrc_vector <- get_sentiment(s_v, method="nrc")
 nrc_vector
 
+## Use coreNLP package for Stanford Example:
+tagger_path <- "/research/stanford-corenlp-full-2015-12-09"
+#tanford_vector <- get_sentiment(s_v, method="stanford", tagger_path)
+#stanford_vector
+
 ## sum of sentiment scores
 sum(sentiment_vector)
 ## average of sentiment scores
@@ -48,13 +55,18 @@ xlab = "Narrative Time",
 ylab= "Emotional Valence"
 )
 
-## make a
+## with a long data set
+portrait.txt <- read.delim(file.choose(), header = T, stringsAsFactors = F)
+class(portrait.txt)
+poa_v <- as.character(portrait.txt)
+class(poa_v)
+poa_v <- get_sentences(poa_v)
 poa_sent <- get_sentiment(poa_v, method="bing")
 plot(
 poa_sent,
 type="h",
 main="Example Plot Trajectory",
-xlab = "Narrative Time",
+xlab = "Time",
 ylab= "Emotional Valence"
 )
 
@@ -109,3 +121,4 @@ cex.names = 0.7,
 las = 1,
 main = "Emotions in Sample text", xlab="Percentage"
 )
+
