@@ -38,7 +38,8 @@ nrc_vector
 
 ## Use coreNLP package for Stanford Example
 #downloadCoreNLP()
-tagger_path <- "../applications/stanford-corenlp-full-2014-04-20"
+
+tagger_path <- "/Applications/stanford-corenlp-full-2014-04-20"
 stanford_vector <- get_sentiment(s_v, method="stanford", tagger_path)
 #stanford_vector
 
@@ -60,7 +61,7 @@ ylab= "Emotional Valence"
 
 ## with a long data set
 # 1. upload data
-portrait.txt <- read.table("portrait.txt", header = T, sep = "\t")
+portrait.txt <- read.delim(file.choose(), header = T, stringsAsFactors = F)
 class(portrait.txt)
 # 2 change as character
 poa_v <- as.character(portrait.txt)
