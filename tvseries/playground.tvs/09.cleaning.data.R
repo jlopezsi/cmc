@@ -10,7 +10,6 @@ library(RColorBrewer)
 library(tm)
 library(syuzhet)
 library(coreNLP)
-
 ## Importing data from Json file
 timed.comments.29584c.01.en <- fromJSON("../rawdata.tvs/29584c/timed.comments.01.en.json")
 t.c.29584c.1.e <- timed.comments.29584c.01.en
@@ -32,20 +31,29 @@ head(comments)
 # 3. delete number
 comments <- gsub("[[:digit:]]","", comments )
 head(comments)
-# 4 delete emoticon with letter
-comments <- gsub("XD", "", comments)
-comments <- gsub("lt", "", comments)
-comments <- gsub("wtf", "", comments)
-comments <- gsub("omg", "", comments)
-comments <- gsub("omo", "", comments)
-comments <- gsub("LOL", "", comments)
-comments <- gsub("lOl", "", comments)
-comments <- gsub("yeah", "", comments)
-comments <- gsub("yep", "", comments)
-comments <- gsub("LC", "", comments)
 # 5. delete non english words
 comments <- gsub("[^a
 -zA-Z0-9]","", comments)
+# 4 delete emoticon with letter
+comments <- gsub("XD", "", comments)
+comments <- gsub("xD", "", comments)
+comments <- gsub("lt", "", comments)
+comments <- gsub("wtf", "", comments)
+comments <- gsub("omg", "", comments)
+comments <- gsub("Omg", "", comments)
+comments <- gsub("omo", "", comments)
+comments <- gsub("Omo", "", comments)
+comments <- gsub("LOL", "", comments)
+comments <- gsub("lOl", "", comments)
+comments <- gsub("LOl", "", comments)
+comments <- gsub("yeah", "", comments)
+comments <- gsub("yep", "", comments)
+comments <- gsub("LC", "", comments)
+comments <- gsub("LMAO", "", comments)
+head(comments)
+# 6. remove duplicate words
+comments <- gsub("!+", "!", comments)
+# check the structure of the comments
 head(comments)
 class(comments)
 write(comments,file = "comments.txt")
