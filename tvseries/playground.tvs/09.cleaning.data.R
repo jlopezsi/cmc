@@ -1,11 +1,7 @@
 ## Cleaning the data
-## Unsolved problem
-
 ## Download a relevant package
 library(jsonlite)
-library(tm)
 library(ggplot2)
-library(wordcloud)
 library(RColorBrewer)
 library(syuzhet)
 library(coreNLP)
@@ -19,12 +15,10 @@ class(t.c.29584c.1.e)
 
 ## make a corpus ?? PUT "." IN THE END OF EVERYCOMMENTS
 timed.comments.29584c.01.en <- paste(t.c.29584c.1.e$value, sep = ".", collapse=" ")
-head(timed.comments.29584c.01.en)
 
 ## preprocessing cleaning data
 # 1. delete signs
 comments <- gsub("[^[:alnum:][:space:]?!,.]", "", timed.comments.29584c.01.en)
-#comments <- gsub("[[:punct:]]", "", comments )
 head(comments)
 # 2. delete ids
 comments <- gsub("xe+","", comments )
@@ -35,10 +29,12 @@ head(comments)
 # 5. delete non english words
 comments <- gsub("[^a
 -zA-Z0-9]","", comments)
+head(comments)
 # 4 delete emoticon with letter
 comments <- gsub("XD", "", comments)
 comments <- gsub("xD", "", comments)
 comments <- gsub("TT", "", comments)
+comments <- gsub("T.T", "", comments)
 comments <- gsub("lt", "", comments)
 comments <- gsub("wtf", "", comments)
 comments <- gsub("omg", "", comments)
@@ -47,6 +43,7 @@ comments <- gsub("OMG", "", comments)
 comments <- gsub("omo", "", comments)
 comments <- gsub("Omo", "", comments)
 comments <- gsub("OMO", "", comments)
+comments <- gsub("OMo", "", comments)
 comments <- gsub("gtgt", "", comments)
 comments <- gsub("LOL", "", comments)
 comments <- gsub("lOl", "", comments)
@@ -57,8 +54,10 @@ comments <- gsub("LC", "", comments)
 comments <- gsub("lC", "", comments)
 comments <- gsub("LMAO", "", comments)
 head(comments)
+## ? how we can delete non enlglish and incorrect english
 # 6. remove duplicate words
 comments <- gsub("!+", "!", comments)
+head(comments)
 # check the structure of the comments
 head(comments)
 class(comments)
@@ -66,6 +65,7 @@ class(comments)
 ## analysis data
 # 1 get sentences
 timed.comments <- get_sentences(comments)
+head(timed.comments)
 # 2 bing
 timed.sent.bing <- get_sentiment(timed.comments, method="bing")
 timed.sent.bing
