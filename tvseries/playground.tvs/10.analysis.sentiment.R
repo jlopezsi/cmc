@@ -4,7 +4,6 @@
 #install.packages("pander")
 library(syuzhet)
 library(coreNLP)
-#downloadCoreNLP()
 
 ## Download txt
 my_example_text <- "I begin this story with a neutral statement.
@@ -37,10 +36,13 @@ nrc_vector <- get_sentiment(s_v, method="nrc")
 nrc_vector
 
 ## Use coreNLP package for Stanford Example
-#downloadCoreNLP()
+outputLoc <- "c/Program Files/R/R-3.2.2/library/core"
+downloadCoreNLP(outputLoc, type = c("base"))
+downloadCoreNLP(outputLoc, type = c("spanish"))
+downloadCoreNLP(outputLoc, type = c("sr"))
+tagger_path <- "/Program Files/R/CoreNLP/stanford-corenlp-full-2015-04-20"
 
-tagger_path <- "/Applications/stanford-corenlp-full-2014-04-20"
-stanford_vector <- get_sentiment(s_v, method="stanford", tagger_path)
+stanford_vector <- get_sentiment(s_v, method="stanford",tagger_path )
 #stanford_vector
 
 ## sum of sentiment scores
