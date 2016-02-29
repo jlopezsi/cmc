@@ -36,14 +36,13 @@ nrc_vector <- get_sentiment(s_v, method="nrc")
 nrc_vector
 
 ## Use coreNLP package for Stanford Example
-outputLoc <- "c/Program Files/R/R-3.2.2/library/core"
+outputLoc <- "c:/Program Files/R/R-3.2.2/library/core"
 downloadCoreNLP(outputLoc, type = c("base"))
 downloadCoreNLP(outputLoc, type = c("spanish"))
 downloadCoreNLP(outputLoc, type = c("sr"))
-tagger_path <- "/Program Files/R/CoreNLP/stanford-corenlp-full-2015-04-20"
-
-stanford_vector <- get_sentiment(s_v, method="stanford",tagger_path )
-#stanford_vector
+tagger_path <- "C:/Program Files/R/R-3.2.2/library/core/stanford-corenlp-full-2015-04-20"
+stanford_vector <- get_sentiment(s_v, method="stanford", outputLoc)
+stanford_vector
 
 ## sum of sentiment scores
 sum(sentiment_vector)

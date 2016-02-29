@@ -7,9 +7,9 @@ library(tm)
 library(ggplot2)
 library(wordcloud)
 library(RColorBrewer)
-library(tm)
 library(syuzhet)
 library(coreNLP)
+
 ## Importing data from Json file
 timed.comments.29584c.01.en <- fromJSON("../rawdata.tvs/29584c/timed.comments.01.en.json")
 t.c.29584c.1.e <- timed.comments.29584c.01.en
@@ -20,6 +20,7 @@ class(t.c.29584c.1.e)
 ## make a corpus ?? PUT "." IN THE END OF EVERYCOMMENTS
 timed.comments.29584c.01.en <- paste(t.c.29584c.1.e$value, sep = ".", collapse=" ")
 head(timed.comments.29584c.01.en)
+
 ## preprocessing cleaning data
 # 1. delete signs
 comments <- gsub("[^[:alnum:][:space:]?!,.]", "", timed.comments.29584c.01.en)
@@ -35,9 +36,9 @@ head(comments)
 comments <- gsub("[^a
 -zA-Z0-9]","", comments)
 # 4 delete emoticon with letter
-comments <- gsub("XD", ".", comments)
-comments <- gsub("xD", ".", comments)
-comments <- gsub("TT", ".", comments)
+comments <- gsub("XD", "", comments)
+comments <- gsub("xD", "", comments)
+comments <- gsub("TT", "", comments)
 comments <- gsub("lt", "", comments)
 comments <- gsub("wtf", "", comments)
 comments <- gsub("omg", "", comments)
@@ -47,10 +48,10 @@ comments <- gsub("omo", "", comments)
 comments <- gsub("Omo", "", comments)
 comments <- gsub("OMO", "", comments)
 comments <- gsub("gtgt", "", comments)
-comments <- gsub("LOL", ".", comments)
-comments <- gsub("lOl", ".", comments)
-comments <- gsub("LOl", ".", comments)
-comments <- gsub("yeah", "", comments)
+comments <- gsub("LOL", "", comments)
+comments <- gsub("lOl", "", comments)
+comments <- gsub("LOl", "", comments)
+comments <- gsub("yeah","", comments)
 comments <- gsub("yep", "", comments)
 comments <- gsub("LC", "", comments)
 comments <- gsub("lC", "", comments)
@@ -61,16 +62,8 @@ comments <- gsub("!+", "!", comments)
 # check the structure of the comments
 head(comments)
 class(comments)
-write(comments,file = "comments.txt")
 
-## analysing the sentiment using syuzhet package
-## import txt file in R for manual adjustment
- #timed.comments <- read.delim(file.choose(), header = T, stringsAsFactors = F)
- #class(timed.comments)
- #str(timed.comments)
- #head(timed.comments)
- #timed.comments <- as.character(timed.comments)
-
+## analysis data
 # 1 get sentences
 timed.comments <- get_sentences(comments)
 # 2 bing
