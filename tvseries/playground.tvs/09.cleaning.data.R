@@ -84,9 +84,9 @@ xlab = "Time",
 ylab= "Emotional Valence"
 )
 
-## percentage values : it is not working due to lack of volum
-percent_vals <- get_percentage_values(timed.sent.bing)
+## percentage values
  # make a plot for percentage
+percent_vals <- get_percentage_values(timed.sent.bing)
 plot(
 percent_vals,
 type="l",
@@ -96,7 +96,7 @@ ylab= "Emotional Valence",
 col="red"
 )
 
-## transformed values : it is not working due to lack of volum
+## transformed values
  # calcualte value
 ft_values <- get_transformed_values(
 timed.sent.bing,
