@@ -19,3 +19,13 @@ fun.make.timestamp <- function(){
  return(as.character(round(as.numeric(Sys.time()))))
 }
 
+fun.download.n.save.emoji.unicode.tables <- function(){
+  fun.verbose(paste0("Downloading Emoji Unicode Tables from :", prj.emoji.unicode.table.url))
+  tables = readHTMLTable(prj.emoji.unicode.table.url)
+  emoji.tables <- NULL
+  for(cnt in 1:length(tables)){
+    emoji.tables <- rbind(emoji.tables, tables[[cnt]])
+  }
+  save(file="../data.tvs/emoji.tables.saved", emoji.tables)
+  fun.verbose(paste0("Downloaded Emoji Unicode Tables successfully"))
+}

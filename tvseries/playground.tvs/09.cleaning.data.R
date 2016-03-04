@@ -1,71 +1,70 @@
-## Cleaning the data
-## Download a relevant package
-library(jsonlite)
-library(ggplot2)
-library(RColorBrewer)
-library(syuzhet)
-library(coreNLP)
+## cleans the data
+## downloads a relevant package
+source("../library.tvs/head.R")
 
-## Importing data from Json file
-timed.comments.29584c.01.en <- fromJSON("../rawdata.tvs/29584c/timed.comments.01.en.json")
-t.c.29584c.1.e <- timed.comments.29584c.01.en
-## checking the data form
-str(t.c.29584c.1.e)
-class(t.c.29584c.1.e)
+fun.install.require(c("XML","reshape","jsonlite","ggplot2","RColorBrewer","syuzhet","coreNLP"))
 
-## make a corpus ?? PUT "." IN THE END OF EVERYCOMMENTS
-timed.comments.29584c.01.en <- paste(t.c.29584c.1.e$value, sep = ".", collapse=" ")
+language = "en"
+series.id <- "29584c"
+episode.number <- "01"
+
+## imports data from Json file
+timed.comments <- fromJSON(paste0("../rawdata.tvs/"
+                                  ,series.id
+                                  ,"/timed.comments."
+                                  ,episode.number
+                                  ,"."
+                                  ,language
+                                  ,".json"))
+
+## checks the data form
+#str(timed.comments)
+#class(timed.comments)
+# TODO find and extract characters like ❤️
+load("../data.tvs/emoji.tables.saved")
+# extracts and keeps the icons
+# extracts and keeps the emoticons
+# deletes non english sentences
+
+for(emoji in 1:nrow(emoji.tables)){
+  temp = grep(
+              #as.character(emoji.tables[emoji, ]$Native)
+              "\U0001f602"
+              , timed.comments$value
+              #, value=F
+              #, ignore.case = TRUE
+              )
+  exti
+}
+timed.comments$emoji <- 
+exit
+
+## makes a corpus ?? PUT "." IN THE END OF EVERYCOMMENTS
+timed.comments$value <- paste0(timed.comments$value, sep = "    .")
 
 ## preprocessing cleaning data
-# 1. delete signs
-comments <- gsub("[^[:alnum:][:space:]?!,.]", "", timed.comments.29584c.01.en)
-head(comments)
-# 2. delete ids
-comments <- gsub("xe+","", comments )
-head(comments)
-# 3. delete number
-comments <- gsub("[[:digit:]]","", comments )
-head(comments)
-# 5. delete non english words
-comments <- gsub("[^a
--zA-Z0-9]","", comments)
-head(comments)
-# 4 delete emoticon with letter
-comments <- gsub("XD", "", comments)
-comments <- gsub("xD", "", comments)
-comments <- gsub("TT", "", comments)
-comments <- gsub("T.T", "", comments)
-comments <- gsub("lt", "", comments)
-comments <- gsub("wtf", "", comments)
-comments <- gsub("omg", "", comments)
-comments <- gsub("Omg", "", comments)
-comments <- gsub("OMG", "", comments)
-comments <- gsub("omo", "", comments)
-comments <- gsub("Omo", "", comments)
-comments <- gsub("OMO", "", comments)
-comments <- gsub("OMo", "", comments)
-comments <- gsub("gtgt", "", comments)
-comments <- gsub("LOL", "", comments)
-comments <- gsub("lOl", "", comments)
-comments <- gsub("LOl", "", comments)
-comments <- gsub("yeah","", comments)
-comments <- gsub("yep", "", comments)
-comments <- gsub("LC", "", comments)
-comments <- gsub("lC", "", comments)
-comments <- gsub("LMAO", "", comments)
-head(comments)
-## ? how we can delete non enlglish and incorrect english
-# 6. remove duplicate words
-comments <- gsub("!+", "!", comments)
-head(comments)
-# check the structure of the comments
-head(comments)
-class(comments)
+# deletes punctuations except (?!,.) and 
+timed.comments$value <- gsub("[^[a-zA-Z0-9][:space:]?!,.]", "", timed.comments$value)
+
+# xxx TODO test the analysis with or without this option
+#timed.comments$value <- gsub("[[:digit:]]","", timed.comments$value )
+
+
+
+
+
+
+timed.comments$value <- gsub("!+", "!", timed.comments$value)
+head(timed.comments$value)
+
+# check the structure of the timed.comments$value
+head(timed.comments$value)
+class(timed.comments$value)
 
 ## analysis data
 # 1 get sentences
-timed.comments <- get_sentences(comments)
-head(timed.comments)
+timed.comments$value <- get_sentences(timed.comments$value)
+head(timed.comments$value)
 # 2 bing
 timed.sent.bing <- get_sentiment(timed.comments, method="bing")
 timed.sent.bing

@@ -43,3 +43,7 @@ Project code name
 @jinju (16/12/2015): 
 
   * Added ...
+
+# Credits
+
+  * Endolith (Emoji Unicode Tables)[http://apps.timwhitlock.info/emoji/tables/unicode]

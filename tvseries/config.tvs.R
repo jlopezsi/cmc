@@ -29,4 +29,5 @@ session.beep <- T
 prj.viki.api.id <- "100486a"
 prj.viki.api.secret <- "412acbf87482c046988a966bfdee882b31055470202b9521a7102cdac32b9b10b8257decd8d0"
 prj.viki.api.domain <- "http://api.viki.io"
+prj.emoji.unicode.table.url <- "http://apps.timwhitlock.info/emoji/tables/unicode"
 
