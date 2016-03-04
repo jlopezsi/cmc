@@ -2,6 +2,7 @@
 #install.packages("syuzhet")
 #install.packages("coreNLP")
 #install.packages("pander")
+library(rJava)
 library(syuzhet)
 library(coreNLP)
 
@@ -36,12 +37,14 @@ nrc_vector <- get_sentiment(s_v, method="nrc")
 nrc_vector
 
 ## Use coreNLP package for Stanford Example
-outputLoc <- "c:/Program Files/R/R-3.2.2/library/core"
-downloadCoreNLP(outputLoc, type = c("base"))
-downloadCoreNLP(outputLoc, type = c("spanish"))
-downloadCoreNLP(outputLoc, type = c("sr"))
-tagger_path <- "C:/Program Files/R/R-3.2.2/library/core/stanford-corenlp-full-2015-04-20"
-stanford_vector <- get_sentiment(s_v, method="stanford", outputLoc)
+#downloadCoreNLP(outputLoc, type = c("base"))
+#downloadCoreNLP(outputLoc, type = c("spanish"))
+#downloadCoreNLP(outputLoc, type = c("sr"))
+initCoreNLP(libLoc = "C:/Program Files/R/R-3.2.2/library/stanford-corenlp-full-2015-12-09/stanford-corenlp-full-2015-12-09", mem = "2g")
+
+annoObj <- annotateString(my_example_text)
+path_to_tagger <- "C:/Program Files/R/R-3.2.2/library/stanford-corenlp-full-2015-12-09"
+stanford_vector <- get_sentiment(s_v, method="stanford",path_to_tagger)
 stanford_vector
 
 ## sum of sentiment scores
