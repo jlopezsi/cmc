@@ -2,7 +2,18 @@
 ## downloads a relevant package
 source("../library.tvs/head.R")
 
-fun.install.require(c("XML","reshape","jsonlite","ggplot2","RColorBrewer","syuzhet","coreNLP"))
+fun.install.require(c(
+                      "RCurl"
+                      ,"urltools"
+                      , "stringi"
+                      , "XML"
+                      ,"reshape"
+                      ,"jsonlite"
+                      ,"ggplot2"
+                      ,"RColorBrewer"
+                      ,"syuzhet"
+                      ,"coreNLP"
+                      ))
 
 language = "en"
 series.id <- "29584c"
@@ -26,17 +37,25 @@ load("../data.tvs/emoji.tables.saved")
 # extracts and keeps the emoticons
 # deletes non english sentences
 
+timed.comments$processed <- timed.comments$value
+timed.comments$processed <- url_decode(timed.comments$processed)
+emoji.count <- list()
+
 for(emoji in 1:nrow(emoji.tables)){
-  temp = grep(
-              #as.character(emoji.tables[emoji, ]$Native)
-              "\U0001f602"
-              , timed.comments$value
-              #, value=F
-              #, ignore.case = TRUE
-              )
-  exti
+  emoji.count[[emoji]] <- stri_count_regex(
+                                           timed.comments$value
+                                           , as.character(emoji.tables[emoji, ]$Native)
+                                           )
+
+  timed.comments$processed <- gsub(
+                                   as.character(emoji.tables[emoji, ]$Native)
+                                   , ""
+                                   , timed.comments$processed
+                                   , perl=TRUE
+                                   )
 }
-timed.comments$emoji <- 
+
+timed.comments$emoji.count <- as.data.frame(emoji.count)
 exit
 
 ## makes a corpus ?? PUT "." IN THE END OF EVERYCOMMENTS
