@@ -32,30 +32,65 @@ timed.comments <- fromJSON(paste0("../rawdata.tvs/"
 #str(timed.comments)
 #class(timed.comments)
 # TODO find and extract characters like ❤️
-load("../data.tvs/emoji.tables.saved")
+# 8D 8==D
+# XD xDDD
+# :D :)))))
+# :)   :)))))))))) :))))))))))))))))))))))))))))))
+# noooooooo
+# yeeesssss yesssssss
+# geeehhhhhzzz
+# T.T
+# ?!?!
+# hahaha vs "ha ha ha"
+# OMG , lol , ugh, omo
+
+load("../data.tvs/emoji.table.saved")
+load("../data.tvs/emoticon.table.saved")
 # extracts and keeps the icons
 # extracts and keeps the emoticons
 # deletes non english sentences
 
 timed.comments$processed <- timed.comments$value
 timed.comments$processed <- url_decode(timed.comments$processed)
+timed.comments$processed <- gsub("&amp;","&",timed.comments$processed)
+timed.comments$processed <- gsub("&lt;","<",timed.comments$processed)
+timed.comments$processed <- gsub("&gt;",">",timed.comments$processed)
+timed.comments$processed <- gsub("&nbsp;"," ",timed.comments$processed)
+timed.comments$processed <- gsub("&iexcl;","¡",timed.comments$processed)
+
 emoji.count <- list()
 
-for(emoji in 1:nrow(emoji.tables)){
+for(emoji in 1:nrow(emoji.table)){
   emoji.count[[emoji]] <- stri_count_regex(
-                                           timed.comments$value
-                                           , as.character(emoji.tables[emoji, ]$Native)
+                                           timed.comments$processed
+                                           , as.character(emoji.table[emoji, ]$Native)
                                            )
 
   timed.comments$processed <- gsub(
-                                   as.character(emoji.tables[emoji, ]$Native)
+                                   as.character(emoji.table[emoji, ]$Native)
                                    , ""
                                    , timed.comments$processed
                                    , perl=TRUE
                                    )
 }
 
-timed.comments$emoji.count <- as.data.frame(emoji.count)
+emoticon.count <- list()
+
+for(emoticon in 1:nrow(emoticon.table)){
+  emoticon.count[[emoticon]] <- stri_count_regex(
+                                           timed.comments$processed
+                                           , as.character(emoticon.table[emoticon, "emoticon"])
+                                           )
+
+  timed.comments$processed <- gsub(
+                                   as.character(emoticon.table[emoticon, "emoticon"])
+                                   , ""
+                                   , timed.comments$processed
+                                   , perl=TRUE
+                                   )
+}
+
+timed.comments$emoticon.count <- as.data.frame(emoticon.count)
 exit
 
 ## makes a corpus ?? PUT "." IN THE END OF EVERYCOMMENTS
@@ -106,12 +141,12 @@ ylab= "Emotional Valence"
  # make a plot for percentage
 percent_vals <- get_percentage_values(timed.sent.bing)
 plot(
-percent_vals,
-type="l",
-main="timed comments Using Percentage-Based Means",
-xlab = "Narrative Time",
-ylab= "Emotional Valence",
-col="red"
+     percent_vals,
+     type="l",
+     main="timed comments Using Percentage-Based Means",
+     xlab = "Narrative Time",
+     ylab= "Emotional Valence",
+     col="red"
 )
 
 ## transformed values
