@@ -9,5 +9,6 @@ fun.install.require(c(
                       ))
 
 fun.download.n.save.emoji.unicode.table()
-fun.download.n.save.emoticon.table()
+#fun.download.n.save.emoticon.table()
+fun.download.n.save.net.slang.table()
 

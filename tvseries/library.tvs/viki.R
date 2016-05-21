@@ -56,6 +56,7 @@ fun.viki.download.url.full <- function(url, fil.name){
     tmp.fil.name <- paste0(fil.name, ".page.", sprintf("%04d", tmp.page), ".tmp")
     tmp.fil.address <- fun.viki.retrieve.fil.address(tmp.fil.name, fil.extension=".json")
     fun.viki.download.url(url, tmp.fil.name , page.number=tmp.page, perpage=25)
+
     tmp.json <- fromJSON(txt=tmp.fil.address)
     if(url == "series"){ ## dirty fix to avoid ^C character
       tmp.pages[[tmp.page]] <- subset(tmp.json$response, select = -descriptions)
@@ -68,15 +69,22 @@ fun.viki.download.url.full <- function(url, fil.name){
   }
 
   ## saves the full json file
-  tmp.full.json <- rbind.pages(tmp.pages)
-  tmp.full.fil.name <- fun.viki.retrieve.fil.address(fil.name)
-  write(toJSON(tmp.full.json), file = paste0(tmp.full.fil.name, ".full.json"))
+  if(length(tmp.pages[[1]])<1){
+    fun.verbose(sprintf("VIKI URL with no pages : [ %s with no pages ]", url))
+    system(paste0("echo '", url, "' >> ~/tvs.skipped.url"))
+    return(T)
+  }else{
+    tmp.full.json <- rbind.pages(tmp.pages)
+    tmp.full.fil.name <- fun.viki.retrieve.fil.address(fil.name)
+    write(toJSON(tmp.full.json), file = paste0(tmp.full.fil.name, ".full.json"))
 
-  ## removes the tmp files
-  tmp.rm.fil.name <- paste0(fil.name, ".page.*.tmp.*")
-  tmp.rm.fil.address <- fun.viki.retrieve.fil.address(tmp.rm.fil.name)
-  system(paste0("rm -rf ", tmp.rm.fil.address))
-  fun.verbose(sprintf("VIKI URL download completed : [ %s with %s pages ]", url, tmp.page))
+    ## removes the tmp files
+    tmp.rm.fil.name <- paste0(fil.name, ".page.*.tmp.*")
+    tmp.rm.fil.address <- fun.viki.retrieve.fil.address(tmp.rm.fil.name)
+    system(paste0("rm -rf ", tmp.rm.fil.address))
+    fun.verbose(sprintf("VIKI URL download completed : [ %s with %s pages ]", url, tmp.page))
+    return(F)
+  }
 }
 
 ## retrieves the file address for the specified file name
@@ -151,34 +159,46 @@ fun.viki.list.episodes <- function(){
   fil.address <- fun.viki.retrieve.fil.address(fil.name)
   fil.address.saved <- paste0(fil.address, ".full.saved")
   load(fil.address.saved)
+  flg.fast.forward <- T
   for(cnt.series in 1:nrow(series)){
     tmp.series <- series[cnt.series,]
-    fun.verbose(sprintf("Downloading episodes list for #%s %s", tmp.series$id, tmp.series$titles$en))
-    ## makes the directory for each series
-    system(paste0("mkdir -p ", fun.viki.retrieve.fil.address(tmp.series$id)))
-    url <- sprintf("/v4/containers/%s/episodes.json", tmp.series$id)
-    fil.name <- paste0(tmp.series$id, "/episodes")
-    fun.viki.download.url.full(url, fil.name)
-    fil.address <- fun.viki.retrieve.fil.address(fil.name)
-    fil.address.json <- paste0(fil.address, ".full.json")
-    episodes <- fromJSON(txt=fil.address.json)
-    fil.address.saved <- paste0(fil.address, ".full.saved")
-    save(series, file=fil.address.saved)
-
-    for(cnt.episodes in 1:nrow(episodes)){
-      tmp.episodes <- episodes[cnt.episodes, ]
-      for(cnt.languages in prj.viki.languages) {
-        fun.verbose(sprintf("Downloading timed comments in %s for #%s of %s"
-                            , cnt.languages, tmp.episodes$number, tmp.series$id))
-        url <- sprintf("/v4/episodes/%s/timed_comments/%s.json", tmp.episodes$id, cnt.languages)
-        fil.name <- sprintf("%s/episode.timed.comments.%02d.%s", tmp.series$id,  tmp.episodes$number, cnt.languages)
-        fun.viki.download.url(url, fil.name)
+    if(flg.fast.forward == T){
+      if(tmp.series$id == "92392v"){
+      #if(tmp.series$id == "29584c"){
+        flg.fast.forward <- F
+      }else{
+        print(sprintf("%s skipped.", tmp.series$id))
+      }
+    }else{
+      fun.verbose(sprintf("Downloading episodes list for #%s %s", tmp.series$id, tmp.series$titles$en))
+      ## makes the directory for each series
+      system(paste0("mkdir -p ", fun.viki.retrieve.fil.address(tmp.series$id)))
+      url <- sprintf("/v4/containers/%s/episodes.json", tmp.series$id)
+      fil.name <- paste0(tmp.series$id, "/episodes")
+      flg.skip <- fun.viki.download.url.full(url, fil.name)
+      if(flg.skip == F) {
         fil.address <- fun.viki.retrieve.fil.address(fil.name)
         fil.address.json <- paste0(fil.address, ".full.json")
-        if(file.exists(fil.address.json)){
-          timed.comments <- fromJSON(txt=fil.address.json)
-          fil.address.saved <- paste0(fil.address, ".full.saved")
-          save(timed.comments, file=fil.address.saved)
+        episodes <- fromJSON(txt=fil.address.json)
+        fil.address.saved <- paste0(fil.address, ".full.saved")
+        save(series, file=fil.address.saved)
+
+        for(cnt.episodes in 1:nrow(episodes)){
+          tmp.episodes <- episodes[cnt.episodes, ]
+          for(cnt.languages in prj.viki.languages) {
+            fun.verbose(sprintf("Downloading timed comments in %s for #%s of %s"
+                                , cnt.languages, tmp.episodes$number, tmp.series$id))
+            url <- sprintf("/v4/episodes/%s/timed_comments/%s.json", tmp.episodes$id, cnt.languages)
+            fil.name <- sprintf("%s/episode.timed.comments.%02d.%s", tmp.series$id,  tmp.episodes$number, cnt.languages)
+            fun.viki.download.url(url, fil.name)
+            fil.address <- fun.viki.retrieve.fil.address(fil.name)
+            fil.address.json <- paste0(fil.address, ".full.json")
+            if(file.exists(fil.address.json)){
+              timed.comments <- fromJSON(txt=fil.address.json)
+              fil.address.saved <- paste0(fil.address, ".full.saved")
+              save(timed.comments, file=fil.address.saved)
+            }
+          }
         }
       }
     }

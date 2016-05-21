@@ -31,4 +31,5 @@ prj.viki.api.secret <- "412acbf87482c046988a966bfdee882b31055470202b9521a7102cda
 prj.viki.api.domain <- "http://api.viki.io"
 prj.emoji.unicode.table.url <- "http://apps.timwhitlock.info/emoji/tables/unicode"
 prj.emoticon.table.base.url <- "http://pc.net/emoticons/browse/"
+prj.net.slang.table.base.url <- "http://pc.net/slang/browse/"
 

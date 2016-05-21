@@ -46,6 +46,7 @@ timed.comments <- fromJSON(paste0("../rawdata.tvs/"
 
 load("../data.tvs/emoji.table.saved")
 load("../data.tvs/emoticon.table.saved")
+load("../data.tvs/net.slang.table.saved")
 # extracts and keeps the icons
 # extracts and keeps the emoticons
 # deletes non english sentences
@@ -74,23 +75,104 @@ for(emoji in 1:nrow(emoji.table)){
                                    )
 }
 
+timed.comments$emoji.count <- as.data.frame(emoji.count)
+
+
+
+
+for(ltr in letters){
+  pattern = paste0(rep(ltr, 4), collapse = "")
+  print(pattern)
+  print(stri_count_fixed(
+                   timed.comments$processed[1249]
+                   , pattern
+                   , case_insensitive = T
+                   ))
+}
+
+for(ltr in c(")", "(", ".", "!", "?"){
+  pattern = paste0(rep(ltr, 2), collapse = "")
+  print(pattern)
+  print(stri_count_fixed(
+                   timed.comments$processed[1249]
+                   , pattern
+                   , case_insensitive = T
+                   ))
+}
+
+# :))))))
+# :((((((
+# :DDDDDD
+# xDDDDDD
+for( cnt in 200:1){
+  pattern = paste0(":", paste0(rep(")", cnt), collapse = ""), collapse = "")
+  print(stri_count_fixed(
+                   timed.comments$processed[1280]
+                   , pattern
+                   , case_insensitive = T
+                   ))
+}
+
+# ?!?!
+# OHOHOHOHOHO
+# hahaha
+# HAHAHA
+# jajaja
+for( cnt in 200:1){
+  pattern = paste0(rep("ha", cnt), collapse = "")
+  print(stri_count_fixed(
+                   timed.comments$processed[1404]
+                   , pattern
+                   , case_insensitive = T
+                   ))
+}
+
 emoticon.count <- list()
 
 for(emoticon in 1:nrow(emoticon.table)){
-  emoticon.count[[emoticon]] <- stri_count_regex(
+  if(length(as.character(emoticon.table[emoticon, "emoticon"]))>1) {
+  emoticon.count[[emoticon]] <- stri_count_fixed(
                                            timed.comments$processed
-                                           , as.character(emoticon.table[emoticon, "emoticon"])
+                                           , paste0(" ", as.character(emoticon.table[emoticon, "emoticon"]), " ", collapse="")
                                            )
-
   timed.comments$processed <- gsub(
-                                   as.character(emoticon.table[emoticon, "emoticon"])
-                                   , ""
-                                   , timed.comments$processed
-                                   , perl=TRUE
-                                   )
+                                    paste0(" ", as.character(emoticon.table[emoticon, "emoticon"]), " ", collapse = "")
+                                    , ""
+                                    , timed.comments$processed
+                                    , fixed = T
+                                    , ignore.case = T
+                                    )
+  }
 }
 
-timed.comments$emoticon.count <- as.data.frame(emoticon.count)
+net.slang.count <- list()
+
+for(net.slang in 1:nrow(net.slang.table)){
+  if(nchar(as.character(net.slang.table[net.slang, "net.slang"]))>1) {
+    if(
+      paste0(" ", as.character(net.slang.table[net.slang, "net.slang"]), " ", collapse="")
+      == " LOL "
+      ){
+    print(
+      paste0(" ", as.character(net.slang.table[net.slang, "net.slang"]), " ", collapse="")
+      )
+    net.slang.count[[net.slang]] <- stri_count_fixed(
+                                                     timed.comments$processed
+                                                     , paste0("", as.character(net.slang.table[net.slang, "net.slang"]), "", collapse="")
+                                                     )
+    print(net.slang.count[[net.slang]])
+    }
+  timed.comments$processed <- gsub(
+                                    paste0(" ", as.character(net.slang.table[net.slang, "net.slang"]), " ", collapse="")
+                                    , ""
+                                    , timed.comments$processed
+                                    , fixed = T
+                                    , ignore.case = T
+                                    )
+  }
+}
+
+timed.comments$net.slang.count <- as.data.frame(net.slang.count)
 exit
 
 ## makes a corpus ?? PUT "." IN THE END OF EVERYCOMMENTS
